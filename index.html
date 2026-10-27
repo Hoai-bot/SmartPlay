@@ -486,7 +486,135 @@
     let currentLang = localStorage.getItem('smartplay_lang') || defaultLang;
 
     // Kho lưu trữ 300 trò chơi
-    let ALL_GAMES = [];
+    
+    // HỆ THỐNG ĐỒ HỌA VECTOR CHO THẺ BÀI & BẢN IN
+    const GAME_VECTORS = {
+      tunnel: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#FEF3C7"/>
+          <path d="M0,170 Q200,165 400,170 L400,200 L0,200 Z" fill="#FCD34D" opacity="0.6"/>
+          <path d="M120,70 L260,70 L280,150 L100,150 Z" fill="#D97706" rx="8"/>
+          <path d="M110,60 L270,60 L260,70 L120,70 Z" fill="#B45309"/>
+          <path d="M150,150 L150,110 A40,40 0 0,1 230,110 L230,150 Z" fill="#78350F"/>
+          <circle cx="80" cy="50" r="14" fill="#F59E0B" opacity="0.8"/>
+          <circle cx="190" cy="125" r="22" fill="#92400E"/>
+          <circle cx="173" cy="108" r="8" fill="#92400E"/>
+          <circle cx="207" cy="108" r="8" fill="#92400E"/>
+          <circle cx="190" cy="128" r="3" fill="#1F2937"/>
+        </svg>`,
+
+      pillow: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#E0F2FE"/>
+          <path d="M0,150 Q100,135 200,150 T400,150 L400,200 L0,200 Z" fill="#BAE6FD"/>
+          <g transform="translate(60, 110)">
+            <rect width="70" height="40" rx="16" fill="#F43F5E"/>
+            <rect x="5" y="5" width="60" height="30" rx="12" fill="#FB7185"/>
+          </g>
+          <g transform="translate(160, 85)">
+            <rect width="80" height="45" rx="18" fill="#10B981"/>
+            <rect x="5" y="5" width="70" height="35" rx="14" fill="#34D399"/>
+          </g>
+          <g transform="translate(270, 115)">
+            <rect width="75" height="40" rx="16" fill="#F59E0B"/>
+            <rect x="5" y="5" width="65" height="30" rx="12" fill="#FBBF24"/>
+          </g>
+        </svg>`,
+
+      veggie: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#ECFDF5"/>
+          <ellipse cx="200" cy="140" rx="130" ry="45" fill="#99F6E4"/>
+          <ellipse cx="200" cy="135" rx="120" ry="38" fill="#5EEAD4"/>
+          <g transform="translate(140, 65) rotate(-15)">
+            <path d="M25,0 C40,0 50,60 25,80 C0,60 10,0 25,0 Z" fill="#F97316"/>
+            <path d="M25,0 C20,-15 10,-20 0,-15 C15,-5 20,0 25,0 Z" fill="#22C55E"/>
+            <circle cx="18" cy="25" r="3" fill="#FFF"/>
+            <circle cx="32" cy="25" r="3" fill="#FFF"/>
+          </g>
+          <g transform="translate(230, 90)">
+            <ellipse cx="30" cy="25" rx="35" ry="25" fill="#D97706"/>
+            <circle cx="22" cy="20" r="2.5" fill="#FFF"/>
+            <circle cx="38" cy="20" r="2.5" fill="#FFF"/>
+          </g>
+        </svg>`,
+
+      music_pots: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#FFF1F2"/>
+          <rect x="130" y="80" width="140" height="80" rx="14" fill="#94A3B8"/>
+          <rect x="120" y="70" width="160" height="18" rx="6" fill="#64748B"/>
+          <circle cx="70" cy="70" r="6" fill="#F43F5E"/>
+          <circle cx="110" cy="65" r="6" fill="#F43F5E"/>
+          <g transform="translate(240, 30) rotate(35)">
+            <rect x="10" y="30" width="12" height="70" rx="5" fill="#D97706"/>
+            <ellipse cx="16" cy="25" rx="16" ry="22" fill="#B45309"/>
+          </g>
+        </svg>`,
+
+      car_track: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#F1F5F9"/>
+          <path d="M30,160 L140,160 L200,80 L320,80 L370,140" stroke="#FDE047" stroke-width="34" fill="none" stroke-linecap="round"/>
+          <g transform="translate(190, 50)">
+            <rect x="0" y="15" width="70" height="25" rx="8" fill="#EF4444"/>
+            <circle cx="20" cy="40" r="10" fill="#1E293B"/>
+            <circle cx="55" cy="40" r="10" fill="#1E293B"/>
+          </g>
+        </svg>`,
+
+      marble_run: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#FAF5FF"/>
+          <path d="M60,60 L220,90" stroke="#C084FC" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <path d="M340,105 L160,135" stroke="#A855F7" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <circle cx="170" cy="67" r="12" fill="#F59E0B"/>
+        </svg>`,
+
+      spy_laser: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#0F172A"/>
+          <line x1="30" y1="40" x2="370" y2="160" stroke="#EF4444" stroke-width="4"/>
+          <line x1="370" y1="50" x2="40" y2="170" stroke="#F43F5E" stroke-width="4"/>
+          <circle cx="210" cy="115" r="10" fill="#F59E0B"/>
+        </svg>`,
+
+      treasure_map: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#FEF3C7"/>
+          <rect x="50" y="25" width="300" height="150" rx="16" fill="#FDE68A" stroke="#D97706" stroke-width="3"/>
+          <path d="M80,140 Q150,110 180,130 T270,70" stroke="#B45309" stroke-width="4" stroke-dasharray="8 8" fill="none"/>
+          <g transform="translate(270, 70)">
+            <line x1="-12" y1="-12" x2="12" y2="12" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/>
+            <line x1="12" y1="-12" x2="-12" y2="12" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/>
+          </g>
+        </svg>`,
+
+      default: `
+        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#F0FDFA"/>
+          <circle cx="200" cy="100" r="55" fill="#CCFBF1"/>
+          <rect x="175" y="85" width="50" height="45" rx="10" fill="#0F766E"/>
+          <rect x="170" y="78" width="60" height="12" rx="4" fill="#14B8A6"/>
+          <circle cx="200" cy="72" r="7" fill="#F59E0B"/>
+        </svg>`
+    };
+
+    function getIllustrationForGame(game) {
+      if (!game) return GAME_VECTORS.default;
+      const text = ((game['Tên trò chơi'] || game.title || '') + ' ' + (game['Vật dụng chính (0đ)'] || game.item || '')).toLowerCase();
+      if (text.includes('hầm') || text.includes('thùng carton')) return GAME_VECTORS.tunnel;
+      if (text.includes('gối') || text.includes('chăn') || text.includes('đệm') || text.includes('dung nham')) return GAME_VECTORS.pillow;
+      if (text.includes('củ') || text.includes('khoai') || text.includes('rau') || text.includes('nước') || text.includes('cá')) return GAME_VECTORS.veggie;
+      if (text.includes('nồi') || text.includes('trống') || text.includes('thìa') || text.includes('đũa') || text.includes('âm thanh')) return GAME_VECTORS.music_pots;
+      if (text.includes('ô tô') || text.includes('đường đua') || text.includes('xe')) return GAME_VECTORS.car_track;
+      if (text.includes('mê cung') || text.includes('lõi giấy') || text.includes('bi') || text.includes('domino')) return GAME_VECTORS.marble_run;
+      if (text.includes('laser') || text.includes('điệp viên') || text.includes('dây')) return GAME_VECTORS.spy_laser;
+      if (text.includes('bản đồ') || text.includes('kho báu') || text.includes('tìm kiếm')) return GAME_VECTORS.treasure_map;
+      return GAME_VECTORS.default;
+    }
+
+    let ALL_GAMES = [{"STT": 1, "Tên trò chơi": "Đường Hầm Bí Mật", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Thùng carton lớn", "Kỹ năng phát triển": "Vận động thô", "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ khoét 2 đầu thùng carton tạo hầm chui. Giấu một chú gấu bông ở cuối hầm. Bé bò qua hầm để 'giải cứu' bạn gấu mang về cho mẹ.", "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo thùng sạch, không còn ghim bấm kim loại hay góc nhọn."}, {"STT": 2, "Tên trò chơi": "Cây Cầu Gối Xốp", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Gối sofa, chăn cuộn", "Kỹ năng phát triển": "Cân bằng & Phản xạ", "Cách chơi (Nhiệm vụ 3 bước)": "Xếp các gối thành hàng thẳng tạo thành 'cầu qua suối'. Bé bước từng bước vững chãi trên gối, cố gắng không chạm chân xuống sàn nhà.", "Rà soát An toàn (Safety Rule)": "An toàn: Sàn không trơn trượt, đặt gối sát nhau để bé không hụt chân."}, {"STT": 3, "Tên trò chơi": "Bác Nông Dân Thu Hoạch", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Nhà bếp", "Vật dụng chính (0đ)": "Rổ nhựa, củ quả lớn (khoai tây, dưa chuột)", "Kỹ năng phát triển": "Phân loại & Khéo léo", "Cách chơi (Nhiệm vụ 3 bước)": "Rải củ quả sạch ra sàn nhà bếp. Đưa cho bé một chiếc rổ nhựa và bảo bé đi thu hoạch từng củ mang bỏ vào rổ cho mẹ nấu súp.", "Rà soát An toàn (Safety Rule)": "An toàn: Chỉ dùng củ quả to, rửa sạch, không dùng đồ dễ dập vỡ."}, {"STT": 4, "Tên trò chơi": "Dàn Trống Nồi Niêu", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Nhà bếp", "Vật dụng chính (0đ)": "Nồi nhôm, muôi gỗ, thìa silicon", "Kỹ năng phát triển": "Cảm thụ âm thanh", "Cách chơi (Nhiệm vụ 3 bước)": "Úp ngược 2-3 chiếc nồi hoặc âu inox. Cho bé muôi gỗ gõ nhẹ tạo thành các tiết tấu to - nhỏ, nhanh - chậm theo mẹ vỗ tay.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng dụng cụ bằng gỗ hoặc silicon để tránh trầy xước và giảm bớt tiếng chói tai."}, {"STT": 5, "Tên trò chơi": "Bong Bóng Giấy Khổng Lồ", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Báo cũ/Giấy nháp sạch, chậu nhựa", "Kỹ năng phát triển": "Vận động tinh", "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé xé vụn giấy báo thành từng dải, sau đó vò tròn thành các 'quả bóng giấy'. Đặt chậu cách 1 bước chân để bé ném bóng vào chậu.", "Rà soát An toàn (Safety Rule)": "An toàn: Không dùng giấy bấm kim, tránh mực in lem nhiều vào tay bé."}, {"STT": 6, "Tên trò chơi": "Đoàn Tàu Tất Chân", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng ngủ", "Vật dụng chính (0đ)": "Những chiếc tất sạch cuộn tròn, hộp nhựa", "Kỹ năng phát triển": "Nhận biết màu sắc & Gắn kết", "Cách chơi (Nhiệm vụ 3 bước)": "Cuộn các đôi tất sạch thành từng cuộn tròn. Bé ngồi xếp các cuộn tất nối đuôi nhau thành một đoàn tàu dài chạy quanh thảm.", "Rà soát An toàn (Safety Rule)": "An toàn: Tất sạch, không có dây chun lỏng lẻo dễ vướng."}, {"STT": 7, "Tên trò chơi": "Băng Dính Cứu Hộ", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Băng dính giấy, thú bông/ô tô đồ chơi", "Kỹ năng phát triển": "Rèn tính kiên nhẫn", "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2-3 dải băng dính giấy nhẹ lên lưng đồ chơi xuống sàn hoặc mặt bàn thấp. Nhiệm vụ của bé là bóc băng dính ra để giải cứu đồ chơi.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng băng dính giấy y tế hoặc giấy sơn dễ bóc, không để lại keo dính."}, {"STT": 8, "Tên trò chơi": "Thả Nắp Đậy Thần Kỳ", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Hộp bánh quy rỗng khoét lỗ, nắp chai lớn (>4cm)", "Kỹ năng phát triển": "Phối hợp tay - mắt", "Cách chơi (Nhiệm vụ 3 bước)": "Khoét một khe vừa phải trên nắp hộp. Bé nhặt từng nắp chai to hoặc miếng bìa cứng thả lọt qua khe hộp và lắng nghe tiếng lách cách vui tai.", "Rà soát An toàn (Safety Rule)": "An toàn: Nắp chai to trên 4cm, tuyệt đối không dùng nắp nhỏ dưới 3cm."}, {"STT": 9, "Tên trò chơi": "Bắt Cá Dưới Nước", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Ban công/Phòng tắm", "Vật dụng chính (0đ)": "Thau nước nhỏ, nắp chai nổi, muôi thủng", "Kỹ năng phát triển": "Tập trung & Khéo léo", "Cách chơi (Nhiệm vụ 3 bước)": "Thả vài nắp chai nhựa nổi bồng bềnh trên chậu nước sạch. Bé dùng muôi múc canh vớt từng 'chú cá nắp chai' cho vào một chiếc bát bên cạnh.", "Rà soát An toàn (Safety Rule)": "An toàn: Mực nước thấp dưới 5cm, có thảm chống trượt dưới chân bé."}, {"STT": 10, "Tên trò chơi": "Cung Điện Mền Mơ", "Độ tuổi": "1-3 tuổi", "Vị trí / Không gian": "Phòng ngủ", "Vật dụng chính (0đ)": "Ga trải giường, 2 chiếc ghế tựa", "Kỹ năng phát triển": "Trí tưởng tượng", "Cách chơi (Nhiệm vụ 3 bước)": "Phủ ga giường qua 2 ghế tạo thành lều nhỏ. Cho vài quyển sách tranh và đèn ngủ nhỏ vào trong để bé ngồi 'trốn tìm' và lật sách xem hình.", "Rà soát An toàn (Safety Rule)": "An toàn: Ghế nặng, cố định chắc chắn, không bị lật ngã."}, {"STT": 101, "Tên trò chơi": "Đường Đua Siêu Cấp", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Sàn phòng khách", "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi", "Kỹ năng phát triển": "Không gian & Định hướng", "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ.", "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."}, {"STT": 102, "Tên trò chơi": "Mê Cung Lõi Giấy", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Cánh cửa / Tường", "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính", "Kỹ năng phát triển": "Tư duy STEM", "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."}, {"STT": 103, "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava)", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm", "Kỹ năng phát triển": "Vận động & Cân bằng", "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'.", "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."}, {"STT": 104, "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Bàn ăn", "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ", "Kỹ năng phát triển": "Ngôn ngữ & Hình học", "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."}, {"STT": 105, "Tên trò chơi": "Tiệm Giặt Là Nhí", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Ban công / Góc phòng", "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay", "Kỹ năng phát triển": "Vận động tinh & Độc lập", "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây.", "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."}, {"STT": 106, "Tên trò chơi": "Bảo Tàng Bóng Tối", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Phòng ngủ", "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng", "Kỹ năng phát triển": "Quan sát & Tưởng tượng", "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."}, {"STT": 107, "Tên trò chơi": "Nhà Khoa Học Thổi Bóng", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Bàn ăn", "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông", "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung", "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn.", "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."}, {"STT": 108, "Tên trò chơi": "Săn Lùng Màu Cầu Vồng", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Khắp nhà", "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ", "Kỹ năng phát triển": "Quan sát & Phân tích", "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định.", "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."}, {"STT": 109, "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Phòng khách", "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng", "Kỹ năng phát triển": "Khéo léo & Cấu trúc", "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."}, {"STT": 110, "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ", "Độ tuổi": "4-5 tuổi", "Vị trí / Không gian": "Sân gạch / Ban công", "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển", "Kỹ năng phát triển": "Sáng tạo nghệ thuật", "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật.", "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."}, {"STT": 201, "Tên trò chơi": "Điệp Viên Vượt Laser", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Hành lang", "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy", "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề", "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông.", "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."}, {"STT": 202, "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Bàn học", "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì", "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)", "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất.", "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."}, {"STT": 203, "Tên trò chơi": "Đường Đua Domino Sách Vở", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Sàn nhà", "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ", "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản", "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."}, {"STT": 204, "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Phòng khách / Toàn nhà", "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu", "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng", "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu.", "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."}, {"STT": 205, "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Bàn học", "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn", "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt", "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện.", "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."}, {"STT": 206, "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Hành lang / Sân nhà", "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa", "Kỹ năng phát triển": "Động lực học & Khéo léo", "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng.", "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."}, {"STT": 207, "Tên trò chơi": "Trạm Phân Loại Khí Tượng", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Ban công", "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu", "Kỹ năng phát triển": "Khoa học thường thức", "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần.", "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."}, {"STT": 208, "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Bàn ăn", "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu", "Kỹ năng phát triển": "Tư duy chiến thuật", "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp.", "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."}, {"STT": 209, "Tên trò chơi": "Tủ Sách Phát Thanh Viên", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Góc đọc sách", "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện", "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu", "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm.", "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."}, {"STT": 210, "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế", "Độ tuổi": "6-8 tuổi", "Vị trí / Không gian": "Cửa sổ / Kệ treo", "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ", "Kỹ năng phát triển": "Khái niệm đo lường", "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ.", "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."}];
 
     // Tải dữ liệu từ 3 file JSON
     async function loadAllGameFiles() {
@@ -600,17 +728,24 @@
     }
 
     function renderQuestCardDetail(game) {
-      const title = game['Tên trò chơi'];
-      const items = game['Vật dụng chính (0đ)'];
-      const stepsRaw = game['Cách chơi (Nhiệm vụ 3 bước)'];
-      const safety = game['Rà soát An toàn (Safety Rule)'];
-      const skill = game['Kỹ năng phát triển'];
-      const loc = game['Vị trí / Không gian'];
-      const age = game['Độ tuổi'];
-      const id = game['STT'];
+      if (!game) return;
+      const title = game['Tên trò chơi'] || game.title || '';
+      const items = game['Vật dụng chính (0đ)'] || game.item || '';
+      const stepsRaw = game['Cách chơi (Nhiệm vụ 3 bước)'] || game.steps || '';
+      const safety = game['Rà soát An toàn (Safety Rule)'] || game.safety || '';
+      const skill = game['Kỹ năng phát triển'] || game.skill || 'Tự chơi độc lập';
+      const loc = game['Vị trí / Không gian'] || game.loc || 'Trong nhà';
+      const age = game['Độ tuổi'] || game.age || '';
+      const id = game['STT'] || game.id || 1;
       const t = I18N[currentLang];
+      const illustration = getIllustrationForGame(game);
 
       document.getElementById('quest-card-content').innerHTML = `
+        <!-- KHUNG MINH HỌA VECTOR NÂNG CẤP -->
+        <div class="w-full h-36 md:h-44 rounded-2xl overflow-hidden shadow-inner mb-3 border border-slate-100 bg-slate-50 flex items-center justify-center">
+          ${illustration}
+        </div>
+
         <div class="flex items-start justify-between gap-3">
           <div>
             <div class="flex flex-wrap items-center gap-1.5 mb-1.5">
@@ -772,8 +907,14 @@
       const game = ALL_GAMES.find(g => g['STT'] === id);
       if (!game) return;
       const t = I18N[currentLang];
+      const illustration = getIllustrationForGame(game);
 
       document.getElementById('modal-content').innerHTML = `
+        <!-- KHUNG MINH HỌA VECTOR NÂNG CẤP TRONG MODAL -->
+        <div class="w-full h-36 md:h-44 rounded-2xl overflow-hidden shadow-inner mb-3 border border-slate-100 bg-slate-50 flex items-center justify-center">
+          ${illustration}
+        </div>
+
         <div class="space-y-4">
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game['Độ tuổi']}</span>
           <h3 class="text-xl font-black text-slate-800">${escapeHtml(game['Tên trò chơi'])}</h3>
