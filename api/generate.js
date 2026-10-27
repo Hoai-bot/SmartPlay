@@ -24,13 +24,20 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Thiếu nội dung prompt' });
   }
 
-  // Lấy API key Groq từ biến môi trường Vercel hoặc từ client truyền lên
+  // Lấy API key Groq từ biến môi trường Vercel hoặc client
   let apiKey = process.env.GROQ_API_KEY || clientKey || '';
   apiKey = apiKey.trim().replace(/^[\"\']|[\"\']$/g, '');
 
   if (!apiKey) {
     return res.status(500).json({ 
-      error: 'Chưa cấu hình GROQ_API_KEY trên Vercel. Vui lòng thêm biến môi trường GROQ_API_KEY (gsk_...) trong Settings > Environment Variables trên Vercel.' 
+      error: 'Chưa cấu hình GROQ_API_KEY trên Vercel. Vui lòng thêm biến môi trường GROQ_API_KEY (bắt đầu bằng gsk_...) trong Settings > Environment Variables trên Vercel.' 
+    });
+  }
+
+  // Kiểm tra nếu người dùng vô tình dán nhầm key Google (AIzaSy...)
+  if (apiKey.startsWith('AIzaSy')) {
+    return res.status(400).json({
+      error: 'Bạn đang dùng API Key của Google (AIzaSy...). Vui lòng tạo key từ Groq tại https://console.groq.com/keys (bắt đầu bằng gsk_...).'
     });
   }
 
@@ -47,16 +54,41 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
   "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
 }`;
 
-  // Danh sách model mạnh nhất và ổn định nhất của Groq (Llama 3.3 70B & Llama 3.1 8B)
-  const candidateModels = [
+  // 1. Tự động truy vấn danh sách model đang hoạt động thực tế trên tài khoản Groq của bạn
+  let availableModels = [];
+  try {
+    const listRes = await fetch('https://api.groq.com/openai/v1/models', {
+      headers: { 'Authorization': `Bearer ${apiKey}` }
+    });
+    if (listRes.ok) {
+      const listData = await listRes.json();
+      availableModels = (listData.data || []).map(m => m.id);
+    }
+  } catch (e) {
+    console.warn("Không thể lấy danh sách model tự động:", e);
+  }
+
+  // Các model ưu tiên theo thứ tự
+  const preferredModels = [
     'llama-3.3-70b-versatile',
-    'llama-3.1-8b-instant'
+    'llama-3.1-70b-versatile',
+    'llama-3.1-8b-instant',
+    'llama3-70b-8192',
+    'llama3-8b-8192',
+    'mixtral-8x7b-32768',
+    'gemma2-9b-it'
   ];
+
+  // Lọc lấy các model có sẵn trong tài khoản, nếu không lấy được list thì thử danh sách mặc định
+  let modelsToTry = preferredModels.filter(m => availableModels.includes(m));
+  if (modelsToTry.length === 0) {
+    modelsToTry = availableModels.length > 0 ? availableModels.slice(0, 4) : preferredModels;
+  }
 
   let lastError = null;
   let parsedResult = null;
 
-  for (const model of candidateModels) {
+  for (const model of modelsToTry) {
     try {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
