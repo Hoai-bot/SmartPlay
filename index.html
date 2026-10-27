@@ -1460,7 +1460,7 @@
         }
       } catch (err) {
         console.warn("Lỗi gọi Gemini API (sẽ dùng bộ máy sư phạm nội bộ):", err);
-        showToast("Kết nối Gemini gián đoạn, đang chuyển sang bộ máy sư phạm nội bộ!", "info");
+        showToast("Lỗi Gemini: " + (err.message || "Kiểm tra API Key") + ". Đang chuyển sang bộ máy sư phạm!", "warning");
         resultGame = synthesizeDynamicPedagogicalPlay(promptInput);
       } finally {
         btn.disabled = false;
@@ -1489,6 +1489,7 @@
     }
 
     async function callRealGeminiApi(userPrompt, apiKey) {
+      // Try gemini-1.5-flash first, then gemini-2.0-flash if needed
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
       
       const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
@@ -1524,8 +1525,9 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Gemini API Error ${response.status}: ${errorText}`);
+        const errorData = await response.json().catch(() => ({}));
+        const errMsg = errorData.error?.message || response.statusText;
+        throw new Error(`Google Gemini API (${response.status}): ${errMsg}`);
       }
 
       const data = await response.json();
@@ -1544,26 +1546,28 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
         'Rà soát An toàn (Safety Rule)': parsed.safety || "Giám sát an toàn từ xa, đảm bảo vật dụng sạch sẽ."
       };
     }
-
-    // Bộ máy sư phạm thích ứng đa chiều nội bộ (Enhanced Dynamic Combinatorial Heuristic)
+    
     function synthesizeDynamicPedagogicalPlay(prompt) {
       const lower = prompt.toLowerCase();
       
-      // 1. Phân tích độ tuổi chính xác
+      // 1. Phân tích độ tuổi CHÍNH XÁC bằng biểu thức chính quy (Tránh nhầm số lượng đồ vật như '2 cái mền' thành 2 tuổi)
       let ageGroup = "4-5 tuổi";
       let ageNum = 4;
-      if (lower.includes('1') || lower.includes('2') || lower.includes('3')) {
-        ageGroup = "1-3 tuổi";
-        ageNum = lower.includes('1') ? 1 : (lower.includes('2') ? 2 : 3);
-      } else if (lower.includes('6') || lower.includes('7') || lower.includes('8')) {
-        ageGroup = "6-8 tuổi";
-        ageNum = lower.includes('6') ? 6 : (lower.includes('7') ? 7 : 8);
-      } else if (lower.includes('4') || lower.includes('5')) {
-        ageGroup = "4-5 tuổi";
-        ageNum = lower.includes('5') ? 5 : 4;
+      
+      const ageMatch = lower.match(/(?:bé|trẻ|con|cho)?\s*(\d+)\s*(?:tuổi|t)/);
+      if (ageMatch) {
+        const num = parseInt(ageMatch[1]);
+        if (num <= 3) { ageGroup = "1-3 tuổi"; ageNum = num; }
+        else if (num <= 5) { ageGroup = "4-5 tuổi"; ageNum = num; }
+        else { ageGroup = "6-8 tuổi"; ageNum = num; }
+      } else if (lower.includes('6 tuổi') || lower.includes('7 tuổi') || lower.includes('8 tuổi')) {
+        ageGroup = "6-8 tuổi"; ageNum = 6;
+      } else if (lower.includes('1 tuổi') || lower.includes('2 tuổi') || lower.includes('3 tuổi')) {
+        ageGroup = "1-3 tuổi"; ageNum = 2;
       }
 
-      // 2. Nhận diện các vật thể thực tế
+      // 2. Nhận diện các nhóm vật thể thực tế
+      const hasFort = lower.includes('mền') || lower.includes('chăn') || lower.includes('mùng') || lower.includes('màn') || lower.includes('gối');
       const hasBall = lower.includes('bóng') || lower.includes('pickleball') || lower.includes('tennis') || lower.includes('cầu');
       const hasBasket = lower.includes('rổ') || lower.includes('chậu') || lower.includes('thau') || lower.includes('giỏ');
       const hasShoes = lower.includes('dép') || lower.includes('giép') || lower.includes('giày') || lower.includes('hài');
@@ -1583,8 +1587,25 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
       let steps = "";
       let safety = "";
 
-      // 3. Phối hợp sư phạm theo vật dụng và độ tuổi
-      if (hasBall && (hasBasket || hasShoes)) {
+      // 3. Phối hợp sư phạm chuẩn Montessori / Reggio Emilia
+      if (hasFort && (lower.includes('mền') || lower.includes('gối') || lower.includes('mùng'))) {
+        if (ageNum <= 3) {
+          title = "Ốc Đảo Gối Êm & Đường Hầm Mền Cổ Tích";
+          skill = "Phát triển giác quan, Vận động thô & Nhận thức không gian";
+          steps = "1. Trải 2 cái mền xuống sàn tạo thành thảm cỏ êm ái, xếp các gối xung quanh làm bờ rào vững chãi.\n2. Mẹ căng nhẹ mùng phủ qua tựa ghế tạo mái vòm che bóng râm huyền bí.\n3. Bé bò qua hàng gối chui vào trong lều, mang theo 1 món đồ chơi yêu thích ngồi chơi trốn tìm 15 phút.";
+          safety = "Kiểm tra ghế hoặc giá đỡ mùng phải chắc chắn, không dùng vật nặng đè lên mép mùng.";
+        } else if (ageNum <= 5) {
+          title = "Kiến Trúc Sư Nhí: Pháo Đài Mền Gối & Lều Cắm Trại Mùng";
+          skill = "Tư duy Cấu trúc Không gian, Trí tưởng tượng phong phú & Tự lập độc lập";
+          steps = "1. Bé dùng 2 gối dài làm cột trụ cổng thành, 4 gối ngắn xếp thành tường bao quanh pháo đài.\n2. Phủ mùng và 2 cái mền lên thành lũy gối để tạo một căn lều bí mật ấm cúng có cửa sổ mở.\n3. Bé mang đèn pin nhỏ hoặc sách tranh vào lều, tự đóng vai nhà thám hiểm ngủ lều trong rừng rậm 20 phút.";
+          safety = "Không phủ kín hoàn toàn mùng mền để đảm bảo không khí luôn thông thoáng, thoáng mát bên trong.";
+        } else {
+          title = "Căn Cứ Quân Sự Mật & Mê Cung Phòng Thủ Mền Gối";
+          skill = "Tư duy Chiến thuật, Giải quyết vấn đề & Kỹ năng xây dựng cấu trúc";
+          steps = "1. Bé thiết kế bản vẽ sơ đồ căn cứ: Phân chia khu vực kho quân lương, trạm gác và phòng ngủ từ gối dài và gối ngắn.\n2. Dùng mùng giăng dây tạo nóc lều treo, phủ mền cách nhiệt tạo không gian chỉ huy tác chiến.\n3. Tự đặt ra mật mã vào cửa căn cứ và thuyết minh cho bố mẹ nghe về kết cấu phòng thủ của công trình.";
+          safety = "Dây giăng mùng ở tầm an toàn, không buộc dây siết chặt quanh cơ thể bé.";
+        }
+      } else if (hasBall && (hasBasket || hasShoes)) {
         if (ageNum <= 3) {
           title = "Ném Bóng Lọt Rổ & Cây Cầu Băng Qua Đôi Dép";
           skill = "Vận động thô, Định hướng không gian & Phối hợp tay - mắt";
@@ -1645,27 +1666,15 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
         skill = "Tư duy Cấu trúc không gian, Cân bằng tĩnh & Vận động khéo léo";
         steps = "1. Dán 2 dải băng dính song song trên sàn làm đường cao tốc dẫn vào chân tháp.\n2. Bé xếp các cốc chồng lên nhau theo kết cấu tam giác: đáy 3 cốc, tầng hai 2 cốc, đỉnh 1 cốc.\n3. Lăn quả bóng tất hoặc cuộn giấy dọc theo đường băng để công phá tháp.";
         safety = "Chỉ dùng cốc giấy hoặc cốc nhựa dẻo, tuyệt đối không dùng đồ thủy tinh.";
-      } else if (hasSocks) {
-        title = "Đoàn Tàu Sâu Bướm & Ném Bóng Tất Vào Mục Tiêu";
-        skill = "Nhận diện màu sắc, Vận động thô & Ước lượng cự ly";
-        steps = "1. Bé cùng mẹ cuộn tròn từng đôi tất sạch thành những quả bóng mềm.\n2. Xếp các quả bóng tất nối đuôi nhau thành chú sâu bướm dài quanh phòng.\n3. Đứng cách 2 bước chân tập ném các bóng tất vào trong chậu/rổ.";
-        safety = "Tất sạch, khu vực ném bóng thông thoáng cách xa bàn kính.";
-      } else if (hasPaper) {
-        title = "Phi Đội Hàng Không & Mê Cung Dải Băng Giấy";
-        skill = "Khéo léo đôi tay, Khí động học cơ bản & Trí tưởng tượng";
-        steps = "1. Bé tự xé giấy báo thành các dải dài dán nối đuôi nhau trên sàn làm đường bay.\n2. Gấp các kiểu máy bay giấy đơn giản theo sự sáng tạo của bé.\n3. Phóng máy bay lượn dọc theo đường băng giấy xem ai bay chuẩn nhất.";
-        safety = "Không phóng máy bay hướng vào mặt người khác, dùng giấy sạch không dính ghim.";
       } else {
-        // Làm sạch văn bản chuẩn ngữ pháp tiếng Việt, loại bỏ từ rác mà không cắt cụt chữ
         let cleanPrompt = prompt
           .replace(/^(nhà đang có|nhà có|hiện có|có)\s+/i, '')
           .replace(/(cho\s+)?(bé|trẻ|con)\s*\d*\s*tuổi.*/i, '')
           .replace(/(chơi\s+được\s+gì|chơi\s+gì|làm\s+gì).*/i, '')
           .trim();
-        
         if (!cleanPrompt) cleanPrompt = prompt.trim();
         const displayItems = cleanPrompt.charAt(0).toUpperCase() + cleanPrompt.slice(1);
-        title = `Thử Thách Sáng Tạo: ${displayItems.length > 40 ? displayItems.slice(0, 40) + '...' : displayItems}`;
+        title = `Thử Thách Khám Phá: ${displayItems.length > 35 ? displayItems.slice(0, 35) + '...' : displayItems}`;
         skill = ageNum <= 3 ? "Phát triển xúc giác & Vận động tự lập" : (ageNum <= 5 ? "Tư duy sáng tạo, Khéo léo & Đóng vai" : "Tư duy giải quyết vấn đề & STEM logic");
         
         if (ageNum <= 3) {
@@ -1689,7 +1698,7 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
         'Rà soát An toàn (Safety Rule)': safety
       };
     }
-function renderAiResultCard(game) {
+    function renderAiResultCard(game) {
       document.getElementById('ai-result-title').innerText = game['Tên trò chơi'];
       document.getElementById('ai-result-age').innerText = game['Độ tuổi'];
       document.getElementById('ai-result-skill').innerText = "🎯 Kỹ năng: " + game['Kỹ năng phát triển'];
