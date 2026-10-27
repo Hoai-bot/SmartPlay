@@ -1489,9 +1489,14 @@
     }
 
     async function callRealGeminiApi(userPrompt, apiKey) {
-      // Try gemini-1.5-flash first, then gemini-2.0-flash if needed
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
-      
+      // Danh sách các model chính thức từ Google AI Studio để tự động thử lần lượt
+      const candidateEndpoints = [
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
+        `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${encodeURIComponent(apiKey)}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`
+      ];
+
       const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
 Nhiệm vụ: Dựa vào đồ vật gia đình 0 đồng và độ tuổi người dùng nhập, hãy sáng tạo ra một trò chơi độc bản giúp trẻ tự chơi độc lập 15-30 phút không dùng màn hình điện thoại.
 
@@ -1518,20 +1523,36 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
         }
       };
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
+      let lastError = null;
+      let rawText = "";
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errMsg = errorData.error?.message || response.statusText;
-        throw new Error(`Google Gemini API (${response.status}): ${errMsg}`);
+      for (const endpoint of candidateEndpoints) {
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            const errMsg = errorData.error?.message || response.statusText;
+            lastError = new Error(`(${response.status}): ${errMsg}`);
+            continue; // Thử endpoint/model tiếp theo
+          }
+
+          const data = await response.json();
+          rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+          if (rawText) break; // Đã nhận dữ liệu thành công
+        } catch (err) {
+          lastError = err;
+        }
       }
 
-      const data = await response.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+      if (!rawText) {
+        throw lastError || new Error("Không thể kết nối đến máy chủ Google Gemini.");
+      }
+
       const cleanJson = rawText.replace(/```json/g, "").replace(/```/g, "").trim();
       const parsed = JSON.parse(cleanJson);
 
@@ -1546,7 +1567,7 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
         'Rà soát An toàn (Safety Rule)': parsed.safety || "Giám sát an toàn từ xa, đảm bảo vật dụng sạch sẽ."
       };
     }
-    
+
     function synthesizeDynamicPedagogicalPlay(prompt) {
       const lower = prompt.toLowerCase();
       
