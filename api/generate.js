@@ -1,8 +1,10 @@
+export const maxDuration = 30; // Cho phép Vercel Serverless Function chạy tối đa 30s
+
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
@@ -25,7 +27,7 @@ export default async function handler(req, res) {
   // Ưu tiên: API key từ biến môi trường Vercel > API key truyền từ client
   const apiKey = process.env.GEMINI_API_KEY || clientKey;
   if (!apiKey) {
-    return res.status(500).json({ error: 'Chưa cấu hình GEMINI_API_KEY trên máy chủ' });
+    return res.status(500).json({ error: 'Chưa cấu hình GEMINI_API_KEY trên Vercel hoặc chưa nhập Key' });
   }
 
   const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
@@ -41,15 +43,16 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
   "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
 }`;
 
+  // Danh sách các model CHUẨN XÁC, không dùng model không tồn tại
   const candidateModels = [
-    'gemini-2.5-flash',
     'gemini-2.0-flash',
     'gemini-1.5-flash',
-    'gemini-1.5-flash-latest'
+    'gemini-1.5-pro'
   ];
 
   let lastError = null;
   let rawText = '';
+  let statusCode = 502;
 
   for (const model of candidateModels) {
     try {
@@ -64,8 +67,14 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
       });
 
       if (!response.ok) {
+        statusCode = response.status;
         const errData = await response.json().catch(() => ({}));
-        lastError = new Error(`Model ${model} (${response.status}): ${errData.error?.message || response.statusText}`);
+        const errMsg = errData.error?.message || response.statusText;
+        lastError = new Error(errMsg);
+        // Nếu lỗi 429 (Rate limit) thì dừng ngay để báo cho client đợi
+        if (response.status === 429) {
+          return res.status(429).json({ error: 'Hệ thống đang quá tải lượt tạo trong 1 phút (429 Rate Limit). Vui lòng đợi 5-10 giây rồi thử lại.' });
+        }
         continue;
       }
 
@@ -78,7 +87,7 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
   }
 
   if (!rawText) {
-    return res.status(502).json({ error: lastError ? lastError.message : 'Không thể kết nối đến máy chủ Google Gemini' });
+    return res.status(statusCode).json({ error: lastError ? lastError.message : 'Không thể kết nối đến máy chủ Google Gemini' });
   }
 
   try {
@@ -86,6 +95,6 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
     const parsed = JSON.parse(cleanJson);
     return res.status(200).json(parsed);
   } catch (err) {
-    return res.status(500).json({ error: 'Lỗi định dạng phản hồi từ AI', raw: rawText });
+    return res.status(500).json({ error: 'Lỗi định dạng JSON phản hồi từ AI', raw: rawText });
   }
 }
