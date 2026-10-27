@@ -1,4 +1,4 @@
-export const maxDuration = 30; // Cho phép Vercel Serverless Function chạy tối đa 30s
+export const maxDuration = 30;
 
 export default async function handler(req, res) {
   // CORS headers
@@ -24,12 +24,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Thiếu nội dung prompt' });
   }
 
-  // Lấy API key và làm sạch khoảng trắng / dấu nháy kép thừa nếu có
-  let apiKey = process.env.GEMINI_API_KEY || clientKey || '';
+  // Lấy API key Groq từ biến môi trường Vercel hoặc từ client truyền lên
+  let apiKey = process.env.GROQ_API_KEY || clientKey || '';
   apiKey = apiKey.trim().replace(/^[\"\']|[\"\']$/g, '');
 
   if (!apiKey) {
-    return res.status(500).json({ error: 'Chưa cấu hình GEMINI_API_KEY trên Vercel hoặc chưa nhập Key' });
+    return res.status(500).json({ 
+      error: 'Chưa cấu hình GROQ_API_KEY trên Vercel. Vui lòng thêm biến môi trường GROQ_API_KEY (gsk_...) trong Settings > Environment Variables trên Vercel.' 
+    });
   }
 
   const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
@@ -45,68 +47,56 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
   "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
 }`;
 
-  // Thử các endpoint chính thức hỗ trợ generateContent:
-  // v1/models/gemini-1.5-flash (bản ổn định GA)
-  // v1beta/models/gemini-2.0-flash (bản mới nhất)
-  // v1/models/gemini-2.0-flash
-  const candidateConfigs = [
-    { version: 'v1', model: 'gemini-1.5-flash' },
-    { version: 'v1beta', model: 'gemini-2.0-flash' },
-    { version: 'v1', model: 'gemini-2.0-flash' },
-    { version: 'v1beta', model: 'gemini-1.5-flash' }
+  // Danh sách model mạnh nhất và ổn định nhất của Groq (Llama 3.3 70B & Llama 3.1 8B)
+  const candidateModels = [
+    'llama-3.3-70b-versatile',
+    'llama-3.1-8b-instant'
   ];
 
-  let errors = [];
-  let rawText = '';
-  let finalStatusCode = 502;
+  let lastError = null;
+  let parsedResult = null;
 
-  for (const { version, model } of candidateConfigs) {
+  for (const model of candidateModels) {
     try {
-      const endpoint = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
-      const response = await fetch(endpoint, {
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
         body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: `${systemInstruction}\n\nYêu cầu từ phụ huynh: "${prompt}"` }] }],
-          generationConfig: { temperature: 0.7, responseMimeType: 'application/json' }
+          model: model,
+          messages: [
+            { role: 'system', content: systemInstruction },
+            { role: 'user', content: `Yêu cầu từ phụ huynh: "${prompt}"` }
+          ],
+          temperature: 0.6,
+          response_format: { type: 'json_object' }
         })
       });
 
       if (!response.ok) {
-        finalStatusCode = response.status;
         const errData = await response.json().catch(() => ({}));
         const errMsg = errData.error?.message || response.statusText;
-        errors.push(`${model}(${version}): ${errMsg}`);
-
-        // Nếu gặp lỗi 429 (Rate Limit) hoặc 400 (API Key không hợp lệ) thì phản hồi ngay
-        if (response.status === 429) {
-          return res.status(429).json({ error: 'Google API đang bị quá tải lượt gọi trong 1 phút (429 Rate Limit). Vui lòng đợi 5-10 giây rồi thử lại.' });
-        }
-        if (response.status === 400 && errMsg.includes('API_KEY_INVALID')) {
-          return res.status(400).json({ error: 'API Key không hợp lệ. Vui lòng kiểm tra lại key trên Vercel.' });
-        }
+        lastError = new Error(`Groq (${model}): ${errMsg}`);
         continue;
       }
 
       const data = await response.json();
-      rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-      if (rawText) break;
+      const rawText = data.choices?.[0]?.message?.content || '{}';
+      const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+      parsedResult = JSON.parse(cleanJson);
+      if (parsedResult && parsedResult.title) break;
     } catch (err) {
-      errors.push(`${model}(${version}): ${err.message}`);
+      lastError = err;
     }
   }
 
-  if (!rawText) {
-    return res.status(finalStatusCode).json({ 
-      error: errors.length > 0 ? errors[0] : 'Không thể kết nối đến máy chủ Google Gemini' 
+  if (!parsedResult) {
+    return res.status(502).json({ 
+      error: lastError ? lastError.message : 'Không thể kết nối đến máy chủ Groq AI' 
     });
   }
 
-  try {
-    const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
-    const parsed = JSON.parse(cleanJson);
-    return res.status(200).json(parsed);
-  } catch (err) {
-    return res.status(500).json({ error: 'Lỗi định dạng JSON phản hồi từ AI', raw: rawText });
-  }
+  return res.status(200).json(parsedResult);
 }
