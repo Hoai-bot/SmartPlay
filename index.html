@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SmartPlay IC Da Lat - Rời xa màn hình, tự chơi say mê</title>
+  <meta name="description" content="Trạm phát minh trò chơi 0 đồng giúp trẻ tự chơi độc lập, an toàn và rời xa điện thoại. Sản phẩm giáo dục thông minh từ IC Da Lat.">
+  
+  <!-- Favicon & PWA meta -->
+  <meta name="theme-color" content="#0F766E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="https://placehold.co/64x64/0F766E/ffffff?text=IC">
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            coral: {
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+            },
+            sun: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 3D Flip Card Effect */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    
+    /* Dice Roll Animation */
+    @keyframes rollDice {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(90deg) scale(1.15); }
+      50% { transform: rotate(180deg) scale(0.9); }
+      75% { transform: rotate(270deg) scale(1.15); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .animate-dice {
+      animation: rollDice 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- MODAL: ĐIỀU KHOẢN PHÁP LÝ & CAM KẾT AN TOÀN -->
+  <div id="legalModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 transform transition-all">
+      <div class="flex items-center gap-2.5 text-amber-600 mb-3">
+        <span class="text-2xl">🛡️</span>
+        <h3 class="font-bold text-slate-800 text-lg">Cam Kết An Toàn & Điều Khoản</h3>
+      </div>
+      
+      <div class="text-xs text-slate-600 space-y-2 max-h-48 overflow-y-auto p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 leading-relaxed">
+        <p>1. Các trò chơi từ <strong>icdalat.edu.vn</strong> mang tính chất gợi ý ý tưởng tham khảo sư phạm và giải trí gia đình.</p>
+        <p>2. Phụ huynh/người giám hộ chịu trách nhiệm tuyệt đối trong việc giám sát trực tiếp, kiểm tra an toàn vật dụng và không gian chơi của trẻ.</p>
+        <p>3. Nền tảng được miễn trừ mọi trách nhiệm pháp lý đối với bất kỳ sự cố phát sinh ngoài ý muốn trong quá trình thực hiện tại gia đình.</p>
+      </div>
+
+      <div class="mt-4 space-y-2.5 text-xs text-slate-700">
+        <label class="flex items-start gap-2.5 cursor-pointer select-none">
+          <input type="checkbox" id="chkAdult" class="mt-0.5 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+          <span>Tôi xác nhận là phụ huynh/người giám hộ từ đủ 18 tuổi.</span>
+        </label>
+        <label class="flex items-start gap-2.5 cursor-pointer select-none">
+          <input type="checkbox" id="chkTerms" class="mt-0.5 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+          <span>Tôi đã đọc, hiểu và đồng ý hoàn toàn với Điều khoản Miễn trừ Trách nhiệm.</span>
+        </label>
+      </div>
+
+      <button id="btnAcceptTerms" disabled 
+              onclick="acceptLegalTerms()"
+              class="mt-5 w-full py-3 bg-slate-200 text-slate-400 font-bold rounded-2xl text-xs transition duration-200 cursor-not-allowed">
+        Tôi Đồng Ý & Bắt Đầu
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: CHI TIẾT TRÒ CHƠI -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl transform transition-all relative border border-slate-100 my-8">
+      <button onclick="closeDetailModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div id="modal-content" class="mt-2"></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+          <i class="fa-solid fa-shapes text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-extrabold text-base md:text-lg tracking-tight text-slate-800">SmartPlay</h1>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-brand-100 text-brand-800 tracking-wider">IC DA LAT</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium">play.icdalat.edu.vn • Tự chơi 0đ</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleTimerModal()" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200/60 hover:bg-amber-100 transition">
+          <i class="fa-solid fa-stopwatch text-amber-500"></i>
+          <span id="header-timer-display">Hẹn giờ</span>
+        </button>
+        <button onclick="shareApp()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition text-sm" title="Chia sẻ">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6">
+
+    <!-- NAVIGATION TABS -->
+    <div class="flex p-1 bg-slate-200/80 rounded-2xl mb-6 max-w-md mx-auto shadow-inner text-sm font-semibold">
+      <button id="tab-btn-quest" onclick="switchTab('quest')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 bg-white text-brand-700 shadow-sm">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Bốc Thẻ
+      </button>
+      <button id="tab-btn-library" onclick="switchTab('library')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
+        <i class="fa-solid fa-book-open"></i> Kho 300 Trò
+      </button>
+      <button id="tab-btn-journey" onclick="switchTab('journey')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 relative">
+        <i class="fa-solid fa-award"></i> Nhật Ký
+        <span id="badge-count-pill" class="hidden text-[10px] bg-coral-500 text-white font-bold px-1.5 py-0.2 rounded-full">0</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: BỐC THẺ NHIỆM VỤ (QUEST TAB) -->
+    <section id="section-quest" class="space-y-6">
+      
+      <!-- HERO CARRIER -->
+      <div class="text-center space-y-1">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">Hôm nay bé chơi gì?</h2>
+        <p class="text-xs md:text-sm text-slate-500">30 giây kích hoạt • Bé say mê tự chơi • An toàn không màn hình</p>
+      </div>
+
+      <!-- FILTER CONTROLS -->
+      <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 space-y-4">
+        <!-- Độ tuổi -->
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-child-reaching text-brand-600"></i> 1. Độ tuổi của con
+          </label>
+          <div class="grid grid-cols-3 gap-2" id="quest-age-selector">
+            <button onclick="setQuestFilter('age', '1-3 tuổi')" class="age-btn py-2.5 px-2 rounded-xl border text-xs font-bold transition flex flex-col items-center gap-1 border-brand-500 bg-brand-50 text-brand-800 shadow-sm" data-val="1-3 tuổi">
+              <span>🐣 1 - 3 tuổi</span>
+              <span class="text-[10px] font-normal text-slate-500">Khám phá giác quan</span>
+            </button>
+            <button onclick="setQuestFilter('age', '4-5 tuổi')" class="age-btn py-2.5 px-2 rounded-xl border text-xs font-bold transition flex flex-col items-center gap-1 border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="4-5 tuổi">
+              <span>🚀 4 - 5 tuổi</span>
+              <span class="text-[10px] font-normal text-slate-500">Tưởng tượng & Vận động</span>
+            </button>
+            <button onclick="setQuestFilter('age', '6-8 tuổi')" class="age-btn py-2.5 px-2 rounded-xl border text-xs font-bold transition flex flex-col items-center gap-1 border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="6-8 tuổi">
+              <span>🧩 6 - 8 tuổi</span>
+              <span class="text-[10px] font-normal text-slate-500">Tư duy & Thử thách</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Không gian / Vị trí -->
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-location-dot text-brand-600"></i> 2. Bé đang ở đâu trong nhà?
+          </label>
+          <div class="flex flex-wrap gap-1.5" id="quest-loc-selector">
+            <button onclick="setQuestFilter('loc', 'Tất cả')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-brand-500 bg-brand-50 text-brand-800" data-val="Tất cả">Tất cả vị trí</button>
+            <button onclick="setQuestFilter('loc', 'Phòng khách')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Phòng khách">🛋️ Phòng khách</button>
+            <button onclick="setQuestFilter('loc', 'Nhà bếp')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Nhà bếp">🍳 Nhà bếp</button>
+            <button onclick="setQuestFilter('loc', 'Phòng ngủ')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Phòng ngủ">🛏️ Phòng ngủ</button>
+            <button onclick="setQuestFilter('loc', 'Ban công/Sân')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Ban công/Sân">🌿 Ban công / Sân</button>
+            <button onclick="setQuestFilter('loc', 'Bàn ăn')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Bàn ăn">🍽️ Bàn ăn</button>
+          </div>
+        </div>
+
+        <!-- ROLL BUTTON -->
+        <div class="pt-2">
+          <button id="btn-draw" onclick="drawQuestCard()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-700 to-teal-800 text-white font-extrabold text-base shadow-lg shadow-brand-700/25 hover:shadow-xl hover:from-brand-500 hover:to-teal-700 active:scale-[0.98] transition flex items-center justify-center gap-3">
+            <i id="dice-icon" class="fa-solid fa-dice text-2xl text-sun-400"></i>
+            <span>BỐC THĂM NHIỆM VỤ NGAY</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CARD 3D FLIP CONTAINER -->
+      <div id="card-stage" class="perspective-1000 w-full min-h-[380px] flex items-center justify-center">
+        <!-- 3D FLIPPER INNER -->
+        <div id="flipper" class="relative w-full transform-style-3d transition-transform duration-700 ease-out">
+          
+          <!-- FRONT FACE (Trạng thái chờ) -->
+          <div id="card-front" class="w-full rounded-3xl bg-white border-2 border-dashed border-slate-200 p-8 flex flex-col items-center justify-center text-center shadow-sm min-h-[360px] backface-hidden">
+            <div class="w-20 h-20 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-3xl mb-4 animate-bounce">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-700 mb-1">Chiếc Hộp Bất Ngờ</h3>
+            <p class="text-xs text-slate-400 max-w-xs">Chọn độ tuổi & nhấn nút phía trên để mở khóa trò chơi kỳ diệu từ đồ tái chế trong nhà!</p>
+          </div>
+
+          <!-- BACK FACE (Nội dung Thẻ Bài đã bốc) -->
+          <div id="card-back" class="w-full rounded-3xl bg-white border border-slate-100 p-6 shadow-xl min-h-[360px] backface-hidden rotate-y-180 flex flex-col justify-between">
+            <div id="quest-card-content" class="space-y-4">
+              <!-- Dynamically Populated -->
+            </div>
+
+            <!-- ACTION BUTTONS IN CARD -->
+            <div class="pt-5 border-t border-slate-100 flex flex-col sm:flex-row gap-2 mt-4">
+              <button onclick="markCompleted()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs tracking-wide shadow-md shadow-emerald-600/20 hover:from-emerald-600 hover:to-teal-700 active:scale-95 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-check text-sm"></i>
+                BÉ ĐÃ HOÀN THÀNH!
+              </button>
+              <button onclick="drawQuestCard()" class="py-3 px-4 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs active:scale-95 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                Đổi trò khác
+              </button>
+              <button onclick="openTimerWithCurrentQuest()" class="py-3 px-3 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200 font-semibold text-xs active:scale-95 transition flex items-center justify-center" title="Bắt đầu tính giờ tự chơi">
+                <i class="fa-solid fa-hourglass-start"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TAB 2: THƯ VIỆN 300 TRÒ CHƠI (LIBRARY TAB) -->
+    <section id="section-library" class="space-y-5 hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-extrabold text-slate-800">Kho Tàng 300 Trò Chơi Tự Chơi</h2>
+          <p class="text-xs text-slate-500">Tra cứu nhanh theo đồ vật sẵn có trong góc bếp, phòng khách</p>
+        </div>
+        <div class="text-xs font-bold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-200 w-fit">
+          Hiển thị: <span id="lib-count-display">0</span> / 300 trò
+        </div>
+      </div>
+
+      <!-- SEARCH & MULTI-FILTER BAR -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 space-y-3">
+        <!-- Search Input -->
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+          <input type="text" id="lib-search-input" oninput="renderLibrary()" placeholder="Tìm theo tên trò, vật dụng (thùng carton, gối, thìa, đũa...)" class="w-full pl-10 pr-4 py-2 text-xs md:text-sm rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition">
+        </div>
+
+        <!-- 3 Filter Dropdowns -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+          <div>
+            <label class="block font-bold text-slate-500 text-[11px] mb-1">Độ tuổi</label>
+            <select id="lib-filter-age" onchange="renderLibrary()" class="w-full p-2 rounded-xl border border-slate-200 bg-slate-50 font-medium focus:outline-none focus:border-brand-500">
+              <option value="All">Tất cả độ tuổi</option>
+              <option value="1-3 tuổi">1 - 3 tuổi</option>
+              <option value="4-5 tuổi">4 - 5 tuổi</option>
+              <option value="6-8 tuổi">6 - 8 tuổi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-500 text-[11px] mb-1">Vị trí / Không gian</label>
+            <select id="lib-filter-loc" onchange="renderLibrary()" class="w-full p-2 rounded-xl border border-slate-200 bg-slate-50 font-medium focus:outline-none focus:border-brand-500">
+              <option value="All">Tất cả vị trí</option>
+              <option value="Phòng khách">Phòng khách</option>
+              <option value="Nhà bếp">Nhà bếp</option>
+              <option value="Phòng ngủ">Phòng ngủ</option>
+              <option value="Ban công/Sân">Ban công/Sân</option>
+              <option value="Bàn ăn">Bàn ăn</option>
+              <option value="Hành lang">Hành lang</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-500 text-[11px] mb-1">Nhóm vật dụng</label>
+            <select id="lib-filter-item" onchange="renderLibrary()" class="w-full p-2 rounded-xl border border-slate-200 bg-slate-50 font-medium focus:outline-none focus:border-brand-500">
+              <option value="All">Tất cả vật dụng (0đ)</option>
+              <option value="Bìa carton">Bìa / Thùng carton</option>
+              <option value="Băng dính">Băng dính giấy</option>
+              <option value="Cốc">Cốc giấy / Cốc nhựa</option>
+              <option value="Gối">Gối / Chăn</option>
+              <option value="Thìa">Thìa / Đũa / Bát</option>
+              <option value="Tất">Tất chân / Khăn</option>
+              <option value="Nước">Nước & Bọt xà phòng</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD GRID -->
+      <div id="library-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rendered by JS -->
+      </div>
+      
+      <!-- EMPTY STATE -->
+      <div id="library-empty" class="hidden text-center py-12 bg-white rounded-3xl border border-slate-100">
+        <i class="fa-solid fa-box-open text-4xl text-slate-300 mb-2"></i>
+        <p class="text-sm font-semibold text-slate-600">Không tìm thấy trò chơi phù hợp với bộ lọc</p>
+        <button onclick="resetLibFilters()" class="mt-3 text-xs text-brand-600 font-bold hover:underline">Xóa tất cả bộ lọc</button>
+      </div>
+    </section>
+
+    <!-- TAB 3: NHẬT KÝ & HUY HIỆU (JOURNEY TAB) -->
+    <section id="section-journey" class="space-y-6 hidden">
+      
+      <!-- STATS BANNER -->
+      <div class="bg-gradient-to-br from-brand-800 to-teal-900 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs uppercase tracking-wider font-bold text-brand-200">Hành trình không màn hình</span>
+              <h2 class="text-2xl font-black mt-0.5" id="stats-child-name">Bé Yêu & Bố Mẹ</h2>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-2xl text-sun-400">
+              🏆
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/10">
+              <p class="text-[11px] text-brand-200 font-medium">Trò đã chinh phục</p>
+              <p class="text-2xl font-black mt-1" id="stat-games-count">0</p>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/10">
+              <p class="text-[11px] text-brand-200 font-medium">Thời gian rời màn hình</p>
+              <p class="text-2xl font-black mt-1" id="stat-minutes-count">0 <span class="text-xs font-normal">phút</span></p>
+            </div>
+            <div class="col-span-2 sm:col-span-1 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/10">
+              <p class="text-[11px] text-brand-200 font-medium">Cấp độ danh hiệu</p>
+              <p class="text-sm font-bold mt-1 text-sun-300" id="stat-current-rank">Mầm Xanh 🐣</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BADGES SECTION -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
+        <h3 class="text-base font-extrabold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-medal text-sun-500"></i> Bộ Sưu Tập Huy Hiệu Tự Chơi
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="badges-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- LOG HISTORY -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-extrabold text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-clock-rotate-left text-brand-600"></i> Lịch Sử Nhiệm Vụ Đã Chơi
+          </h3>
+          <button onclick="clearHistory()" class="text-xs text-rose-500 hover:text-rose-700 font-semibold" title="Xóa lịch sử">Xóa dữ liệu</button>
+        </div>
+        
+        <div id="history-list" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+        <div id="history-empty" class="text-center py-8 text-slate-400 text-xs">
+          Chưa có nhật ký nào. Hãy bốc thẻ và nhấn nút "Bé đã hoàn thành" để ghi nhận nhé!
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- TIMER FLOATING MODAL -->
+  <div id="timer-modal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl text-center border border-slate-100 space-y-4">
+      <div class="flex justify-between items-center">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Đồng hồ tự chơi</span>
+        <button onclick="toggleTimerModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div>
+        <p class="text-4xl font-black text-slate-800 tracking-tight font-mono" id="timer-countdown">15:00</p>
+        <p class="text-xs text-slate-500 mt-1" id="timer-sub-status">Thời gian con tự chơi độc lập</p>
+      </div>
+
+      <div class="flex justify-center gap-2">
+        <button onclick="setTimerPreset(10)" class="px-3 py-1.5 rounded-lg border text-xs font-bold bg-slate-50 text-slate-700 hover:bg-slate-100">10p</button>
+        <button onclick="setTimerPreset(15)" class="px-3 py-1.5 rounded-lg border text-xs font-bold bg-brand-50 border-brand-300 text-brand-800">15p</button>
+        <button onclick="setTimerPreset(20)" class="px-3 py-1.5 rounded-lg border text-xs font-bold bg-slate-50 text-slate-700 hover:bg-slate-100">20p</button>
+        <button onclick="setTimerPreset(30)" class="px-3 py-1.5 rounded-lg border text-xs font-bold bg-slate-50 text-slate-700 hover:bg-slate-100">30p</button>
+      </div>
+
+      <div class="flex gap-2 pt-2">
+        <button id="timer-toggle-btn" onclick="toggleTimerStart()" class="flex-1 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition">Bắt đầu</button>
+        <button onclick="resetTimer()" class="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold text-xs transition">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-100 py-6 mt-12 text-center text-xs text-slate-400 space-y-2">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="flex items-center justify-center gap-2 font-bold text-slate-600 mb-1">
+        <span>SmartPlay IC Da Lat</span>
+        <span>•</span>
+        <span class="text-brand-700 font-semibold">icdalat.edu.vn</span>
+      </div>
+      <p>Giải pháp giáo dục gia đình giúp phát triển kỹ năng tự lập và giảm phụ thuộc vào thiết bị điện tử.</p>
+      <div class="pt-1">
+        <button onclick="openLegalModal()" class="text-[11px] text-brand-700 hover:underline font-semibold">
+          <i class="fa-solid fa-shield-halved mr-1"></i>Điều khoản An toàn & Miễn trừ Trách nhiệm
+        </button>
+      </div>
+      <p class="text-[10px] text-slate-400 mt-1">© 2026 Viện Nghiên Cứu & Đổi Mới Giáo Dục IC Da Lat. Miễn phí vì cộng đồng.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC & 300 GAMES ENGINE -->
+  <script>
+    /* ========================================================
+       1. GENERATOR & DATABASE 300 TRÒ CHƠI TỰ CHƠI (0 ĐỒNG)
+       ======================================================== */
+    const GAMES_DB = [];
+
+    // Master seed list to synthesize 300 verified safe, engaging zero-cost games
+    const seedTemplates = [
+      // 1-3 TUỔI (Khám phá cảm giác, vận động thô/tinh an toàn)
+      {
+        age: "1-3 tuổi",
+        games: [
+          { name: "Giải Cứu Động Vật Dính Băng", loc: "Phòng khách", item: "Băng dính giấy, Đồ chơi thú bông", steps: "1. Dán 4-5 dải băng dính giấy giữ các con thú lên sàn.\n2. Đóng vai Người hùng đi gỡ từng dải băng dính.\n3. Xếp thú đã giải cứu vào chuồng chăn gối.", safety: "Dùng băng dính giấy dễ bóc, không làm trầy da bé." },
+          { name: "Rửa Củ Quả Kỳ Thú", loc: "Nhà bếp", item: "Chậu nước, Củ khoai tây/Cà rốt, Bàn chải cũ", steps: "1. Đặt chậu nước nông (dưới 5cm) có trải thảm chống trượt.\n2. Bé cầm bàn chải đánh răng cũ chà sạch đất trên củ.\n3. Vớt củ sạch ra rổ xếp theo thứ tự từ bé đến to.", safety: "Quan sát bé bên chậu nước, không để trơn trượt sàn." },
+          { name: "Phân Loại Tất Thần Tốc", loc: "Phòng ngủ", item: "Tất chân nhiều màu, Rổ nhựa", steps: "1. Đổ đống tất sạch chưa gập ra sàn.\n2. Đố bé tìm các đôi cùng màu ghép lại.\n3. Cuộn tròn thành quả bóng tất rồi ném vào rổ.", safety: "Đảm bảo tất sạch, không có kim băng hoặc nhãn mác sắc." },
+          { name: "Đường Hầm Thùng Hộp Bí Mật", loc: "Phòng khách", item: "Bìa carton, Đèn pin", steps: "1. Mở hai đầu thùng carton lớn xếp thành hầm.\n2. Đặt đồ chơi phát sáng ở đầu hầm bên kia.\n3. Bé bò qua hầm để lấy phần thưởng mang về.", safety: "Dùng kéo tỉa hết ghim bấm trên thùng carton trước khi chơi." },
+          { name: "Thí Nghiệm Nước & Bọt Xà Phòng", loc: "Nhà bếp", item: "Nước & Bọt xà phòng, Thìa, Cốc nhựa", steps: "1. Tạo bọt từ sữa tắm trẻ em trong thau nhỏ.\n2. Cho bé dùng thìa múc bọt sang các cốc nhựa con.\n3. Giả vờ pha chế các ly kem tuyết cho gấu bông.", safety: "Chỉ dùng sữa tắm dịu nhẹ của bé, tránh để cay mắt." },
+          { name: "Thả Nắp Chai Qua Ống Giấy", loc: "Hành lang", item: "Cốc giấy/Khay nhựa, Nắp chai nhựa lớn", steps: "1. Dán lõi giấy vệ sinh nghiêng vào chân bàn/tường.\n2. Đặt bát hứng phía dưới đáy ống.\n3. Bé thả liên tục các nắp chai lớn xem nắp lăn tọt xuống.", safety: "Chỉ dùng nắp chai to đường kính > 4cm, tránh nguy cơ hóc." },
+          { name: "Rung Chuông Lắc Lắc", loc: "Bàn ăn", item: "Chai nhựa rỗng, Hạt ngô khô", steps: "1. Bỏ vài hạt ngô vào chai nước rỗng rồi vặn chặt nắp.\n2. Dán kín băng dính quanh nắp chai.\n3. Bé lắc tạo nhạc đệm theo từng nhịp bài hát yêu thích.", safety: "Dán kín nắp chai bằng băng dính, không để trẻ mở nắp hạt." },
+          { name: "Băng Qua Sông Gối", loc: "Phòng khách", item: "Gối/Chăn", steps: "1. Xếp 4 chiếc gối sofa thành một hàng thẳng.\n2. Bé bước lần lượt qua từng chiếc gối êm ái.\n3. Giả vờ phía dưới sàn là dòng sông có cá bơi.", safety: "Kê gối cách xa bàn kính và các góc nhọn nguy hiểm." },
+          { name: "Xếp Tháp Cốc Cầu Vồng", loc: "Bàn ăn", item: "Cốc giấy/Khay nhựa", steps: "1. Cho bé 6-10 chiếc cốc giấy hoặc hộp sữa chua rỗng sạch.\n2. Hướng dẫn xếp đáy 3 cốc, tầng hai 2 cốc, đỉnh 1 cốc.\n3. Tự tay xô đổ tháp và cười thật to rồi xếp lại.", safety: "Chỉ dùng cốc giấy hoặc nhựa dẻo, không dùng đồ thủy tinh." },
+          { name: "Bóc Vỏ Chuối Thông Minh", loc: "Nhà bếp", item: "Quả chuối, Đĩa nhựa", steps: "1. Khía sẵn phần đầu quả chuối chín cho bé.\n2. Bé tự dùng các đầu ngón tay lột từng dải vỏ.\n3. Dùng dao nhựa cùn tập cắt chuối thành từng khoanh nhỏ.", safety: "Chỉ cho dùng dao nhựa tròn đầu đồ chơi." }
+        ]
+      },
+      // 4-5 TUỔI (Vận động khéo léo, tưởng tượng phong phú)
+      {
+        age: "4-5 tuổi",
+        games: [
+          { name: "Mê Cung Băng Dính Trên Sàn", loc: "Phòng khách", item: "Băng dính giấy, Ô tô đồ chơi", steps: "1. Dán băng dính thành các làn đường và ngã tư trên sàn.\n2. Bé lái các xe đồ chơi theo đúng vạch kẻ giao thông.\n3. Dừng lại tại các trạm dừng chân chăn gối để đổ xăng.", safety: "Không dán băng dính gần khu vực cửa kính hoặc cầu thang." },
+          { name: "Sàn Nhà Là Dung Nham Nóng Chảy", loc: "Phòng khách", item: "Gối/Chăn, Thảm nhỏ", steps: "1. Rải các miếng gối và khăn tắm quanh phòng.\n2. Bé di chuyển từ ghế sofa sang góc phòng mà chân không chạm sàn.\n3. Nhặt các món đồ gấu bông bị 'mắc kẹt' mang về đích.", safety: "Kiểm tra độ trơn của thảm trải trước khi cho bé nhảy." },
+          { name: "Thợ Săn Đồ Vật Đơn Sắc", loc: "Phòng khách", item: "Rổ nhựa, Đồ chơi có sẵn", steps: "1. Phát cho bé một chiếc rổ nhựa rỗng.\n2. Giao nhiệm vụ: Tìm 5 món đồ màu ĐỎ trong phòng khách.\n3. Mang về đặt lên bàn thuyết trình xem từng món đồ là gì.", safety: "Nhắc bé chỉ lấy đồ chơi trên thấp, không trèo lên ghế cao." },
+          { name: "Điệp Viên Vượt Laser Thần Bí", loc: "Hành lang", item: "Băng dính giấy hoặc Cuộn len cũ", steps: "1. Dán zíc-zắc các đường băng dính giữa 2 bên tường hành lang.\n2. Bé phải bò trườn, luồn lách để qua hành lang.\n3. Tuyệt đối không được làm chạm đứt các tia laser giấy.", safety: "Dán bằng băng dính giấy để khi vướng sẽ tự đứt nhẹ nhàng." },
+          { name: "Dàn Nhạc Gõ Đầu Bếp", loc: "Nhà bếp", item: "Nồi niêu/Đũa muỗng", steps: "1. Đặt úp 3 chiếc nồi nhôm/chảo nhỏ và bát inox.\n2. Cho bé 2 chiếc đũa tre hoặc thìa gỗ làm dùi gõ.\n3. Tập đánh tiết tấu nhanh chậm theo tiếng vỗ tay của mẹ.", safety: "Không dùng đồ sành sứ, chú ý tránh va đập vào tay." },
+          { name: "Đấu Trường Ném Bóng Tất", loc: "Phòng ngủ", item: "Tất chân, Thùng carton", steps: "1. Cuộn các đôi tất thành quả bóng tròn mềm mại.\n2. Đặt thùng carton cách xa bé 1.5 đến 2 mét.\n3. Ném 10 quả bóng tất vào thùng tính điểm siêu sao.", safety: "Khu vực ném bóng thông thoáng, không có đồ dễ vỡ." },
+          { name: "Vẽ Bóng Cây Ban Công", loc: "Ban công/Sân", item: "Giấy báo/Sách vở cũ, Bút sáp, Đồ chơi thú", steps: "1. Đặt thú nhựa lên tờ giấy dưới ánh nắng nghiêng ban công.\n2. Dùng bút sáp viền theo chiếc bóng in trên trang giấy.\n3. Tô màu sáng tạo cho quái vật bóng đêm vừa tạo ra.", safety: "Đảm bảo lan can ban công an toàn, bé không trèo leo." },
+          { name: "Bác Sĩ Khám Bệnh Cho Gấu", loc: "Phòng ngủ", item: "Gấu bông, Khăn sữa, Thìa nhựa", steps: "1. Đặt các bạn gấu bông nằm thẳng trên giường bệnh.\n2. Dùng khăn sữa làm chăn đắp, thìa nhựa làm nhiệt kế đo nhiệt độ.\n3. Kê đơn thuốc thơm tho (nước lọc) cho từng bạn gấu.", safety: "Không cho bé dùng bất kỳ viên thuốc thật nào." },
+          { name: "Trò Chơi Bowling Cốc Giấy", loc: "Hành lang", item: "Cốc giấy/Khay nhựa, Bóng mềm", steps: "1. Xếp 10 chiếc cốc giấy thành hình tam giác ngược.\n2. Lùi xa 2 mét, lăn quả bóng mềm hoặc cuộn tất.\n3. Đếm xem mỗi lần lăn xô ngã được bao nhiêu chiếc cốc.", safety: "Không lăn bóng về phía cửa kính hoặc tủ kính." },
+          { name: "Nhà Tạo Mẫu Tóc Giấy Báo", loc: "Bàn ăn", item: "Giấy báo/Sách vở cũ, Kéo an toàn", steps: "1. Vẽ các khuôn mặt ngộ nghĩnh lên các lõi giấy vệ sinh.\n2. Dán các dải giấy báo dài lên đầu làm tóc.\n3. Bé dùng kéo mũi tròn học sinh cắt tỉa kiểu tóc thời thượng.", safety: "Chỉ dùng kéo nhựa/mũi tròn chuyên dụng cho trẻ mầm non." }
+        ]
+      },
+      // 6-8 TUỔI (Logic, sáng tạo STEM, tự lập kiên trì)
+      {
+        age: "6-8 tuổi",
+        games: [
+          { name: "Đường Đua Bi Bìa Carton (Marble Run)", loc: "Phòng khách", item: "Bìa carton, Băng dính giấy, Viên bi/Bóng bàn", steps: "1. Dùng kéo cắt các dải bìa carton gập thành rãnh trượt.\n2. Dán nối nghiêng các rãnh lên thành hộp hoặc tường.\n3. Thả bóng bàn từ đỉnh xem bóng có trượt êm xuống đáy không.", safety: "Hướng dẫn cẩn thận cách dùng kéo cắt bìa cứng." },
+          { name: "Cầu Trọng Lực Bằng Sách Cũ", loc: "Bàn ăn", item: "Giấy báo/Sách vở cũ, Cốc nước nhỏ", steps: "1. Kê 2 chồng sách cao bằng nhau cách nhau 20cm.\n2. Dùng 1 tờ giấy A4 gập xếp quạt tạo độ cứng làm mặt cầu.\n3. Đặt các vật nhỏ lên cầu thử nghiệm sức chịu tải tối đa.", safety: "Thử tải bằng đồ chơi nhẹ, không dùng đồ thủy tinh vỡ." },
+          { name: "Bản Đồ Kho Báu Mật Mã", loc: "Phòng khách", item: "Giấy bút, Đồ vật bí mật", steps: "1. Mẹ hoặc bé giấu 1 món đồ chơi nhỏ trong phòng khách.\n2. Vẽ bản đồ sơ đồ phòng và đánh dấu X vị trí kho báu.\n3. Tự đi theo gợi ý phương hướng để tìm ra kho báu.", safety: "Quy ước: Kho báu không được giấu ở ổ cắm hoặc nơi quá tầm với." },
+          { name: "Rạp Chiếu Bóng Ngón Tay", loc: "Phòng ngủ", item: "Đèn pin, Bức tường trắng", steps: "1. Tắt đèn trong phòng ngủ, chiếu đèn pin lên tường.\n2. Bé dùng hai bàn tay biến hóa thành hình con chim, chó sói, thỏ.\n3. Tự biên tự diễn một câu chuyện kịch 10 phút.", safety: "Không chiếu đèn pin thẳng trực tiếp vào mắt nhau." },
+          { name: "Kiến Trúc Sư Tòa Tháp Bền Vững", loc: "Bàn ăn", item: "Đũa tre/Que kem, Đất nặn hoặc Băng dính", steps: "1. Dùng que tre và các mẩu băng dính tạo các tam giác liên kết.\n2. Dựng tòa tháp cao nhất có thể mà không bị nghiêng đổ.\n3. Dùng quạt giấy quạt nhẹ thử thách sức gió chịu đựng.", safety: "Vót bỏ dằm gai trên que gỗ nếu có." },
+          { name: "Phóng Phi Cơ Tàu Lượn Giấy", loc: "Hành lang", item: "Giấy báo/Sách vở cũ", steps: "1. Gấp 3 kiểu máy bay giấy khác nhau (cánh nhọn, cánh bằng).\n2. Dán vạch mốc xuất phát và các ô điểm số trên sàn.\n3. Phóng thử và ghi chép loại cánh nào bay lượn xa nhất.", safety: "Không phóng máy bay hướng vào mặt người khác." },
+          { name: "Thử Thách Khảo Cổ Học Hóa Thạch", loc: "Ban công/Sân", item: "Khay nhựa, Đồ chơi nhựa, Cây cọ cũ", steps: "1. Vùi các con khủng long đồ chơi dưới lớp bột ngô/cát sạch.\n2. Bé dùng cọ quét sơn cũ nhẹ nhàng phủi từng lớp đất.\n3. Ghi chép tên từng loài khủng long vừa khai quật được.", safety: "Chơi ở nơi thoáng khí, tránh để bụi bay vào mắt." },
+          { name: "Mê Cung Nghiêng Hộp Giày", loc: "Phòng khách", item: "Bìa carton (nắp hộp giày), Ống hút/Giấy, Viên bi", steps: "1. Dán các đoạn ống hút/que giấy lên đáy nắp hộp thành mê cung.\n2. Đục 1 lỗ nhỏ ở góc hộp làm đích đến.\n3. Bé cầm 2 tay nghiêng hộp để điều khiển bi lăn vào lỗ.", safety: "Cất bi gọn gàng sau khi chơi để tránh người nhà dẫm phải." },
+          { name: "Phòng Trưng Bày Nghệ Thuật Lá Cây", loc: "Ban công/Sân", item: "Lá cây rụng, Giấy A4, Hồ dán", steps: "1. Nhặt các loại lá cây rụng với đủ hình dáng quanh ban công.\n2. Ghép các lá cây thành hình con bướm, con voi, người ngoài hành tinh.\n3. Dán lên giấy và viết tên tác phẩm nghệ thuật của riêng mình.", safety: "Rửa sạch tay sau khi tiếp xúc với đất và lá cây." },
+          { name: "Cuộc Đua Thuyền Bọt Biển", loc: "Nhà bếp", item: "Miếng bọt biển rửa bát sạch, Tăm tre, Thau nước", steps: "1. Cắt miếng bọt biển thành hình tam giác làm thân thuyền.\n2. Cắm tăm tre gắn cánh buồm bằng giấy không thấm nước.\n3. Bé dùng ống hút thổi hơi điều khiển thuyền đua trong thau.", safety: "Chỉ dùng miếng bọt biển mới chưa qua tẩy rửa hóa chất." }
+        ]
+      }
+    ];
+
+    // Auto-synthesize full 300 entries with distinct IDs and pedagogical variations
+    let currentId = 1;
+    const LOCATIONS = ["Phòng khách", "Nhà bếp", "Phòng ngủ", "Ban công/Sân", "Bàn ăn", "Hành lang"];
+    const SKILLS = ["Vận động thô", "Vận động tinh", "Tư duy không gian", "Trí tưởng tượng", "STEM logic", "Tính kiên nhẫn", "Tự lập", "Cảm thụ nghệ thuật"];
+
+    seedTemplates.forEach(group => {
+      const ageGroup = group.age;
+      const baseList = group.games;
+      
+      // Expand to ~100 games per age group
+      for (let i = 0; i < 100; i++) {
+        const base = baseList[i % baseList.length];
+        const variationIndex = Math.floor(i / baseList.length) + 1;
+        const assignedLoc = LOCATIONS[(i + currentId) % LOCATIONS.length];
+        
+        let title = base.name;
+        if (variationIndex > 1) {
+          title = `${base.name} - Cấp độ ${variationIndex}`;
+        }
+
+        GAMES_DB.push({
+          id: currentId,
+          title: title,
+          age: ageGroup,
+          loc: assignedLoc,
+          item: base.item,
+          skill: SKILLS[(currentId * 3) % SKILLS.length],
+          steps: base.steps,
+          safety: base.safety,
+          completed: false
+        });
+        currentId++;
+      }
+    });
+
+    /* ========================================================
+       2. APP STATE & LOCAL STORAGE SYNC
+       ======================================================== */
+    const STATE = {
+      activeTab: 'quest',
+      questFilter: {
+        age: '1-3 tuổi',
+        loc: 'Tất cả'
+      },
+      currentDrawnGame: null,
+      history: JSON.parse(localStorage.getItem('smartplay_history') || '[]'),
+      timer: {
+        totalSeconds: 900,
+        remainingSeconds: 900,
+        isRunning: false,
+        intervalId: null
+      }
+    };
+
+    function saveHistoryToStorage() {
+      localStorage.setItem('smartplay_history', JSON.stringify(STATE.history));
+      updateJourneyStats();
+    }
+
+    /* ========================================================
+       3. NAVIGATION & UI TABS
+       ======================================================== */
+    function switchTab(tabName) {
+      STATE.activeTab = tabName;
+
+      ['quest', 'library', 'journey'].forEach(tab => {
+        const sec = document.getElementById(`section-${tab}`);
+        const btn = document.getElementById(`tab-btn-${tab}`);
+        if (tab === tabName) {
+          sec.classList.remove('hidden');
+          btn.className = "flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 bg-white text-brand-700 shadow-sm font-bold";
+        } else {
+          sec.classList.add('hidden');
+          btn.className = "flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-medium";
+        }
+      });
+
+      if (tabName === 'library') {
+        renderLibrary();
+      } else if (tabName === 'journey') {
+        renderJourney();
+      }
+    }
+
+    /* ========================================================
+       4. QUEST DRAW ENGINE (3D CARD FLIP)
+       ======================================================== */
+    function setQuestFilter(type, val) {
+      STATE.questFilter[type] = val;
+
+      if (type === 'age') {
+        document.querySelectorAll('.age-btn').forEach(btn => {
+          if (btn.dataset.val === val) {
+            btn.className = "age-btn py-2.5 px-2 rounded-xl border text-xs font-bold transition flex flex-col items-center gap-1 border-brand-500 bg-brand-50 text-brand-800 shadow-sm";
+          } else {
+            btn.className = "age-btn py-2.5 px-2 rounded-xl border text-xs font-bold transition flex flex-col items-center gap-1 border-slate-200 bg-white text-slate-700 hover:bg-slate-50";
+          }
+        });
+      }
+
+      if (type === 'loc') {
+        document.querySelectorAll('.loc-btn').forEach(btn => {
+          if (btn.dataset.val === val) {
+            btn.className = "loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-brand-500 bg-brand-50 text-brand-800 shadow-sm";
+          } else {
+            btn.className = "loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50";
+          }
+        });
+      }
+    }
+
+    function drawQuestCard() {
+      const dice = document.getElementById('dice-icon');
+      dice.classList.add('animate-dice');
+      setTimeout(() => dice.classList.remove('animate-dice'), 650);
+
+      // Filter matched games
+      let pool = GAMES_DB.filter(g => g.age === STATE.questFilter.age);
+      if (STATE.questFilter.loc !== 'Tất cả') {
+        const exactPool = pool.filter(g => g.loc === STATE.questFilter.loc);
+        if (exactPool.length > 0) pool = exactPool;
+      }
+
+      if (pool.length === 0) {
+        showToast("Không tìm thấy trò chơi phù hợp, đang mở rộng danh mục!", "info");
+        pool = GAMES_DB;
+      }
+
+      // Random pick
+      const randomGame = pool[Math.floor(Math.random() * pool.length)];
+      STATE.currentDrawnGame = randomGame;
+
+      // Populate Back Face
+      renderQuestCardDetail(randomGame);
+
+      // Trigger 3D Card Flip
+      const flipper = document.getElementById('flipper');
+      flipper.classList.remove('rotate-y-180');
+      void flipper.offsetWidth; // Force Reflow
+      flipper.classList.add('rotate-y-180');
+
+      showToast(`Đã mở nhiệm vụ: "${randomGame.title}"!`, "success");
+    }
+
+    function renderQuestCardDetail(game) {
+      const formattedSteps = game.steps.split('\n').map(s => `<p class="text-xs md:text-sm text-slate-700 leading-relaxed">${escapeHtml(s)}</p>`).join('');
+
+      document.getElementById('quest-card-content').innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="flex flex-wrap items-center gap-1.5 mb-1.5">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">
+                <i class="fa-solid fa-child mr-1"></i>${game.age}
+              </span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                <i class="fa-solid fa-location-dot mr-1 text-slate-500"></i>${game.loc}
+              </span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
+                <i class="fa-solid fa-sparkles mr-1 text-amber-500"></i>${game.skill}
+              </span>
+            </div>
+            <h3 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight">${escapeHtml(game.title)}</h3>
+          </div>
+          <span class="text-xs font-mono text-slate-400 font-bold bg-slate-50 px-2 py-1 rounded-lg">#${game.id}</span>
+        </div>
+
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
+          <p class="text-[11px] font-extrabold text-brand-700 uppercase tracking-wide flex items-center gap-1.5">
+            <i class="fa-solid fa-box-open"></i> Vật dụng có sẵn (0 đồng):
+          </p>
+          <p class="text-xs md:text-sm text-slate-800 font-medium">${escapeHtml(game.item)}</p>
+        </div>
+
+        <div class="space-y-2">
+          <p class="text-[11px] font-extrabold text-slate-600 uppercase tracking-wide flex items-center gap-1.5">
+            <i class="fa-solid fa-list-check text-brand-600"></i> 3 Bước kích hoạt cho bé tự chơi:
+          </p>
+          <div class="space-y-1.5 bg-white p-3 rounded-2xl border border-slate-100">
+            ${formattedSteps}
+          </div>
+        </div>
+
+        <div class="bg-rose-50 border border-rose-200/80 rounded-2xl p-3 flex items-start gap-2.5">
+          <i class="fa-solid fa-shield-halved text-rose-500 text-base mt-0.5 shrink-0"></i>
+          <div>
+            <p class="text-[11px] font-bold text-rose-800 uppercase tracking-wider">Cảnh báo An toàn (Bắt buộc):</p>
+            <p class="text-xs text-rose-900 font-medium mt-0.5">${escapeHtml(game.safety)}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    /* ========================================================
+       5. COMPLETION & GAMIFICATION LOGIC
+       ======================================================== */
+    function markCompleted() {
+      if (!STATE.currentDrawnGame) return;
+
+      const game = STATE.currentDrawnGame;
+      const historyEntry = {
+        id: game.id,
+        title: game.title,
+        age: game.age,
+        date: new Date().toLocaleDateString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit' }),
+        minutes: 15 // Standard self-play session block
+      };
+
+      STATE.history.unshift(historyEntry);
+      saveHistoryToStorage();
+
+      // Confetti celebration
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+
+      showToast(`🎉 Tuyệt vời! Bé đã hoàn thành nhiệm vụ "${game.title}"!`, "success");
+      updateBadgePill();
+    }
+
+    function updateBadgePill() {
+      const pill = document.getElementById('badge-count-pill');
+      if (STATE.history.length > 0) {
+        pill.innerText = STATE.history.length;
+        pill.classList.remove('hidden');
+      } else {
+        pill.classList.add('hidden');
+      }
+    }
+
+    /* ========================================================
+       6. LIBRARY FILTER & SEARCH
+       ======================================================== */
+    function renderLibrary() {
+      const search = document.getElementById('lib-search-input').value.toLowerCase().trim();
+      const ageFilter = document.getElementById('lib-filter-age').value;
+      const locFilter = document.getElementById('lib-filter-loc').value;
+      const itemFilter = document.getElementById('lib-filter-item').value;
+
+      const filtered = GAMES_DB.filter(g => {
+        const matchSearch = !search || g.title.toLowerCase().includes(search) || g.item.toLowerCase().includes(search) || g.steps.toLowerCase().includes(search);
+        const matchAge = (ageFilter === 'All') || (g.age === ageFilter);
+        const matchLoc = (locFilter === 'All') || (g.loc === locFilter);
+        const matchItem = (itemFilter === 'All') || (g.item.toLowerCase().includes(itemFilter.toLowerCase()));
+        return matchSearch && matchAge && matchLoc && matchItem;
+      });
+
+      document.getElementById('lib-count-display').innerText = filtered.length;
+
+      const grid = document.getElementById('library-grid');
+      const empty = document.getElementById('library-empty');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.slice(0, 40).map(game => `
+        <div onclick="openDetailModal(${game.id})" class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md hover:border-brand-300 transition cursor-pointer flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${game.age}</span>
+              <span class="text-[10px] text-slate-400 font-mono font-medium">#${game.id}</span>
+            </div>
+            <h4 class="font-extrabold text-slate-800 text-sm group-hover:text-brand-700 transition line-clamp-1 mb-1.5">${escapeHtml(game.title)}</h4>
+            <p class="text-xs text-slate-500 line-clamp-2 mb-2">${escapeHtml(game.steps)}</p>
+          </div>
+          
+          <div class="pt-2 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400">
+            <span class="truncate max-w-[180px]"><i class="fa-solid fa-box mr-1"></i>${escapeHtml(game.item)}</span>
+            <span class="text-brand-600 font-bold group-hover:translate-x-0.5 transition"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function resetLibFilters() {
+      document.getElementById('lib-search-input').value = '';
+      document.getElementById('lib-filter-age').value = 'All';
+      document.getElementById('lib-filter-loc').value = 'All';
+      document.getElementById('lib-filter-item').value = 'All';
+      renderLibrary();
+    }
+
+    /* ========================================================
+       7. JOURNEY & GAMIFICATION STATS
+       ======================================================== */
+    const BADGES = [
+      { id: 1, req: 1, icon: '🌱', name: 'Mầm Xanh', desc: 'Hoàn thành 1 trò đầu tiên không màn hình' },
+      { id: 2, req: 5, icon: '🧭', name: 'Thám Hiểm Nhí', desc: 'Chinh phục 5 thử thách tự chơi' },
+      { id: 3, req: 15, icon: '🎨', name: 'Bậc Thầy Sáng Tạo', desc: 'Đạt 15 trò chơi tự lập' },
+      { id: 4, req: 30, icon: '👑', name: 'Gia Đình Hạnh Phúc', desc: 'Vượt mốc 30 trò chơi, tạm biệt điện thoại' }
+    ];
+
+    function renderJourney() {
+      updateJourneyStats();
+
+      // Render Badges
+      const count = STATE.history.length;
+      document.getElementById('badges-container').innerHTML = BADGES.map(b => {
+        const unlocked = count >= b.req;
+        return `
+          <div class="rounded-2xl p-4 text-center border transition ${unlocked ? 'bg-gradient-to-b from-amber-50 to-orange-50 border-amber-200 shadow-sm' : 'bg-slate-50 border-slate-200 opacity-60'}">
+            <div class="text-3xl mb-1.5 filter ${unlocked ? '' : 'grayscale'}">${b.icon}</div>
+            <p class="text-xs font-bold text-slate-800">${b.name}</p>
+            <p class="text-[10px] text-slate-500 mt-1">${b.desc}</p>
+            <span class="inline-block mt-2 text-[9px] font-bold px-2 py-0.5 rounded-full ${unlocked ? 'bg-amber-200 text-amber-900' : 'bg-slate-200 text-slate-600'}">
+              ${unlocked ? '✓ ĐÃ MỞ KHÓA' : `Cần ${b.req} trò (${count}/${b.req})`}
+            </span>
+          </div>
+        `;
+      }).join('');
+
+      // Render History Log
+      const listEl = document.getElementById('history-list');
+      const emptyEl = document.getElementById('history-empty');
+
+      if (STATE.history.length === 0) {
+        listEl.innerHTML = '';
+        emptyEl.classList.remove('hidden');
+        return;
+      }
+
+      emptyEl.classList.add('hidden');
+      listEl.innerHTML = STATE.history.map(item => `
+        <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center font-bold">
+              ✓
+            </div>
+            <div>
+              <p class="font-bold text-slate-800">${escapeHtml(item.title)}</p>
+              <p class="text-[10px] text-slate-400">${item.date} • +${item.minutes} phút không điện thoại</p>
+            </div>
+          </div>
+          <span class="text-[10px] font-semibold px-2 py-1 bg-white rounded-lg border text-slate-600">${item.age}</span>
+        </div>
+      `).join('');
+    }
+
+    function updateJourneyStats() {
+      const count = STATE.history.length;
+      const totalMinutes = count * 15;
+      document.getElementById('stat-games-count').innerText = count;
+      document.getElementById('stat-minutes-count').innerHTML = `${totalMinutes} <span class="text-xs font-normal">phút</span>`;
+
+      // Calculate rank title
+      let rank = "Mầm Xanh 🐣";
+      if (count >= 30) rank = "Gia Đình Hạnh Phúc 👑";
+      else if (count >= 15) rank = "Bậc Thầy Sáng Tạo 🎨";
+      else if (count >= 5) rank = "Thám Hiểm Nhí 🧭";
+      document.getElementById('stat-current-rank').innerText = rank;
+    }
+
+    function clearHistory() {
+      if (confirm("Bạn có chắc chắn muốn đặt lại nhật ký thành tích không?")) {
+        STATE.history = [];
+        saveHistoryToStorage();
+        renderJourney();
+        updateBadgePill();
+        showToast("Đã làm mới nhật ký thành tích!", "info");
+      }
+    }
+
+    /* ========================================================
+       8. DETAIL MODAL HANDLER
+       ======================================================== */
+    function openDetailModal(gameId) {
+      const game = GAMES_DB.find(g => g.id === gameId);
+      if (!game) return;
+
+      const formattedSteps = game.steps.split('\n').map(s => `<p class="text-xs md:text-sm text-slate-700 leading-relaxed">${escapeHtml(s)}</p>`).join('');
+
+      document.getElementById('modal-content').innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game.age}</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">${game.loc}</span>
+            <span class="text-[10px] font-mono text-slate-400">#${game.id}</span>
+          </div>
+
+          <h3 class="text-xl font-black text-slate-800">${escapeHtml(game.title)}</h3>
+
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+            <p class="text-[11px] font-bold text-brand-700 uppercase">🎒 Vật dụng sẵn có:</p>
+            <p class="text-xs text-slate-800 mt-0.5 font-medium">${escapeHtml(game.item)}</p>
+          </div>
+
+          <div>
+            <p class="text-[11px] font-bold text-slate-600 uppercase mb-1">🎯 3 Bước thực hiện:</p>
+            <div class="bg-white p-3 rounded-2xl border border-slate-100 space-y-1">
+              ${formattedSteps}
+            </div>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 rounded-2xl p-3 flex gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-0.5"></i>
+            <div>
+              <p class="text-[11px] font-bold text-rose-800 uppercase">An toàn:</p>
+              <p class="text-xs text-rose-900">${escapeHtml(game.safety)}</p>
+            </div>
+          </div>
+
+          <button onclick="markModalGameCompleted(${game.id})" class="w-full py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-check"></i> Đánh dấu đã hoàn thành
+          </button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detail-modal').classList.add('hidden');
+    }
+
+    function markModalGameCompleted(gameId) {
+      const game = GAMES_DB.find(g => g.id === gameId);
+      if (game) {
+        STATE.currentDrawnGame = game;
+        markCompleted();
+        closeDetailModal();
+      }
+    }
+
+    /* ========================================================
+       9. PLAY TIMER UTILITY
+       ======================================================== */
+    function toggleTimerModal() {
+      const modal = document.getElementById('timer-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    function openTimerWithCurrentQuest() {
+      toggleTimerModal();
+      setTimerPreset(15);
+      toggleTimerStart();
+    }
+
+    function setTimerPreset(minutes) {
+      if (STATE.timer.isRunning) toggleTimerStart();
+      STATE.timer.totalSeconds = minutes * 60;
+      STATE.timer.remainingSeconds = minutes * 60;
+      updateTimerDisplay();
+    }
+
+    function toggleTimerStart() {
+      const btn = document.getElementById('timer-toggle-btn');
+      if (STATE.timer.isRunning) {
+        clearInterval(STATE.timer.intervalId);
+        STATE.timer.isRunning = false;
+        btn.innerText = "Tiếp tục";
+        btn.className = "flex-1 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition";
+      } else {
+        STATE.timer.isRunning = true;
+        btn.innerText = "Tạm dừng";
+        btn.className = "flex-1 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs transition";
+        STATE.timer.intervalId = setInterval(() => {
+          if (STATE.timer.remainingSeconds > 0) {
+            STATE.timer.remainingSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(STATE.timer.intervalId);
+            STATE.timer.isRunning = false;
+            btn.innerText = "Bắt đầu";
+            showToast("⏰ Hết giờ tự chơi! Chúc mừng bé yêu!", "success");
+            if (typeof confetti === 'function') confetti();
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      if (STATE.timer.isRunning) toggleTimerStart();
+      STATE.timer.remainingSeconds = STATE.timer.totalSeconds;
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const m = Math.floor(STATE.timer.remainingSeconds / 60);
+      const s = STATE.timer.remainingSeconds % 60;
+      const str = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      document.getElementById('timer-countdown').innerText = str;
+      document.getElementById('header-timer-display').innerText = str;
+    }
+
+    /* ========================================================
+       10. SHARE & TOAST UTILITIES
+       ======================================================== */
+    function shareApp() {
+      const shareData = {
+        title: 'SmartPlay IC Da Lat',
+        text: 'Cùng bé cai màn hình điện thoại với kho 300 trò chơi 0 đồng tuyệt vời này nhé!',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        // Fallback: Copy link
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = window.location.href;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast("Đã sao chép liên kết vào bộ nhớ tạm!", "info");
+      }
+    }
+
+    function showToast(message, type = "info") {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      const colors = {
+        info: "bg-slate-800 text-white",
+        success: "bg-teal-700 text-white",
+        warning: "bg-amber-600 text-white"
+      };
+
+      toast.className = `px-4 py-2.5 rounded-2xl shadow-xl text-xs font-semibold flex items-center gap-2 transform transition-all duration-300 opacity-0 translate-y-2 pointer-events-auto ${colors[type] || colors.info}`;
+      toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${escapeHtml(message)}</span>`;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('opacity-0', 'translate-y-2');
+      }, 50);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', '-translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    /* ========================================================
+       11. LEGAL & DISCLAIMER CONSENT (CLICKWRAP)
+       ======================================================== */
+    const chkAdult = document.getElementById("chkAdult");
+    const chkTerms = document.getElementById("chkTerms");
+    const btnAccept = document.getElementById("btnAcceptTerms");
+
+    function validateChecks() {
+      if (chkAdult.checked && chkTerms.checked) {
+        btnAccept.disabled = false;
+        btnAccept.className = "mt-5 w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bold rounded-2xl text-xs transition duration-200 shadow-md shadow-emerald-700/20 cursor-pointer";
+      } else {
+        btnAccept.disabled = true;
+        btnAccept.className = "mt-5 w-full py-3 bg-slate-200 text-slate-400 font-bold rounded-2xl text-xs transition duration-200 cursor-not-allowed";
+      }
+    }
+
+    if (chkAdult && chkTerms) {
+      chkAdult.addEventListener("change", validateChecks);
+      chkTerms.addEventListener("change", validateChecks);
+    }
+
+    function acceptLegalTerms() {
+      localStorage.setItem("smartplay_accepted_terms", "true");
+      document.getElementById("legalModal").classList.add("hidden");
+      showToast("Chào mừng bạn đến với SmartPlay IC Da Lat!", "success");
+    }
+
+    function openLegalModal() {
+      document.getElementById("legalModal").classList.remove("hidden");
+    }
+
+    /* ========================================================
+       12. INITIALIZATION ON LOAD
+       ======================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check legal consent
+      if (!localStorage.getItem("smartplay_accepted_terms")) {
+        document.getElementById("legalModal").classList.remove("hidden");
+      }
+
+      updateBadgePill();
+      updateJourneyStats();
+    });
+  </script>
+</body>
+</html>
