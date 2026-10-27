@@ -58,9 +58,17 @@
   <!-- LEGAL DISCLAIMER MODAL -->
   <div id="legalModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100">
-      <div class="flex items-center gap-2.5 text-amber-600 mb-3">
-        <span class="text-2xl">🛡️</span>
-        <h3 class="font-bold text-slate-800 text-lg" data-i18n="termsTitle">Cam Kết An Toàn & Điều Khoản</h3>
+      
+      <!-- Header Modal có nút chuyển ngôn ngữ trực tiếp -->
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2 text-amber-600">
+          <span class="text-2xl">🛡️</span>
+          <h3 class="font-bold text-slate-800 text-base md:text-lg" data-i18n="termsTitle">Cam Kết An Toàn & Điều Khoản</h3>
+        </div>
+        <div class="flex items-center bg-slate-100 rounded-xl p-0.5 text-xs font-bold border border-slate-200">
+          <button id="modal-lang-vi" onclick="switchLanguage('vi')" class="px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold">🇻🇳 VI</button>
+          <button id="modal-lang-en" onclick="switchLanguage('en')" class="px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold">🇬🇧 EN</button>
+        </div>
       </div>
       
       <div id="terms-body" class="text-xs text-slate-600 space-y-2 max-h-48 overflow-y-auto p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 leading-relaxed">
@@ -115,7 +123,7 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <!-- Language Switcher -->
+        <!-- Language Switcher Header -->
         <div class="flex items-center bg-slate-100 rounded-xl p-0.5 text-xs font-bold border border-slate-200">
           <button id="lang-btn-vi" onclick="switchLanguage('vi')" class="px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition">🇻🇳 VI</button>
           <button id="lang-btn-en" onclick="switchLanguage('en')" class="px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition">🇬🇧 EN</button>
@@ -134,13 +142,13 @@
 
     <!-- NAVIGATION TABS -->
     <div class="flex p-1 bg-slate-200/80 rounded-2xl mb-6 max-w-md mx-auto shadow-inner text-sm font-semibold">
-      <button id="tab-btn-quest" onclick="switchTab('quest')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 bg-white text-brand-700 shadow-sm">
+      <button id="tab-btn-quest" onclick="switchTab('quest')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 bg-white text-brand-700 shadow-sm font-bold">
         <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="tabQuest">Bốc Thẻ</span>
       </button>
-      <button id="tab-btn-library" onclick="switchTab('library')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
+      <button id="tab-btn-library" onclick="switchTab('library')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-medium">
         <i class="fa-solid fa-book-open"></i> <span data-i18n="tabLib">Kho 300 Trò</span>
       </button>
-      <button id="tab-btn-journey" onclick="switchTab('journey')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 relative">
+      <button id="tab-btn-journey" onclick="switchTab('journey')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-medium relative">
         <i class="fa-solid fa-award"></i> <span data-i18n="tabJourney">Nhật Ký</span>
         <span id="badge-count-pill" class="hidden text-[10px] bg-coral-500 text-white font-bold px-1.5 py-0.2 rounded-full">0</span>
       </button>
@@ -179,7 +187,7 @@
             <i class="fa-solid fa-location-dot text-brand-600"></i> <span data-i18n="locHeading">2. Bé đang ở đâu trong nhà?</span>
           </label>
           <div class="flex flex-wrap gap-1.5" id="quest-loc-selector">
-            <button onclick="setQuestFilter('loc', 'Tất cả')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-brand-500 bg-brand-50 text-brand-800" data-val="Tất cả" data-i18n="locAll">Tất cả vị trí</button>
+            <button onclick="setQuestFilter('loc', 'Tất cả')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-brand-500 bg-brand-50 text-brand-800 shadow-sm" data-val="Tất cả" data-i18n="locAll">Tất cả vị trí</button>
             <button onclick="setQuestFilter('loc', 'Phòng khách')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Phòng khách" data-i18n="locLiving">🛋️ Phòng khách</button>
             <button onclick="setQuestFilter('loc', 'Nhà bếp')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Nhà bếp" data-i18n="locKitchen">🍳 Nhà bếp</button>
             <button onclick="setQuestFilter('loc', 'Phòng ngủ')" class="loc-btn px-3 py-1.5 rounded-xl border text-xs font-medium transition border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-val="Phòng ngủ" data-i18n="locBedroom">🛏️ Phòng ngủ</button>
@@ -436,20 +444,39 @@
       }
     };
 
-    let currentLang = localStorage.getItem('smartplay_lang') || 'vi';
+    // Tự động nhận diện ngôn ngữ máy khách (trình duyệt)
+    const browserLang = navigator.language || navigator.userLanguage || 'vi';
+    const defaultLang = browserLang.toLowerCase().startsWith('vi') ? 'vi' : 'en';
+    let currentLang = localStorage.getItem('smartplay_lang') || defaultLang;
 
     function switchLanguage(lang) {
       currentLang = lang;
       localStorage.setItem('smartplay_lang', lang);
 
+      // Cập nhật nút trên Header
       const btnVi = document.getElementById('lang-btn-vi');
       const btnEn = document.getElementById('lang-btn-en');
-      if (lang === 'vi') {
-        btnVi.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-        btnEn.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
-      } else {
-        btnEn.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-        btnVi.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
+      if (btnVi && btnEn) {
+        if (lang === 'vi') {
+          btnVi.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
+          btnEn.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
+        } else {
+          btnEn.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
+          btnVi.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
+        }
+      }
+
+      // Cập nhật nút trên Modal Điều khoản
+      const mBtnVi = document.getElementById('modal-lang-vi');
+      const mBtnEn = document.getElementById('modal-lang-en');
+      if (mBtnVi && mBtnEn) {
+        if (lang === 'vi') {
+          mBtnVi.className = "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
+          mBtnEn.className = "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
+        } else {
+          mBtnEn.className = "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
+          mBtnVi.className = "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
+        }
       }
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
