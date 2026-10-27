@@ -414,9 +414,29 @@
         <!-- Quick prompt chips -->
         <div class="flex flex-wrap gap-1.5 items-center">
           <span class="text-[11px] font-bold text-slate-400 mr-1">Gợi ý mẫu:</span>
-          <button onclick="fillAiPrompt('1 hộp sữa rỗng và 3 chiếc đũa, bé 3 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">📦 Hộp sữa + Đũa (3 tuổi)</button>
-          <button onclick="fillAiPrompt('5 chiếc kẹp quần áo và 1 rổ nhựa, bé 4 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🧺 Kẹp áo + Rổ (4 tuổi)</button>
-          <button onclick="fillAiPrompt('2 cốc giấy và 1 cuộn băng dính, bé 6 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🥤 Cốc giấy + Băng dính (6 tuổi)</button>
+          <button onclick="fillAiPrompt('1 hộp sữa rỗng và 3 chiếc đũa, bé 3 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">📦 Hộp sữa + Đũa (3t)</button>
+          <button onclick="fillAiPrompt('5 chiếc kẹp quần áo và 1 rổ nhựa, bé 4 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🧺 Kẹp áo + Rổ (4t)</button>
+          <button onclick="fillAiPrompt('1 chai nhựa rỗng và 10 cúc áo, bé 4 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🍼 Chai nhựa + Cúc áo (4t)</button>
+          <button onclick="fillAiPrompt('2 cốc giấy và 1 cuộn băng dính, bé 6 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🥤 Cốc giấy + Băng dính (6t)</button>
+        </div>
+
+        <!-- Gemini API Key configuration toggle (Optional / Pro) -->
+        <div class="pt-1">
+          <details class="text-xs text-slate-500 bg-slate-50 rounded-2xl p-3 border border-slate-200/70">
+            <summary class="font-bold cursor-pointer text-brand-700 flex items-center justify-between">
+              <span>⚙️ Kết nối Gemini AI trực tiếp (Google Gemini API)</span>
+              <span id="gemini-status-tag" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 font-semibold">Chưa gắn key</span>
+            </summary>
+            <div class="mt-3 space-y-2 text-[11px]">
+              <p class="text-slate-600">Dán <strong>Gemini API Key</strong> miễn phí từ <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-brand-600 font-bold underline">Google AI Studio</a> để kích hoạt trí tuệ nhân tạo Gemini 2.5 Flash thực thụ 100%:</p>
+              <div class="flex gap-2">
+                <input type="password" id="gemini-api-key-input" placeholder="AIzaSy..." class="flex-1 px-3 py-1.5 rounded-xl border border-slate-200 font-mono text-xs">
+                <button onclick="saveGeminiApiKey()" class="px-3 py-1.5 bg-brand-700 hover:bg-brand-800 text-white font-bold rounded-xl transition">Lưu Key</button>
+                <button onclick="clearGeminiApiKey()" class="px-2.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-600 font-semibold rounded-xl transition" title="Xóa">Xóa</button>
+              </div>
+              <p class="text-[10px] text-slate-400">Khóa API được lưu an toàn trực tiếp trên trình duyệt của bạn (localStorage), không gửi đi bên thứ ba.</p>
+            </div>
+          </details>
         </div>
 
         <!-- Generate Button -->
@@ -1313,10 +1333,11 @@
 
     
     /* ========================================================
-       AI PROMPT PLAY ASSISTANT & PILOT PAYWALL SYSTEM
+       AI PROMPT PLAY ASSISTANT & PILOT PAYWALL SYSTEM (GEMINI READY)
        ======================================================== */
     let isVipUser = localStorage.getItem('smartplay_is_vip') === 'true';
     let aiQuota = parseInt(localStorage.getItem('smartplay_ai_quota') !== null ? localStorage.getItem('smartplay_ai_quota') : '3');
+    let geminiApiKey = localStorage.getItem('smartplay_gemini_api_key') || '';
     let currentGeneratedAiGame = null;
 
     function updateAiQuotaDisplay() {
@@ -1338,6 +1359,45 @@
           }
         }
       }
+      updateGeminiKeyStatus();
+    }
+
+    function updateGeminiKeyStatus() {
+      const tag = document.getElementById('gemini-status-tag');
+      const input = document.getElementById('gemini-api-key-input');
+      if (geminiApiKey) {
+        if (tag) {
+          tag.innerText = "✓ Đã kết nối Gemini 2.5 Flash";
+          tag.className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold";
+        }
+        if (input && !input.value) input.value = geminiApiKey;
+      } else {
+        if (tag) {
+          tag.innerText = "Mô phỏng sư phạm (Chưa gắn key)";
+          tag.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 font-semibold";
+        }
+      }
+    }
+
+    function saveGeminiApiKey() {
+      const key = (document.getElementById('gemini-api-key-input').value || '').trim();
+      if (!key) {
+        showToast("Vui lòng nhập API Key từ Google AI Studio!", "warning");
+        return;
+      }
+      geminiApiKey = key;
+      localStorage.setItem('smartplay_gemini_api_key', key);
+      updateGeminiKeyStatus();
+      showToast("✓ Đã lưu Gemini API Key thành công!", "success");
+    }
+
+    function clearGeminiApiKey() {
+      geminiApiKey = '';
+      localStorage.removeItem('smartplay_gemini_api_key');
+      const input = document.getElementById('gemini-api-key-input');
+      if (input) input.value = '';
+      updateGeminiKeyStatus();
+      showToast("Đã xóa API Key, chuyển sang chế độ sư phạm mặc định.", "info");
     }
 
     function openVipModal() {
@@ -1385,15 +1445,30 @@
       const btnIcon = document.getElementById('ai-btn-icon');
 
       btn.disabled = true;
-      btnText.innerText = "AI ĐANG PHÂN TÍCH VẬT DỤNG & THIẾT KẾ...";
+      btnText.innerText = geminiApiKey ? "GEMINI AI ĐANG SUY NGHĨ & THIẾT KẾ..." : "AI ĐANG PHÂN TÍCH VẬT DỤNG SƯ PHẠM...";
       btnIcon.className = "fa-solid fa-spinner fa-spin text-sun-300";
 
-      // Simulate Pedagogical Analysis
-      setTimeout(() => {
+      let resultGame = null;
+
+      try {
+        if (geminiApiKey) {
+          resultGame = await callRealGeminiApi(promptInput, geminiApiKey);
+        } else {
+          // Fallback: Rich Dynamic Pedagogical Heuristics Engine
+          await new Promise(r => setTimeout(r, 900));
+          resultGame = synthesizeDynamicPedagogicalPlay(promptInput);
+        }
+      } catch (err) {
+        console.warn("Lỗi gọi Gemini API (sẽ dùng bộ máy sư phạm nội bộ):", err);
+        showToast("Kết nối Gemini gián đoạn, đang chuyển sang bộ máy sư phạm nội bộ!", "info");
+        resultGame = synthesizeDynamicPedagogicalPlay(promptInput);
+      } finally {
         btn.disabled = false;
         btnText.innerText = "AI PHÁT MINH TRÒ CHƠI NGAY";
         btnIcon.className = "fa-solid fa-sparkles text-sun-400";
+      }
 
+      if (resultGame) {
         // Deduct trial quota if not VIP
         if (!isVipUser) {
           aiQuota = Math.max(0, aiQuota - 1);
@@ -1401,57 +1476,190 @@
           updateAiQuotaDisplay();
         }
 
-        // Generate tailored pedagogical game
-        currentGeneratedAiGame = synthesizeCustomAiPlay(promptInput);
-        renderAiResultCard(currentGeneratedAiGame);
+        currentGeneratedAiGame = resultGame;
+        renderAiResultCard(resultGame);
 
-        document.getElementById('ai-result-stage').classList.remove('hidden');
-        document.getElementById('ai-result-stage').scrollIntoView({ behavior: 'smooth' });
+        const stage = document.getElementById('ai-result-stage');
+        stage.classList.remove('hidden');
+        stage.scrollIntoView({ behavior: 'smooth' });
 
         showToast("✨ AI đã phát minh xong trò chơi độc bản cho bé!", "success");
         if (typeof confetti === 'function') confetti({ particleCount: 50, spread: 60 });
-      }, 1200);
+      }
     }
 
-    function synthesizeCustomAiPlay(prompt) {
+    async function callRealGeminiApi(userPrompt, apiKey) {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
+      
+      const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
+Nhiệm vụ: Dựa vào đồ vật gia đình 0 đồng và độ tuổi người dùng nhập, hãy sáng tạo ra một trò chơi độc bản giúp trẻ tự chơi độc lập 15-30 phút không dùng màn hình điện thoại.
+
+Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗi JSON hợp lệ (không kèm markdown \`\`\`json) với cấu trúc sau:
+{
+  "title": "Tên trò chơi sáng tạo, hấp dẫn trẻ em",
+  "age": "Độ tuổi phù hợp (ví dụ: 1-3 tuổi, 4-5 tuổi, hoặc 6-8 tuổi)",
+  "skill": "Kỹ năng trọng tâm (ví dụ: Vận động tinh, Tư duy STEM, Phối hợp tay mắt...)",
+  "items": "Vật dụng cần thiết được tinh chỉnh từ yêu cầu người dùng",
+  "steps": "1. [Bước chuẩn bị]\n2. [Bước kích hoạt nhiệm vụ]\n3. [Bước phát triển/hoàn thành]",
+  "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
+}`;
+
+      const payload = {
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: `${systemInstruction}\n\nYêu cầu từ phụ huynh: "${userPrompt}"` }]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          responseMimeType: "application/json"
+        }
+      };
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gemini API Error ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+      const cleanJson = rawText.replace(/```json/g, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(cleanJson);
+
+      return {
+        'STT': 'AI-' + Math.floor(1000 + Math.random() * 9000),
+        'Tên trò chơi': parsed.title || "Trò Chơi Sáng Tạo Tức Thì",
+        'Độ tuổi': parsed.age || "Mầm non",
+        'Vị trí / Không gian': "Trong nhà",
+        'Vật dụng chính (0đ)': parsed.items || userPrompt,
+        'Kỹ năng phát triển': parsed.skill || "Tự chơi độc lập & Sáng tạo",
+        'Cách chơi (Nhiệm vụ 3 bước)': parsed.steps || "1. Chuẩn bị vật dụng.\n2. Bé tự khám phá.\n3. Kể lại trải nghiệm cùng mẹ.",
+        'Rà soát An toàn (Safety Rule)': parsed.safety || "Giám sát an toàn từ xa, đảm bảo vật dụng sạch sẽ."
+      };
+    }
+
+    // Bộ máy sư phạm thích ứng đa chiều nội bộ (Enhanced Dynamic Combinatorial Heuristic)
+    function synthesizeDynamicPedagogicalPlay(prompt) {
       const lower = prompt.toLowerCase();
-      let age = "3-5 tuổi";
-      if (lower.includes('1') || lower.includes('2')) age = "1-3 tuổi";
-      else if (lower.includes('4') || lower.includes('5')) age = "4-5 tuổi";
-      else if (lower.includes('6') || lower.includes('7') || lower.includes('8')) age = "6-8 tuổi";
+      
+      // 1. Phân tích độ tuổi chính xác
+      let ageGroup = "4-5 tuổi";
+      let ageNum = 4;
+      if (lower.includes('1') || lower.includes('2') || lower.includes('1 tuổi') || lower.includes('2 tuổi') || lower.includes('3 tuổi')) {
+        ageGroup = "1-3 tuổi";
+        ageNum = lower.includes('1') ? 1 : (lower.includes('2') ? 2 : 3);
+      } else if (lower.includes('6') || lower.includes('7') || lower.includes('8')) {
+        ageGroup = "6-8 tuổi";
+        ageNum = lower.includes('6') ? 6 : (lower.includes('7') ? 7 : 8);
+      } else if (lower.includes('4') || lower.includes('5')) {
+        ageGroup = "4-5 tuổi";
+        ageNum = lower.includes('5') ? 5 : 4;
+      }
 
-      let title = "Đấu Trường Sáng Tạo Tí Hon";
-      let skill = "Tư duy Sáng tạo & Phối hợp Vận động";
+      // 2. Nhận diện các vật thể thực tế
+      const hasMilk = lower.includes('hộp sữa') || lower.includes('vỏ sữa');
+      const hasBox = lower.includes('thùng') || lower.includes('hộp carton') || lower.includes('hộp bánh');
+      const hasChopsticks = lower.includes('đũa') || lower.includes('que');
+      const hasBottle = lower.includes('chai') || lower.includes('lọ');
+      const hasButtons = lower.includes('cúc') || lower.includes('nút áo');
+      const hasTape = lower.includes('băng dính') || lower.includes('băng keo');
+      const hasCups = lower.includes('cốc') || lower.includes('ly');
+      const hasClips = lower.includes('kẹp') || lower.includes('kẹp áo');
+      const hasBasket = lower.includes('rổ') || lower.includes('chậu') || lower.includes('thau');
+      const hasSocks = lower.includes('tất') || lower.includes('vớ');
+      const hasPaper = lower.includes('giấy') || lower.includes('báo');
+      const hasPillow = lower.includes('gối') || lower.includes('chăn') || lower.includes('đệm');
+      const hasLeaves = lower.includes('lá') || lower.includes('cây');
+      const hasWater = lower.includes('nước');
+
+      let title = "";
+      let skill = "";
       let steps = "";
-      let safety = "Đảm bảo các vật dụng nhẵn tròn, không góc nhọn hay cạnh kim loại sắc.";
+      let safety = "";
 
-      if (lower.includes('hộp sữa') || lower.includes('đũa') || lower.includes('hộp')) {
-        title = "Thử Thách Thả Cột Trụ & Gõ Trống Hộp Sữa";
-        skill = "Vận động tinh, Khéo léo tay - mắt & Cảm thụ tiết tấu";
-        steps = "1. Mẹ khoét 3 lỗ nhỏ vừa chiếc đũa trên nắp hộp sữa.\n2. Bé đóng vai chú thỏ thợ xây tập cắm từng chiếc đũa vào lỗ hộp.\n3. Rút đũa ra gõ nhịp điệu bài hát vui nhộn lên thân hộp sữa.";
-        safety = "Rửa sạch hộp sữa trước khi chơi, kiểm tra đũa gỗ không có dằm xước.";
-      } else if (lower.includes('kẹp') || lower.includes('rổ') || lower.includes('khăn')) {
-        title = "Biệt Đội Giải Cứu Rổ Nhựa Đa Sắc";
-        skill = "Tăng cường lực cơ ngón tay (chuẩn bị cầm bút) & Phân loại màu";
-        steps = "1. Rải các kẹp quần áo xung quanh thành rổ nhựa.\n2. Bé dùng ngón cái và ngón trỏ bóp kẹp để gỡ từng chiếc kẹp thả vào đáy rổ.\n3. Thử thách nâng cao: Kẹp các dải khăn tay nối dài quanh mép rổ.";
-        safety = "Dùng kẹp nhựa lò xo nhẹ lực, kiểm tra mép rổ không có bavia nhựa sắc.";
-      } else if (lower.includes('cốc') || lower.includes('băng dính') || lower.includes('giấy')) {
-        title = "Kiến Trúc Sư Tòa Tháp Cốc & Cầu Băng Dính";
-        skill = "Tư duy Không gian STEM, Tính kiên nhẫn & Cân bằng vật lý";
-        steps = "1. Dán 2 dải băng dính song song trên bàn tạo làn đường.\n2. Bé xếp các cốc chồng lên nhau thành kim tự tháp mà không làm đổ.\n3. Lăn quả cầu giấy nhỏ dọc theo dải băng dính để xô đổ tháp cốc.";
-        safety = "Chỉ dùng cốc giấy hoặc cốc nhựa dẻo, không dùng đồ thủy tinh hoặc gốm sứ.";
+      // 3. Phối hợp sư phạm theo vật dụng và độ tuổi
+      if (hasMilk && hasChopsticks) {
+        if (ageNum <= 3) {
+          title = "Đại Tiệc Cắm Đũa Ốc Sên Hộp Sữa";
+          skill = "Vận động tinh đầu ngón tay & Phối hợp tay mắt cơ bản";
+          steps = "1. Mẹ dùng mũi kéo đục sẵn 4-5 lỗ nhỏ trên mặt hộp sữa.\n2. Bé cầm từng chiếc đũa khéo léo nhắm đúng lỗ cắm vào trong hộp.\n3. Nhấc hộp sữa lên lắc xem tạo thành âm thanh lục cục vui tai ra sao.";
+          safety = "Rửa sạch và phơi khô hộp sữa, chọn đũa tre tròn không dằm gai.";
+        } else if (ageNum <= 5) {
+          title = "Trạm Đánh Trống Tiết Tấu & Cột Cờ Hộp Sữa";
+          skill = "Cảm thụ nhịp điệu âm nhạc, Khéo léo & Đếm số lượng";
+          steps = "1. Cắm 3 chiếc đũa dựng đứng trên hộp sữa làm 3 cột mốc cờ hiệu.\n2. Bé dùng đũa gõ vào các mặt hộp sữa theo nhịp: '1-2 gõ nhẹ, 3 gõ vang'.\n3. Thử thách: Gấp giấy nhỏ gắn lên đầu đũa làm lá cờ trang trí.";
+          safety = "Kiểm tra đầu đũa nhẵn nhụi, không hướng đũa vào mặt người khác.";
+        } else {
+          title = "Cần Cẩu Đòn Bẩy STEM Hộp Sữa & Đũa";
+          skill = "Nguyên lý Cơ học đòn bẩy STEM & Khả năng giải quyết vấn đề";
+          steps = "1. Dùng 2 chiếc đũa làm trục đỡ chữ X, 1 chiếc đũa làm thanh bập bênh đặt trên hộp sữa.\n2. Bé đặt các vật nhỏ ở một đầu đũa rồi nhấn đầu kia để phóng vật nhỏ vào rổ.\n3. Thử nghiệm dịch chuyển điểm tựa hộp sữa để xem khoảng cách bắn xa nhất.";
+          safety = "Bắn thử bằng đồ vật mềm (cục bông, giấy vo viên), không bắn đồ cứng nhọn.";
+        }
+      } else if (hasBottle && hasButtons) {
+        if (ageNum <= 3) {
+          title = "Nuôi Chú Cá Chai Nhựa Bằng Cúc Áo Khổng Lồ";
+          skill = "Kỹ năng cầm nắm ba ngón (Pincer Grasp) & Tập trung chú ý";
+          steps = "1. Mở nắp chai nhựa trong suốt đặt trước mặt bé.\n2. Bé nhặt từng chiếc cúc áo to thả lọt qua miệng chai, nghe tiếng rơi 'lách cách'.\n3. Vặn nắp chai lại và biến thành chiếc bình lắc âm nhạc diệu kỳ.";
+          safety = "Chỉ dùng cúc áo đường kính >3.5cm để chống nguy cơ hóc cho bé dưới 3 tuổi.";
+        } else if (ageNum <= 5) {
+          title = "Nhà Phân Loại Học: Cúc Áo Cầu Vồng Trong Chai";
+          skill = "Tư duy phân loại màu sắc, Đếm số lượng & Kiên nhẫn";
+          steps = "1. Rải cúc áo ra bàn, mẹ đưa ra thử thách: 'Chỉ nhặt cúc màu đỏ bỏ vào chai'.\n2. Bé đếm to từng chiếc cúc khi thả vào miệng chai: 1, 2, 3... đến 10.\n3. Thử thách lắc chai điều khiển sao cho các cúc xếp chồng lên nhau.";
+          safety = "Nhắc bé không đưa cúc áo vào miệng, cất gọn cúc thừa sau khi chơi.";
+        } else {
+          title = "Đồng Hồ Cát Trọng Lực & Thử Thách Mật Mã Cúc Áo";
+          skill = "Khái niệm Thời gian, Xác suất thống kê & Mật mã logic";
+          steps = "1. Quy ước: Cúc đỏ = 1 điểm, cúc xanh = 2 điểm, cúc trắng = 5 điểm.\n2. Bé nhắm mắt rút ngẫu nhiên 5 chiếc cúc từ chai nhựa và tự tính tổng điểm.\n3. Tự viết bảng điểm thi đấu với bố mẹ xem ai đạt 20 điểm trước.";
+          safety = "Dùng chai nhựa sạch, không có cạnh nhựa sắc cắt tay.";
+        }
+      } else if (hasClips && (hasBasket || hasBox)) {
+        title = "Biệt Đội Kẹp Áo Vệ Binh Ranh Giới";
+        skill = "Luyện lực cơ ngón tay (tiền đề viết chữ) & Định hướng không gian";
+        steps = "1. Đặt rổ hoặc hộp carton ở giữa thảm chơi.\n2. Bé dùng ngón trỏ và ngón cái bóp kẹp áo gắn đều quanh miệng viền rổ thành hàng rào.\n3. Đếm xem có bao nhiêu 'chú lính kẹp' đang canh gác thành trì.";
+        safety = "Dùng kẹp nhựa lực bóp nhẹ, kiểm tra mép rổ nhẵn không trầy da.";
+      } else if (hasCups && hasTape) {
+        title = "Đấu Trường Tháp Cốc & Cung Đường Cao Tốc";
+        skill = "Tư duy Cấu trúc không gian, Cân bằng tĩnh & Vận động khéo léo";
+        steps = "1. Dán 2 dải băng dính song song trên sàn làm đường cao tốc dẫn vào chân tháp.\n2. Bé xếp các cốc chồng lên nhau theo kết cấu tam giác: đáy 3 cốc, tầng hai 2 cốc, đỉnh 1 cốc.\n3. Lăn quả bóng tất hoặc cuộn giấy dọc theo đường băng để công phá tháp.";
+        safety = "Chỉ dùng cốc giấy hoặc cốc nhựa dẻo, tuyệt đối không dùng đồ thủy tinh.";
+      } else if (hasSocks) {
+        title = "Đoàn Tàu Sâu Bướm & Ném Bóng Tất Vào Mục Tiêu";
+        skill = "Nhận diện màu sắc, Vận động thô & Ước lượng cự ly";
+        steps = "1. Bé cùng mẹ cuộn tròn từng đôi tất sạch thành những quả bóng mềm.\n2. Xếp các quả bóng tất nối đuôi nhau thành chú sâu bướm dài quanh phòng.\n3. Đứng cách 2 bước chân tập ném các bóng tất vào trong chậu/rổ.";
+        safety = "Tất sạch, khu vực ném bóng thông thoáng cách xa bàn kính.";
+      } else if (hasPaper) {
+        title = "Phi Đội Hàng Không & Mê Cung Dải Băng Giấy";
+        skill = "Khéo léo đôi tay, Khí động học cơ bản & Trí tưởng tượng";
+        steps = "1. Bé tự xé giấy báo thành các dải dài dán nối đuôi nhau trên sàn làm đường bay.\n2. Gấp các kiểu máy bay giấy đơn giản theo sự sáng tạo của bé.\n3. Phóng máy bay lượn dọc theo đường băng giấy xem ai bay chuẩn nhất.";
+        safety = "Không phóng máy bay hướng vào mặt người khác, dùng giấy sạch không dính ghim.";
       } else {
-        title = "Nhà Thám Hiểm 0 Đồng: Sắp Đặt & Nhập Vai";
-        skill = "Trí tưởng tượng phong phú & Phát triển ngôn ngữ độc lập";
-        steps = `1. Tập hợp các vật dụng [${escapeHtml(prompt)}] vào một góc thảm an toàn.\n2. Bé tự đặt tên và đóng vai nhà du hành vũ trụ xây dựng căn cứ từ các đồ vật.\n3. Thuyết trình cho bố mẹ nghe về tác phẩm sau 15 phút tự chơi độc lập.`;
-        safety = "Quan sát không gian chơi thoáng đãng, cất gọn đồ vật sau khi chơi xong.";
+        // Tự động phân tích từ khóa đồ vật cụ thể của người dùng
+        const cleanPrompt = escapeHtml(prompt).replace(/nhà đang có|nhà có|có|bé|tuổi|chơi được gì|chơi gì/gi, "").trim();
+        title = `Thử Thách Phát Minh: ${cleanPrompt ? cleanPrompt.charAt(0).toUpperCase() + cleanPrompt.slice(0, 30) : "Sáng Tạo Độc Bản"}`;
+        skill = ageNum <= 3 ? "Phát triển xúc giác & Vận động tự lập" : (ageNum <= 5 ? "Tư duy sáng tạo, Khéo léo & Đóng vai" : "Tư duy giải quyết vấn đề & STEM logic");
+        
+        if (ageNum <= 3) {
+          steps = `1. Bố mẹ chuẩn bị một không gian thảm êm ái và đặt [${cleanPrompt}] trước mặt bé.\n2. Hướng dẫn bé dùng các đầu ngón tay chạm, cầm nắm, gõ nhẹ để cảm nhận hình dạng và âm thanh.\n3. Bé tự gom đồ vật bỏ vào rổ hoặc hộp theo nhịp bài hát bé yêu thích.`;
+        } else if (ageNum <= 5) {
+          steps = `1. Cùng bé thảo luận tên một nhiệm vụ phiêu lưu bí mật bằng các món đồ [${cleanPrompt}].\n2. Bé đóng vai một kỹ sư hoặc nhà thám hiểm, sắp đặt đồ vật thành một công trình theo ý thích.\n3. Hoàn thành thử thách sau 15 phút và tự tin thuyết trình cho bố mẹ nghe về tác phẩm.`;
+        } else {
+          steps = `1. Bé phân tích đặc điểm các món đồ [${cleanPrompt}] (độ cứng, chiều dài, khả năng liên kết).\n2. Tự thiết kế một trò chơi có luật chơi rõ ràng (có điểm số và mục tiêu chiến thắng).\n3. Ghi chép luật chơi ra một mẩu giấy nhỏ và mời người thân cùng thi đấu.`;
+        }
+        safety = "Kiểm tra kỹ các vật dụng: không dùng đồ thủy tinh vỡ, cạnh sắc nhọn hay đồ điện.";
       }
 
       return {
         'STT': 'AI-' + Math.floor(1000 + Math.random() * 9000),
         'Tên trò chơi': title,
-        'Độ tuổi': age,
-        'Vị trí / Không gian': 'Trong nhà',
+        'Độ tuổi': ageGroup,
+        'Vị trí / Không gian': "Trong nhà",
         'Vật dụng chính (0đ)': prompt,
         'Kỹ năng phát triển': skill,
         'Cách chơi (Nhiệm vụ 3 bước)': steps,
