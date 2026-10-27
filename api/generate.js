@@ -24,8 +24,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Thiếu nội dung prompt' });
   }
 
-  // Ưu tiên: API key từ biến môi trường Vercel > API key truyền từ client
-  const apiKey = process.env.GEMINI_API_KEY || clientKey;
+  // Lấy API key và làm sạch khoảng trắng / dấu nháy kép thừa nếu có
+  let apiKey = process.env.GEMINI_API_KEY || clientKey || '';
+  apiKey = apiKey.trim().replace(/^[\"\']|[\"\']$/g, '');
+
   if (!apiKey) {
     return res.status(500).json({ error: 'Chưa cấu hình GEMINI_API_KEY trên Vercel hoặc chưa nhập Key' });
   }
@@ -43,20 +45,24 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
   "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
 }`;
 
-  // Danh sách các model CHUẨN XÁC, không dùng model không tồn tại
-  const candidateModels = [
-    'gemini-2.0-flash',
-    'gemini-1.5-flash',
-    'gemini-1.5-pro'
+  // Thử các endpoint chính thức hỗ trợ generateContent:
+  // v1/models/gemini-1.5-flash (bản ổn định GA)
+  // v1beta/models/gemini-2.0-flash (bản mới nhất)
+  // v1/models/gemini-2.0-flash
+  const candidateConfigs = [
+    { version: 'v1', model: 'gemini-1.5-flash' },
+    { version: 'v1beta', model: 'gemini-2.0-flash' },
+    { version: 'v1', model: 'gemini-2.0-flash' },
+    { version: 'v1beta', model: 'gemini-1.5-flash' }
   ];
 
-  let lastError = null;
+  let errors = [];
   let rawText = '';
-  let statusCode = 502;
+  let finalStatusCode = 502;
 
-  for (const model of candidateModels) {
+  for (const { version, model } of candidateConfigs) {
     try {
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
+      const endpoint = `https://generativelanguage.googleapis.com/${version}/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -67,13 +73,17 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
       });
 
       if (!response.ok) {
-        statusCode = response.status;
+        finalStatusCode = response.status;
         const errData = await response.json().catch(() => ({}));
         const errMsg = errData.error?.message || response.statusText;
-        lastError = new Error(errMsg);
-        // Nếu lỗi 429 (Rate limit) thì dừng ngay để báo cho client đợi
+        errors.push(`${model}(${version}): ${errMsg}`);
+
+        // Nếu gặp lỗi 429 (Rate Limit) hoặc 400 (API Key không hợp lệ) thì phản hồi ngay
         if (response.status === 429) {
-          return res.status(429).json({ error: 'Hệ thống đang quá tải lượt tạo trong 1 phút (429 Rate Limit). Vui lòng đợi 5-10 giây rồi thử lại.' });
+          return res.status(429).json({ error: 'Google API đang bị quá tải lượt gọi trong 1 phút (429 Rate Limit). Vui lòng đợi 5-10 giây rồi thử lại.' });
+        }
+        if (response.status === 400 && errMsg.includes('API_KEY_INVALID')) {
+          return res.status(400).json({ error: 'API Key không hợp lệ. Vui lòng kiểm tra lại key trên Vercel.' });
         }
         continue;
       }
@@ -82,12 +92,14 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
       rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
       if (rawText) break;
     } catch (err) {
-      lastError = err;
+      errors.push(`${model}(${version}): ${err.message}`);
     }
   }
 
   if (!rawText) {
-    return res.status(statusCode).json({ error: lastError ? lastError.message : 'Không thể kết nối đến máy chủ Google Gemini' });
+    return res.status(finalStatusCode).json({ 
+      error: errors.length > 0 ? errors[0] : 'Không thể kết nối đến máy chủ Google Gemini' 
+    });
   }
 
   try {
