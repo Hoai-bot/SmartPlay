@@ -479,52 +479,116 @@
       </div>
     </section>
 
-    <!-- PAYWALL / VIP UPGRADE MODAL -->
-    <div id="vipPaywallModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-      <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-amber-200 text-slate-800 space-y-4">
+    <!-- PAYWALL / VIP UPGRADE MODAL (VIETQR TỰ ĐỘNG KÍCH HOẠT) -->
+    <div id="vipPaywallModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
+      <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-amber-200 text-slate-800 space-y-4 my-8">
+        
+        <!-- Header -->
         <div class="text-center space-y-1">
-          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 text-3xl flex items-center justify-center mx-auto mb-2 shadow-inner">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 to-sun-500 text-white text-2xl flex items-center justify-center mx-auto mb-1.5 shadow-md shadow-amber-500/20">
             👑
           </div>
-          <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded-full">Tính năng Độc quyền VIP</span>
-          <h3 class="text-xl font-black text-slate-900">Mở Khóa Trợ Lý Sư Phạm AI</h3>
-          <p class="text-xs text-slate-500 max-w-xs mx-auto">Bạn đã hoàn thành 3 lượt thử nghiệm Pilot miễn phí. Nâng cấp VIP để tạo không giới hạn trò chơi 0 đồng từ bất kỳ đồ vật nào!</p>
+          <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded-full">Kích Hoạt Tự Động 24/7</span>
+          <h3 class="text-lg md:text-xl font-black text-slate-900">Mở Khóa Trợ Lý Sư Phạm AI</h3>
+          <p class="text-xs text-slate-500 max-w-xs mx-auto">Quét mã VietQR bên dưới bằng bất kỳ ứng dụng ngân hàng nào. Hệ thống tự động kích hoạt VIP trong 3 giây!</p>
         </div>
 
-        <!-- Pricing Card -->
-        <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 text-center space-y-1">
-          <p class="text-xs font-bold text-slate-600">Gói Hội Viên Thông Thái (1 Năm)</p>
-          <p class="text-3xl font-black text-amber-800">49.000đ <span class="text-xs font-normal text-slate-500">/ tháng (hoặc 199.000đ trọn đời)</span></p>
-          <p class="text-[10px] text-emerald-700 font-bold">✓ Không giới hạn sáng tạo trò chơi AI • Xuất file in thẻ PDF</p>
+        <!-- Chọn Gói VIP -->
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <button id="plan-btn-month" onclick="selectVipPlan(49000, 'month')" class="p-2.5 rounded-2xl border-2 border-brand-600 bg-brand-50 text-brand-900 font-bold transition flex flex-col items-center">
+            <span class="text-[11px] font-semibold text-slate-600">Gói 1 Tháng</span>
+            <span class="text-base font-black text-brand-700">49.000đ</span>
+          </button>
+          <button id="plan-btn-life" onclick="selectVipPlan(199000, 'life')" class="p-2.5 rounded-2xl border-2 border-slate-200 hover:border-amber-400 bg-white text-slate-700 font-bold transition flex flex-col items-center relative overflow-hidden">
+            <span class="absolute top-0 right-0 bg-rose-500 text-white text-[8px] font-black px-1.5 py-0.2 rounded-bl-lg">TIẾT KIỆM</span>
+            <span class="text-[11px] font-semibold text-slate-600">Gói Trọn Đời</span>
+            <span class="text-base font-black text-amber-600">199.000đ</span>
+          </button>
         </div>
 
-        <!-- Payment Info / VietQR -->
-        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs space-y-2 text-center">
-          <p class="font-bold text-slate-700">Chuyển khoản kích hoạt tự động qua VietQR / Ngân hàng:</p>
-          <div class="bg-white p-2.5 rounded-xl border border-slate-200 text-[11px] font-mono space-y-0.5">
-            <p><strong>Ngân hàng:</strong> MBBank (Quân Đội)</p>
-            <p><strong>Số tài khoản:</strong> 0988888888</p>
-            <p><strong>Chủ tài khoản:</strong> VIEN NGHIEN CUU GIAO DUC IC DA LAT</p>
-            <p><strong>Nội dung CK:</strong> <span class="text-brand-700 font-bold">SMARTPLAY [SỐ ĐIỆN THOẠI]</span></p>
+        <!-- MÀN HÌNH CHÚC MỪNG KHI THANH TOÁN THÀNH CÔNG -->
+        <div id="payment-success-box" class="hidden p-5 bg-emerald-50 border-2 border-emerald-500 rounded-2xl text-center space-y-2">
+          <div class="text-4xl animate-bounce">🎉</div>
+          <h4 class="text-base font-black text-emerald-900">THANH TOÁN THÀNH CÔNG!</h4>
+          <p class="text-xs text-emerald-800 font-medium">Hệ thống đã tự động kích hoạt tài khoản VIP của bạn. Tận hưởng trợ lý AI không giới hạn!</p>
+        </div>
+
+        <!-- KHUNG VIETQR NẠP ĐỘNG -->
+        <div id="payment-qr-section" class="space-y-3">
+          <div class="bg-gradient-to-b from-slate-50 to-white p-3 rounded-2xl border border-slate-200 text-center shadow-inner">
+            <div class="w-44 h-44 mx-auto bg-white p-2 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center relative">
+              <img id="vietqr-image" src="" alt="VietQR VietinBank" class="w-full h-full object-contain rounded-lg">
+              <div id="qr-loading-spinner" class="absolute inset-0 bg-white/80 rounded-xl flex items-center justify-center text-brand-700 text-xs font-bold gap-1.5">
+                <i class="fa-solid fa-spinner fa-spin"></i> Đang tải mã QR...
+              </div>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1.5">Mã QR động chuẩn Napas 247 • Tự động điền số tiền & nội dung</p>
           </div>
-        </div>
 
-        <!-- VIP Code Activation Box -->
-        <div class="space-y-1.5">
-          <label class="block text-[11px] font-bold text-slate-600">Hoặc nhập mã kích hoạt VIP:</label>
-          <div class="flex gap-2">
-            <input type="text" id="vip-code-input" placeholder="Nhập mã VIP (VD: ICDALATVIP)" class="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 font-mono uppercase">
-            <button onclick="activateVipCode()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition">Kích hoạt</button>
+          <!-- Thông tin tài khoản VietinBank -->
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-[11px] space-y-1.5 font-mono">
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Ngân hàng:</span>
+              <span class="font-bold text-slate-900">VietinBank (Công Thương)</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Số tài khoản:</span>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-slate-900 font-mono">114002975689</span>
+                <button onclick="copyPaymentText('114002975689', 'Đã sao chép STK!')" class="text-[10px] px-1.5 py-0.5 bg-white border border-slate-200 rounded text-brand-700 hover:bg-slate-100 font-sans" title="Sao chép">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Chủ tài khoản:</span>
+              <span class="font-bold text-slate-900 text-[10px] text-right truncate max-w-[200px]" title="CTY TNHH IC DUONG VAO TUONG LAI CUA BAN">CTY TNHH IC DUONG VAO TUONG LAI CUA BAN</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Số tiền:</span>
+              <span id="qr-display-amount" class="font-black text-brand-700 text-xs">49.000đ</span>
+            </div>
+            <div class="flex justify-between items-center bg-amber-50 p-1.5 rounded-lg border border-amber-200/70 text-slate-800">
+              <span class="font-bold text-amber-900">Nội dung CK:</span>
+              <div class="flex items-center gap-1.5">
+                <span id="qr-display-memo" class="font-black text-rose-600 font-mono text-xs tracking-wider">SP...</span>
+                <button onclick="copyCurrentMemo()" class="text-[10px] px-1.5 py-0.5 bg-white border border-amber-300 rounded text-rose-700 hover:bg-amber-100 font-sans font-bold" title="Sao chép nội dung">
+                  <i class="fa-regular fa-copy"></i> Sao chép
+                </button>
+              </div>
+            </div>
           </div>
+
+          <!-- Trạng thái lắng nghe thanh toán tự động -->
+          <div id="payment-status-box" class="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200/80 text-xs text-amber-800 font-medium">
+            <i class="fa-solid fa-spinner fa-spin text-amber-600"></i>
+            <span>Đang đợi chuyển khoản... (Tự động kích hoạt)</span>
+          </div>
+
+          <button onclick="checkPaymentStatusManually()" class="w-full py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-sm">
+            <i class="fa-solid fa-rotate"></i>
+            <span>Tôi đã chuyển khoản - Kiểm tra ngay</span>
+          </button>
         </div>
 
-        <button onclick="closeVipModal()" class="w-full py-2.5 text-xs text-slate-400 hover:text-slate-600 font-semibold transition">
+        <!-- Ô nhập mã VIP thủ công dự phòng -->
+        <details class="text-[11px] text-slate-500 pt-1 border-t border-slate-100">
+          <summary class="cursor-pointer text-slate-400 hover:text-slate-600 font-medium select-none">
+            Hoặc nhập mã VIP kích hoạt trực tiếp
+          </summary>
+          <div class="mt-2 space-y-1.5">
+            <div class="flex gap-2">
+              <input type="text" id="vip-code-input" placeholder="Mã kích hoạt VIP (VD: ICDALATVIP)" class="flex-1 px-3 py-1.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 font-mono uppercase">
+              <button onclick="activateVipCode()" class="px-3.5 py-1.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition">Áp dụng</button>
+            </div>
+          </div>
+        </details>
+
+        <button onclick="closeVipModal()" class="w-full py-2 text-xs text-slate-400 hover:text-slate-600 font-semibold transition text-center">
           Để sau, quay lại trò chơi miễn phí
         </button>
       </div>
     </div>
-
-  </main>
 
   <!-- TIMER MODAL -->
   <div id="timer-modal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
@@ -1341,24 +1405,158 @@
       }
     }
 
+    /* ========================================================
+       VIETQR AUTOMATED WEBHOOK & VIP PAYMENT SYSTEM
+       ======================================================== */
+    let currentOrderCode = localStorage.getItem('smartplay_pending_order') || '';
+    let currentPlanAmount = 49000;
+    let paymentPollInterval = null;
+
     function openVipModal() {
+      // Tạo mã đơn hàng duy nhất dạng SP + 4 số ngẫu nhiên nếu chưa có
+      if (!currentOrderCode) {
+        currentOrderCode = 'SP' + Math.floor(1000 + Math.random() * 9000);
+        localStorage.setItem('smartplay_pending_order', currentOrderCode);
+      }
+
+      // Đặt lại giao diện modal
+      const successBox = document.getElementById('payment-success-box');
+      const qrSection = document.getElementById('payment-qr-section');
+      if (successBox) successBox.classList.add('hidden');
+      if (qrSection) qrSection.classList.remove('hidden');
+
+      updateVietQrDisplay();
       document.getElementById('vipPaywallModal').classList.remove('hidden');
+      startPaymentPolling();
     }
 
     function closeVipModal() {
       document.getElementById('vipPaywallModal').classList.add('hidden');
+      stopPaymentPolling();
+    }
+
+    function selectVipPlan(amount, planType) {
+      currentPlanAmount = amount;
+      const btnMonth = document.getElementById('plan-btn-month');
+      const btnLife = document.getElementById('plan-btn-life');
+
+      if (planType === 'month') {
+        btnMonth.className = "p-2.5 rounded-2xl border-2 border-brand-600 bg-brand-50 text-brand-900 font-bold transition flex flex-col items-center";
+        btnLife.className = "p-2.5 rounded-2xl border-2 border-slate-200 hover:border-amber-400 bg-white text-slate-700 font-bold transition flex flex-col items-center relative overflow-hidden";
+      } else {
+        btnLife.className = "p-2.5 rounded-2xl border-2 border-amber-500 bg-amber-50 text-amber-900 font-bold transition flex flex-col items-center relative overflow-hidden";
+        btnMonth.className = "p-2.5 rounded-2xl border-2 border-slate-200 hover:border-brand-400 bg-white text-slate-700 font-bold transition flex flex-col items-center";
+      }
+
+      updateVietQrDisplay();
+    }
+
+    function updateVietQrDisplay() {
+      const qrImg = document.getElementById('vietqr-image');
+      const spinner = document.getElementById('qr-loading-spinner');
+      const amountEl = document.getElementById('qr-display-amount');
+      const memoEl = document.getElementById('qr-display-memo');
+
+      if (amountEl) amountEl.innerText = currentPlanAmount.toLocaleString('vi-VN') + 'đ';
+      if (memoEl) memoEl.innerText = currentOrderCode;
+
+      // API VietQR chuẩn cho VietinBank (Mã ngân hàng: ICB - STK: 114002975689)
+      const qrUrl = `https://img.vietqr.io/image/ICB-114002975689-compact2.png?amount=${currentPlanAmount}&addInfo=${encodeURIComponent(currentOrderCode)}&accountName=CTY%20TNHH%20IC%20DUONG%20VAO%20TUONG%20LAI%20CUA%20BAN`;
+
+      if (spinner) spinner.classList.remove('hidden');
+      if (qrImg) {
+        qrImg.onload = () => { if (spinner) spinner.classList.add('hidden'); };
+        qrImg.src = qrUrl;
+      }
+    }
+
+    function startPaymentPolling() {
+      stopPaymentPolling();
+      // Tự động kiểm tra trạng thái thanh toán mỗi 3 giây
+      paymentPollInterval = setInterval(async () => {
+        await checkPaymentStatus(false);
+      }, 3000);
+    }
+
+    function stopPaymentPolling() {
+      if (paymentPollInterval) {
+        clearInterval(paymentPollInterval);
+        paymentPollInterval = null;
+      }
+    }
+
+    async function checkPaymentStatus(isManual = false) {
+      if (!currentOrderCode) return;
+      try {
+        const res = await fetch(`/api/payment?orderCode=${encodeURIComponent(currentOrderCode)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.paid) {
+            onPaymentSuccess();
+            return;
+          }
+        }
+        if (isManual) {
+          showToast("Chưa nhận được giao dịch. Nếu vừa chuyển khoản, vui lòng đợi 5-10 giây để ngân hàng đồng bộ!", "info");
+        }
+      } catch (err) {
+        console.warn("Lỗi kiểm tra thanh toán:", err);
+      }
+    }
+
+    async function checkPaymentStatusManually() {
+      const statusBox = document.getElementById('payment-status-box');
+      if (statusBox) {
+        statusBox.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-brand-600"></i> <span>Đang kết nối ngân hàng kiểm tra...</span>`;
+      }
+      await checkPaymentStatus(true);
+      setTimeout(() => {
+        if (statusBox && !isVipUser) {
+          statusBox.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-600"></i> <span>Đang đợi chuyển khoản... (Tự động kích hoạt)</span>`;
+        }
+      }, 2000);
+    }
+
+    function onPaymentSuccess() {
+      stopPaymentPolling();
+      isVipUser = true;
+      localStorage.setItem('smartplay_is_vip', 'true');
+      localStorage.removeItem('smartplay_pending_order');
+
+      const successBox = document.getElementById('payment-success-box');
+      const qrSection = document.getElementById('payment-qr-section');
+      if (qrSection) qrSection.classList.add('hidden');
+      if (successBox) successBox.classList.remove('hidden');
+
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+      }
+
+      showToast("🎉 CHÚC MỪNG! Tài khoản của bạn đã được nâng cấp VIP!", "success");
+      updateAiQuotaDisplay();
+
+      // Tự động đóng modal sau 2.5 giây
+      setTimeout(() => {
+        closeVipModal();
+      }, 2500);
+    }
+
+    function copyPaymentText(text, msg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+        showToast(msg || "Đã sao chép!", "success");
+      }
+    }
+
+    function copyCurrentMemo() {
+      copyPaymentText(currentOrderCode, `Đã sao chép nội dung: ${currentOrderCode}`);
     }
 
     function activateVipCode() {
       const codeInput = document.getElementById('vip-code-input').value.trim().toUpperCase();
       const validCodes = ['ICDALATVIP', 'SMARTPLAYPRO', 'DALAT2026', 'MONTESSORI'];
       if (validCodes.includes(codeInput)) {
-        isVipUser = true;
-        localStorage.setItem('smartplay_is_vip', 'true');
-        closeVipModal();
-        updateAiQuotaDisplay();
-        showToast("🎉 Chúc mừng! Bạn đã nâng cấp tài khoản VIP thành công!", "success");
-        if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 80 });
+        onPaymentSuccess();
       } else {
         showToast("Mã kích hoạt không đúng. Vui lòng kiểm tra lại hoặc chuyển khoản để nhận mã!", "warning");
       }
