@@ -49,10 +49,38 @@
       100% { transform: rotate(360deg) scale(1); }
     }
     .animate-dice { animation: rollDice 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  
+    /* Print-ready Flashcard Styling */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #print-container, #print-container * {
+        visibility: visible;
+      }
+      #print-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      header, footer, #toast-container, #legalModal, #timer-modal, #detail-modal, #card-stage, .age-btn, .loc-btn, #btn-draw, #quest-age-selector, #quest-loc-selector, nav {
+        display: none !important;
+      }
+      .page-break {
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
 
+  <div id="print-container" class="hidden"></div>
   <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- LEGAL DISCLAIMER MODAL -->
@@ -225,8 +253,12 @@
                 <i class="fa-solid fa-arrows-rotate"></i>
                 <span data-i18n="btnAnother">Đổi trò khác</span>
               </button>
-              <button onclick="openTimerWithCurrentQuest()" class="py-3 px-3 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200 font-semibold text-xs active:scale-95 transition flex items-center justify-center">
+              <button onclick="openTimerWithCurrentQuest()" class="py-3 px-3 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200 font-semibold text-xs active:scale-95 transition flex items-center justify-center" title="Hẹn giờ tự chơi">
                 <i class="fa-solid fa-hourglass-start"></i>
+              </button>
+              <button onclick="printCurrentCard()" class="py-3 px-3.5 rounded-xl bg-slate-800 text-white hover:bg-slate-900 font-semibold text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-sm" title="Xuất PDF in thẻ bài">
+                <i class="fa-solid fa-print"></i>
+                <span class="hidden sm:inline" data-i18n="btnPrintCard">In thẻ</span>
               </button>
             </div>
           </div>
@@ -241,8 +273,14 @@
           <h2 class="text-xl font-extrabold text-slate-800" data-i18n="libHeading">Kho Tàng 300 Trò Chơi Tự Chơi</h2>
           <p class="text-xs text-slate-500" data-i18n="libSub">Tra cứu nhanh theo đồ vật sẵn có trong góc bếp, phòng khách</p>
         </div>
-        <div class="text-xs font-bold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-200 w-fit">
-          <span data-i18n="libCountLabel">Hiển thị:</span> <span id="lib-count-display">0</span> / 300
+        <div class="flex items-center gap-2">
+          <div class="text-xs font-bold text-brand-700 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-200 w-fit">
+            <span data-i18n="libCountLabel">Hiển thị:</span> <span id="lib-count-display">0</span> / 300
+          </div>
+          <button onclick="printCurrentFilteredDeck()" class="text-xs font-bold text-white bg-gradient-to-r from-teal-700 to-brand-700 hover:from-teal-800 hover:to-brand-800 px-3.5 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span data-i18n="btnPrintDeck">In Bộ Thẻ (PDF)</span>
+          </button>
         </div>
       </div>
 
@@ -376,7 +414,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC VỚI HỆ THỐNG ĐỒ HỌA VECTOR MINH HỌA -->
+  <!-- SCRIPT LOGIC VỚI CƠ CHẾ NẠP ĐỘNG TỪ 3 FILE JSON -->
   <script>
     const I18N = {
       vi: {
@@ -408,7 +446,7 @@
         cardItemsTitle: "🎒 Vật dụng có sẵn (0 đồng):",
         cardStepsTitle: "🎯 Nhiệm vụ kích hoạt cho bé tự chơi:",
         cardSafetyTitle: "🛡️ Rà soát An toàn (Bắt buộc):",
-        modalCompleteBtn: "Đánh dấu đã hoàn thành"
+        modalCompleteBtn: "Đánh dấu đã hoàn thành", btnPrintCard: "In thẻ", btnPrintDeck: "In Bộ Thẻ (PDF)"
       },
       en: {
         timerBtn: "Timer", tabQuest: "Draw Card", tabLib: "300 Games", tabJourney: "Journal",
@@ -439,7 +477,7 @@
         cardItemsTitle: "🎒 Household Items (Zero-Cost):",
         cardStepsTitle: "🎯 Independent Play Steps:",
         cardSafetyTitle: "🛡️ Safety Review (Mandatory):",
-        modalCompleteBtn: "Mark as Completed"
+        modalCompleteBtn: "Mark as Completed", btnPrintCard: "Print Card", btnPrintDeck: "Print Deck (PDF)"
       }
     };
 
@@ -447,184 +485,10 @@
     const defaultLang = browserLang.toLowerCase().startsWith('vi') ? 'vi' : 'en';
     let currentLang = localStorage.getItem('smartplay_lang') || defaultLang;
 
-    // HỆ THỐNG ĐỒ HỌA VECTOR MINH HỌA DỄ THƯƠNG
-    const GAME_VECTORS = {
-      "tunnel": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bgTunnel" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FEF3C7"/>
-              <stop offset="100%" stop-color="#FDE68A"/>
-            </linearGradient>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#bgTunnel)"/>
-          <path d="M0,170 Q200,165 400,170 L400,200 L0,200 Z" fill="#FCD34D" opacity="0.6"/>
-          <path d="M120,70 L260,70 L280,150 L100,150 Z" fill="#D97706" rx="8"/>
-          <path d="M110,60 L270,60 L260,70 L120,70 Z" fill="#B45309"/>
-          <path d="M150,150 L150,110 A40,40 0 0,1 230,110 L230,150 Z" fill="#78350F"/>
-          <circle cx="80" cy="50" r="14" fill="#F59E0B" opacity="0.8"/>
-          <path d="M80,30 L83,43 L96,43 L85,52 L89,65 L80,56 L71,65 L75,52 L64,43 L77,43 Z" fill="#FFF"/>
-          <circle cx="190" cy="125" r="22" fill="#92400E"/>
-          <circle cx="173" cy="108" r="8" fill="#92400E"/>
-          <circle cx="207" cy="108" r="8" fill="#92400E"/>
-          <circle cx="173" cy="108" r="4" fill="#FDE68A"/>
-          <circle cx="207" cy="108" r="4" fill="#FDE68A"/>
-          <ellipse cx="190" cy="130" rx="9" ry="6" fill="#FDE68A"/>
-          <circle cx="190" cy="128" r="3" fill="#1F2937"/>
-          <circle cx="183" cy="120" r="2.5" fill="#1F2937"/>
-          <circle cx="197" cy="120" r="2.5" fill="#1F2937"/>
-        </svg>`,
-
-      "pillow": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#E0F2FE"/>
-          <path d="M0,150 Q100,135 200,150 T400,150 L400,200 L0,200 Z" fill="#BAE6FD"/>
-          <g transform="translate(60, 110)">
-            <rect width="70" height="40" rx="16" fill="#F43F5E"/>
-            <rect x="5" y="5" width="60" height="30" rx="12" fill="#FB7185"/>
-            <circle cx="35" cy="20" r="4" fill="#FFE4E6"/>
-          </g>
-          <g transform="translate(160, 85)">
-            <rect width="80" height="45" rx="18" fill="#10B981"/>
-            <rect x="5" y="5" width="70" height="35" rx="14" fill="#34D399"/>
-            <circle cx="40" cy="22" r="4" fill="#D1FAE5"/>
-          </g>
-          <g transform="translate(270, 115)">
-            <rect width="75" height="40" rx="16" fill="#F59E0B"/>
-            <rect x="5" y="5" width="65" height="30" rx="12" fill="#FBBF24"/>
-            <circle cx="37" cy="20" r="4" fill="#FEF3C7"/>
-          </g>
-          <ellipse cx="200" cy="98" rx="5" ry="8" fill="#047857" opacity="0.7"/>
-          <circle cx="196" cy="86" r="2" fill="#047857" opacity="0.7"/>
-          <circle cx="201" cy="85" r="2" fill="#047857" opacity="0.7"/>
-          <circle cx="206" cy="88" r="2" fill="#047857" opacity="0.7"/>
-        </svg>`,
-
-      "veggie": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#ECFDF5"/>
-          <ellipse cx="200" cy="140" rx="130" ry="45" fill="#99F6E4"/>
-          <ellipse cx="200" cy="135" rx="120" ry="38" fill="#5EEAD4"/>
-          <g transform="translate(140, 65) rotate(-15)">
-            <path d="M25,0 C40,0 50,60 25,80 C0,60 10,0 25,0 Z" fill="#F97316"/>
-            <path d="M25,0 C20,-15 10,-20 0,-15 C15,-5 20,0 25,0 Z" fill="#22C55E"/>
-            <path d="M25,0 C30,-18 45,-15 40,-5 C33,0 28,0 25,0 Z" fill="#16A34A"/>
-            <circle cx="18" cy="25" r="3" fill="#FFF"/>
-            <circle cx="32" cy="25" r="3" fill="#FFF"/>
-            <path d="M20,35 Q25,40 30,35" stroke="#7C2D12" stroke-width="2" fill="none"/>
-          </g>
-          <g transform="translate(230, 90)">
-            <ellipse cx="30" cy="25" rx="35" ry="25" fill="#D97706"/>
-            <ellipse cx="30" cy="25" rx="30" ry="21" fill="#B45309"/>
-            <circle cx="22" cy="20" r="2.5" fill="#FFF"/>
-            <circle cx="38" cy="20" r="2.5" fill="#FFF"/>
-            <circle cx="15" cy="30" r="1.5" fill="#78350F"/>
-            <circle cx="45" cy="28" r="1.5" fill="#78350F"/>
-          </g>
-          <circle cx="120" cy="120" r="10" fill="#CCFBF1" opacity="0.8"/>
-          <circle cx="270" cy="110" r="14" fill="#CCFBF1" opacity="0.8"/>
-          <circle cx="210" cy="80" r="8" fill="#FFF" opacity="0.9"/>
-        </svg>`,
-
-      "music_pots": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#FFF1F2"/>
-          <rect x="130" y="80" width="140" height="80" rx="14" fill="#94A3B8"/>
-          <rect x="120" y="70" width="160" height="18" rx="6" fill="#64748B"/>
-          <rect x="100" y="95" width="25" height="10" rx="4" fill="#475569"/>
-          <rect x="275" y="95" width="25" height="10" rx="4" fill="#475569"/>
-          <path d="M70,70 Q90,50 110,65" stroke="#FB7185" stroke-width="3" fill="none"/>
-          <circle cx="70" cy="70" r="6" fill="#F43F5E"/>
-          <circle cx="110" cy="65" r="6" fill="#F43F5E"/>
-          <g transform="translate(240, 30) rotate(35)">
-            <rect x="10" y="30" width="12" height="70" rx="5" fill="#D97706"/>
-            <ellipse cx="16" cy="25" rx="16" ry="22" fill="#B45309"/>
-          </g>
-          <path d="M190,40 L195,20 L205,20 L210,40 Z" fill="#F59E0B" opacity="0.7"/>
-        </svg>`,
-
-      "car_track": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#F1F5F9"/>
-          <path d="M30,160 L140,160 L200,80 L320,80 L370,140" stroke="#FDE047" stroke-width="36" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M30,160 L140,160 L200,80 L320,80 L370,140" stroke="#CA8A04" stroke-width="4" stroke-dasharray="10 10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <g transform="translate(190, 50)">
-            <rect x="0" y="15" width="70" height="25" rx="8" fill="#EF4444"/>
-            <path d="M15,15 L25,0 L50,0 L60,15 Z" fill="#DC2626"/>
-            <circle cx="20" cy="40" r="10" fill="#1E293B"/>
-            <circle cx="20" cy="40" r="4" fill="#94A3B8"/>
-            <circle cx="55" cy="40" r="10" fill="#1E293B"/>
-            <circle cx="55" cy="40" r="4" fill="#94A3B8"/>
-            <rect x="30" y="4" width="16" height="8" rx="2" fill="#E2E8F0"/>
-          </g>
-        </svg>`,
-
-      "marble_run": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#FAF5FF"/>
-          <path d="M60,60 L220,90" stroke="#C084FC" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <path d="M340,105 L160,135" stroke="#A855F7" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <path d="M140,145 L280,175" stroke="#7E22CE" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <circle cx="170" cy="67" r="12" fill="#F59E0B"/>
-          <circle cx="166" cy="63" r="4" fill="#FFF"/>
-          <path d="M260,165 L290,165 L285,195 L265,195 Z" fill="#06B6D4"/>
-        </svg>`,
-
-      "spy_laser": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#0F172A"/>
-          <line x1="30" y1="40" x2="370" y2="160" stroke="#EF4444" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
-          <line x1="370" y1="50" x2="40" y2="170" stroke="#F43F5E" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
-          <line x1="100" y1="20" x2="300" y2="190" stroke="#FB7185" stroke-width="3" stroke-dasharray="8 6" opacity="0.7"/>
-          <circle cx="210" cy="115" r="10" fill="#F59E0B"/>
-          <path d="M205,125 L215,125 L213,128 L207,128 Z" fill="#D97706"/>
-          <circle cx="100" cy="90" r="22" stroke="#38BDF8" stroke-width="6" fill="#0284C7" fill-opacity="0.3"/>
-          <line x1="116" y1="106" x2="135" y2="125" stroke="#38BDF8" stroke-width="6" stroke-linecap="round"/>
-        </svg>`,
-
-      "treasure_map": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#FEF3C7"/>
-          <rect x="50" y="25" width="300" height="150" rx="16" fill="#FDE68A" stroke="#D97706" stroke-width="4"/>
-          <path d="M80,140 Q150,110 180,130 T270,70" stroke="#B45309" stroke-width="4" stroke-dasharray="8 8" fill="none"/>
-          <g transform="translate(270, 70)">
-            <line x1="-14" y1="-14" x2="14" y2="14" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
-            <line x1="14" y1="-14" x2="-14" y2="14" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
-          </g>
-          <circle cx="100" cy="65" r="20" fill="#FFF" stroke="#D97706" stroke-width="2"/>
-          <polygon points="100,50 105,65 100,62 95,65" fill="#EF4444"/>
-          <polygon points="100,80 105,65 100,68 95,65" fill="#64748B"/>
-        </svg>`,
-
-      "default": `
-        <svg viewBox="0 0 400 200" class="w-full h-full rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#F0FDFA"/>
-          <circle cx="200" cy="100" r="60" fill="#CCFBF1"/>
-          <path d="M150,120 Q200,60 250,120" stroke="#0D9488" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <rect x="175" y="90" width="50" height="45" rx="10" fill="#0F766E"/>
-          <rect x="170" y="82" width="60" height="12" rx="4" fill="#14B8A6"/>
-          <line x1="200" y1="82" x2="200" y2="135" stroke="#F59E0B" stroke-width="6"/>
-          <circle cx="200" cy="74" r="8" fill="#F59E0B"/>
-        </svg>`
-    };
-
-    function getIllustrationForGame(game) {
-      const text = ((game['Tên trò chơi'] || game.title_vi || '') + ' ' + (game['Vật dụng chính (0đ)'] || game.item_vi || '')).toLowerCase();
-      
-      if (text.includes('hầm') || text.includes('thùng carton')) return GAME_VECTORS.tunnel;
-      if (text.includes('gối') || text.includes('chăn') || text.includes('đệm') || text.includes('dung nham')) return GAME_VECTORS.pillow;
-      if (text.includes('củ') || text.includes('khoai') || text.includes('rau') || text.includes('nước') || text.includes('cá')) return GAME_VECTORS.veggie;
-      if (text.includes('nồi') || text.includes('trống') || text.includes('thìa') || text.includes('đũa') || text.includes('âm thanh')) return GAME_VECTORS.music_pots;
-      if (text.includes('ô tô') || text.includes('đường đua') || text.includes('xe')) return GAME_VECTORS.car_track;
-      if (text.includes('mê cung') || text.includes('lõi giấy') || text.includes('bi') || text.includes('domino')) return GAME_VECTORS.marble_run;
-      if (text.includes('laser') || text.includes('điệp viên') || text.includes('dây')) return GAME_VECTORS.spy_laser;
-      if (text.includes('bản đồ') || text.includes('kho báu') || text.includes('tìm kiếm')) return GAME_VECTORS.treasure_map;
-      
-      return GAME_VECTORS.default;
-    }
-
+    // Kho lưu trữ 300 trò chơi
     let ALL_GAMES = [];
 
+    // Tải dữ liệu từ 3 file JSON
     async function loadAllGameFiles() {
       try {
         const [res1, res2, res3] = await Promise.all([
@@ -745,14 +609,8 @@
       const age = game['Độ tuổi'];
       const id = game['STT'];
       const t = I18N[currentLang];
-      const illustration = getIllustrationForGame(game);
 
       document.getElementById('quest-card-content').innerHTML = `
-        <!-- KHUNG MINH HỌA VECTOR NÂNG CẤP -->
-        <div class="w-full h-36 md:h-44 rounded-2xl overflow-hidden shadow-inner mb-3 border border-slate-100 bg-slate-50 flex items-center justify-center">
-          ${illustration}
-        </div>
-
         <div class="flex items-start justify-between gap-3">
           <div>
             <div class="flex flex-wrap items-center gap-1.5 mb-1.5">
@@ -914,14 +772,8 @@
       const game = ALL_GAMES.find(g => g['STT'] === id);
       if (!game) return;
       const t = I18N[currentLang];
-      const illustration = getIllustrationForGame(game);
 
       document.getElementById('modal-content').innerHTML = `
-        <!-- KHUNG MINH HỌA VECTOR NÂNG CẤP TRONG MODAL -->
-        <div class="w-full h-36 md:h-44 rounded-2xl overflow-hidden shadow-inner mb-3 border border-slate-100 bg-slate-50 flex items-center justify-center">
-          ${illustration}
-        </div>
-
         <div class="space-y-4">
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game['Độ tuổi']}</span>
           <h3 class="text-xl font-black text-slate-800">${escapeHtml(game['Tên trò chơi'])}</h3>
@@ -937,9 +789,15 @@
             <p class="font-bold text-rose-800">${t.cardSafetyTitle}</p>
             <p class="mt-0.5">${escapeHtml(game['Rà soát An toàn (Safety Rule)'])}</p>
           </div>
-          <button onclick="markModalCompleted(${game['STT']})" class="w-full py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition">
-            ${t.modalCompleteBtn}
-          </button>
+          <div class="flex gap-2">
+            <button onclick="markModalCompleted(${game['STT']})" class="flex-1 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition">
+              ${t.modalCompleteBtn}
+            </button>
+            <button onclick="printSingleGameById(${game['STT']})" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" title="In thẻ bài này">
+              <i class="fa-solid fa-print"></i>
+              <span data-i18n="btnPrintCard">In thẻ</span>
+            </button>
+          </div>
         </div>
       `;
       document.getElementById('detail-modal').classList.remove('hidden');
@@ -1034,6 +892,128 @@
       document.getElementById("legalModal").classList.add("hidden");
     }
     function openLegalModal() { document.getElementById("legalModal").classList.remove("hidden"); }
+
+    
+    /* ========================================================
+       PRINT FLASHCARDS ENGINE (PHYSICAL FLASHCARDS PRINT-READY)
+       ======================================================== */
+    function generateCardHtmlForPrint(game) {
+      const title = game['Tên trò chơi'];
+      const items = game['Vật dụng chính (0đ)'];
+      const steps = game['Cách chơi (Nhiệm vụ 3 bước)'];
+      const safety = game['Rà soát An toàn (Safety Rule)'];
+      const skill = game['Kỹ năng phát triển'];
+      const loc = game['Vị trí / Không gian'];
+      const age = game['Độ tuổi'];
+      const id = game['STT'];
+      const illustration = getIllustrationForGame(game);
+      const t = I18N[currentLang];
+
+      return `
+        <div class="page-break p-6 mx-auto my-4 max-w-sm border-2 border-slate-300 rounded-3xl bg-white shadow-none text-slate-800 flex flex-col justify-between" style="width: 100mm; min-height: 140mm; box-sizing: border-box;">
+          <div>
+            <!-- Header Card Print -->
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-md bg-teal-100 text-teal-900">${age}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">${loc}</span>
+              </div>
+              <span class="text-xs font-mono font-black text-slate-400">#${id}</span>
+            </div>
+
+            <!-- Vector Illustration Print -->
+            <div class="w-full h-32 rounded-2xl overflow-hidden mb-3 border border-slate-100 bg-slate-50 flex items-center justify-center">
+              ${illustration}
+            </div>
+
+            <h3 class="text-base font-black text-slate-900 mb-2 leading-tight">${escapeHtml(title)}</h3>
+            
+            <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200/60 mb-2.5 text-[11px]">
+              <p class="font-extrabold text-amber-900 uppercase tracking-wider text-[10px]">${t.cardItemsTitle}</p>
+              <p class="font-medium text-slate-800 mt-0.5">${escapeHtml(items)}</p>
+            </div>
+
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 mb-2.5 text-[11px] leading-relaxed">
+              <p class="font-extrabold text-slate-700 uppercase tracking-wider text-[10px]">${t.cardStepsTitle}</p>
+              <p class="mt-0.5 text-slate-800">${escapeHtml(steps)}</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="p-2 rounded-xl bg-rose-50 border border-rose-200 text-[10px] text-rose-900 mb-3">
+              <span class="font-black">${t.cardSafetyTitle}</span> ${escapeHtml(safety)}
+            </div>
+
+            <!-- Footer Card Print with QR Code Mockup -->
+            <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-[9px] text-slate-400">
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-teal-800">SmartPlay IC Da Lat</span>
+                <span>• play.icdalat.edu.vn</span>
+              </div>
+              <span class="font-semibold text-slate-500">Montessori 0đ</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function printCurrentCard() {
+      if (!STATE.currentDrawnGame) {
+        showToast("Vui lòng bốc một thẻ trước khi in!", "warning");
+        return;
+      }
+      const printBox = document.getElementById('print-container');
+      printBox.innerHTML = generateCardHtmlForPrint(STATE.currentDrawnGame);
+      printBox.classList.remove('hidden');
+      window.print();
+      printBox.classList.add('hidden');
+    }
+
+    function printSingleGameById(id) {
+      const game = ALL_GAMES.find(g => g['STT'] === id);
+      if (!game) return;
+      const printBox = document.getElementById('print-container');
+      printBox.innerHTML = generateCardHtmlForPrint(game);
+      printBox.classList.remove('hidden');
+      window.print();
+      printBox.classList.add('hidden');
+    }
+
+    function printCurrentFilteredDeck() {
+      const search = (document.getElementById('lib-search-input').value || '').toLowerCase().trim();
+      const ageFilter = document.getElementById('lib-filter-age').value;
+      const locFilter = document.getElementById('lib-filter-loc').value;
+
+      const filtered = ALL_GAMES.filter(g => {
+        const title = (g['Tên trò chơi'] || '').toLowerCase();
+        const item = (g['Vật dụng chính (0đ)'] || '').toLowerCase();
+        const matchSearch = !search || title.includes(search) || item.includes(search);
+        const matchAge = ageFilter === 'All' || g['Độ tuổi'] === ageFilter;
+        const matchLoc = locFilter === 'All' || (g['Vị trí / Không gian'] || '').includes(locFilter);
+        return matchSearch && matchAge && matchLoc;
+      });
+
+      if (filtered.length === 0) {
+        showToast("Không có thẻ bài nào phù hợp bộ lọc để in!", "warning");
+        return;
+      }
+
+      // Giới hạn in 12 thẻ mỗi lượt in để tối ưu trang giấy A4
+      const printPool = filtered.slice(0, 12);
+      const printBox = document.getElementById('print-container');
+      printBox.innerHTML = `
+        <div class="p-4 text-center border-b border-slate-200 mb-4 print:hidden">
+          <h2 class="text-xl font-black text-slate-800">Bộ Thẻ Bài Khám Phá SmartPlay (${printPool.length} Thẻ)</h2>
+          <p class="text-xs text-slate-500">Khổ chuẩn 100x140mm • Chuẩn bị in ấn hoặc lưu PDF</p>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          ${printPool.map(g => generateCardHtmlForPrint(g)).join('')}
+        </div>
+      `;
+      printBox.classList.remove('hidden');
+      window.print();
+      printBox.classList.add('hidden');
+    }
 
     window.addEventListener('DOMContentLoaded', async () => {
       if (!localStorage.getItem("smartplay_accepted_terms")) openLegalModal();
