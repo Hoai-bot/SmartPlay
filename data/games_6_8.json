@@ -1,0 +1,1002 @@
+[
+  {
+    "STT": 201,
+    "Tên trò chơi": "Điệp Viên Vượt Laser",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 202,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 203,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 204,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 205,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 206,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 207,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 208,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 209,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 210,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 211,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 212,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 213,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 214,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 215,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 216,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 217,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 218,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 219,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 220,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 2)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Thử thách nâng cao: Tự viết lại 'Hướng dẫn cách chơi' ra một tờ giấy nhỏ để chỉ dẫn cho người khác.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 221,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 222,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 223,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 224,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 225,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 226,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 227,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 228,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 229,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 230,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 3)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Thử thách nâng cao: Giới hạn thời gian 10 phút hoặc bổ sung thêm 1 chướng ngại vật sáng tạo.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 231,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 232,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 233,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 234,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 235,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 236,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 237,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 238,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 239,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 240,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 4)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 4: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 241,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 242,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 243,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 244,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 245,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 246,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 247,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 248,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 249,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 250,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 5)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 5: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 251,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 252,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 253,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 254,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 255,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 256,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 257,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 258,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 259,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 260,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 6)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 6: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 261,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 262,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 263,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 264,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 265,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 266,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 267,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 268,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 269,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 270,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 7)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 7: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 271,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 272,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 273,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 274,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 275,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 276,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 277,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 278,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 279,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 280,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 8)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 8: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 281,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 282,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 283,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 284,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 285,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 286,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 287,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 288,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 289,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 290,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 9)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 9: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  },
+  {
+    "STT": 291,
+    "Tên trò chơi": "Điệp Viên Vượt Laser (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang",
+    "Vật dụng chính (0đ)": "Cuộn len hoặc dây dù, băng dính giấy",
+    "Kỹ năng phát triển": "Linh hoạt & Giải quyết vấn đề",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Giăng các sợi len đan chéo nhau giữa 2 bức tường hành lang ở nhiều độ cao. Bé nhập vai điệp viên lách mình chui qua mà không chạm vào dây chuông. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dây căng vừa phải, dễ đứt nếu bị vướng mạnh để không làm ngã bé."
+  },
+  {
+    "STT": 292,
+    "Tên trò chơi": "Kỹ Sư Cầu Giấy Chịu Lực (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Tờ giấy A4 cũ, 10 đồng xu hoặc tẩy bút chì",
+    "Kỹ năng phát triển": "Tư duy Kỹ thuật (STEM)",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp tờ giấy A4 theo các kiểu (gấp nếp quạt, cuộn tròn, uốn vòm) bắc qua 2 chồng sách. Thử đặt từng viên tẩy lên xem kết cấu nào chịu lực tốt nhất. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dụng cụ học tập sạch sẽ, không dùng kéo nhọn."
+  },
+  {
+    "STT": 293,
+    "Tên trò chơi": "Đường Đua Domino Sách Vở (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Sàn nhà",
+    "Vật dụng chính (0đ)": "20-30 cuốn sách tranh/vở cũ",
+    "Kỹ năng phát triển": "Tính kiên trì & Vật lý cơ bản",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng đứng các cuốn sách cách đều nhau thành một hàng dài uốn lượn quanh phòng. Đẩy cuốn đầu tiên để tạo hiệu ứng dây chuyền đổ liên hoàn. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng sách bìa mềm, tránh khu vực có đồ thủy tinh dễ vỡ."
+  },
+  {
+    "STT": 294,
+    "Tên trò chơi": "Bản Đồ Kho Báu Bí Ẩn (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Phòng khách / Toàn nhà",
+    "Vật dụng chính (0đ)": "Mảnh giấy vẽ phác họa phòng, vật giấu",
+    "Kỹ năng phát triển": "Kỹ năng đọc bản đồ & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mẹ vẽ sơ đồ đơn giản của phòng khách có đánh dấu chữ 'X'. Giấu một mảnh sticker tại điểm X để bé tự quan sát bản đồ và lần ra vị trí kho báu. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Không giấu kho báu ở nơi nguy hiểm (ổ cắm điện, kệ cao, góc bếp)."
+  },
+  {
+    "STT": 295,
+    "Tên trò chơi": "Rạp Xiếc Rối Bóng Cổ Tích (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn học",
+    "Vật dụng chính (0đ)": "Bìa carton khoét rỗng, giấy nến/A4, đèn bàn",
+    "Kỹ năng phát triển": "Ngôn ngữ & Diễn đạt",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dựng khung bìa carton dán giấy nến làm màn chiếu. Bé cắt bóng hình nhân vật bằng bìa cứng gắn vào que đũa, vừa chiếu đèn vừa tự biên kịch câu chuyện. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Sử dụng kéo mũi tròn dành riêng cho học sinh, đèn bàn để khoảng cách an toàn."
+  },
+  {
+    "STT": 296,
+    "Tên trò chơi": "Phi Đội Tên Lửa Khí Lực (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Hành lang / Sân nhà",
+    "Vật dụng chính (0đ)": "Giấy nháp, vòng hula hoop hoặc giỏ nhựa",
+    "Kỹ năng phát triển": "Động lực học & Khéo léo",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Gấp 3 kiểu máy bay giấy khác nhau (cánh rộng, mũi nhọn, cánh ngắn). Đứng sau vạch phóng máy bay lọt qua vòng tròn mục tiêu treo giữa phòng. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng máy bay về phía thoáng đãng, không phi vào mặt người khác."
+  },
+  {
+    "STT": 297,
+    "Tên trò chơi": "Trạm Phân Loại Khí Tượng (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Ban công",
+    "Vật dụng chính (0đ)": "Nhiệt kế gia đình, sổ ghi chép, bút màu",
+    "Kỹ năng phát triển": "Khoa học thường thức",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Mỗi ngày bé quan sát mây trời, hướng gió thổi lá cây và nhiệt độ ở ban công vào 3 khung giờ, tự ghi chép vào bảng theo dõi thời tiết trong tuần. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Quan sát tại ban công có rào chắn cao an toàn, không leo trèo."
+  },
+  {
+    "STT": 298,
+    "Tên trò chơi": "Trận Chiến Cờ Ca-rô Bằng Cúc Áo (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Tờ giấy kẻ ô 5x5, cúc áo/nắp chai 2 màu",
+    "Kỹ năng phát triển": "Tư duy chiến thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kẻ sẵn bàn cờ trên giấy. Bé chơi cùng anh/chị hoặc tự bày thế cờ đối kháng dùng nắp chai xanh - đỏ chặn đường nhau để tạo hàng 4 liên tiếp. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng nắp chai hoặc cúc áo lớn, xếp gọn vào hộp sau khi chơi."
+  },
+  {
+    "STT": 299,
+    "Tên trò chơi": "Tủ Sách Phát Thanh Viên (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Góc đọc sách",
+    "Vật dụng chính (0đ)": "Điện thoại mẹ (chỉ ghi âm âm thanh), sách truyện",
+    "Kỹ năng phát triển": "Kỹ năng nói & Đọc hiểu",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé chọn một mẩu truyện ngắn yêu thích, tự tập đọc diễn cảm nhiều giọng nhân vật và ghi âm lại thành một tập postcard radio tặng mẹ nghe lúc nấu cơm. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Tắt màn hình điện thoại, chỉ mở chế độ thu âm đặt trên bàn."
+  },
+  {
+    "STT": 300,
+    "Tên trò chơi": "Cây Cân Thăng Bằng Tự Chế (Thử thách 10)",
+    "Độ tuổi": "6-8 tuổi",
+    "Vị trí / Không gian": "Cửa sổ / Kệ treo",
+    "Vật dụng chính (0đ)": "Móc phơi quần áo, 2 cốc nhựa, sợi chỉ",
+    "Kỹ năng phát triển": "Khái niệm đo lường",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Buộc 2 chiếc cốc nhựa vào 2 đầu của móc áo rồi treo móc lên cao. Cho bé bỏ các đồ vật nhỏ (viên tẩy, nắp chai, kẹp giấy) vào 2 bên để so sánh độ nặng nhẹ. Biến thể đặc biệt 10: Tự tính điểm và vẽ huy chương chiến thắng cho bản thân sau khi hoàn thành.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Treo móc áo ở tầm với chắc chắn, không dùng đồ nặng gây đứt dây."
+  }
+]

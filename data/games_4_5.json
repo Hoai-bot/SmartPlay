@@ -1,0 +1,1002 @@
+[
+  {
+    "STT": 101,
+    "Tên trò chơi": "Đường Đua Siêu Cấp",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 102,
+    "Tên trò chơi": "Mê Cung Lõi Giấy",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 103,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 104,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 105,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 106,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 107,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 108,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 109,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 110,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 111,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 112,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 113,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 114,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 115,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 116,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 117,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 118,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 119,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 120,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 2)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Nâng cấp: Tính thời gian bằng đồng hồ cát hoặc đếm từ 1 đến 20 để tạo hào hứng thi đấu.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 121,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 122,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 123,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 124,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 125,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 126,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 127,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 128,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 129,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 130,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 3)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Nâng cấp: Bé đóng vai đạo diễn tự nghĩ thêm luật chơi mới và giải thích lại cho bố mẹ nghe.",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 131,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 132,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 133,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 134,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 135,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 136,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 137,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 138,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 139,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 140,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 4)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 4: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 141,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 142,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 143,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 144,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 145,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 146,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 147,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 148,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 149,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 150,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 5)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 5: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 151,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 152,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 153,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 154,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 155,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 156,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 157,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 158,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 159,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 160,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 6)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 6: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 161,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 162,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 163,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 164,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 165,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 166,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 167,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 168,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 169,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 170,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 7)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 7: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 171,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 172,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 173,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 174,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 175,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 176,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 177,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 178,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 179,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 180,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 8)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 8: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 181,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 182,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 183,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 184,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 185,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 186,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 187,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 188,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 189,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 190,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 9)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 9: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  },
+  {
+    "STT": 191,
+    "Tên trò chơi": "Đường Đua Siêu Cấp (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sàn phòng khách",
+    "Vật dụng chính (0đ)": "Băng dính giấy, ô tô đồ chơi",
+    "Kỹ năng phát triển": "Không gian & Định hướng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán băng dính làm đường giao thông có ngã 3, vòng xuyến và bãi đỗ xe. Bé điều khiển ô tô tuân thủ biển báo do bé tự vẽ. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dán băng dính trên mặt sàn nhẵn, gỡ sạch sau khi chơi để tránh trơn."
+  },
+  {
+    "STT": 192,
+    "Tên trò chơi": "Mê Cung Lõi Giấy (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Cánh cửa / Tường",
+    "Vật dụng chính (0đ)": "Lõi giấy vệ sinh, bi ve to/bóng bàn, băng dính",
+    "Kỹ năng phát triển": "Tư duy STEM",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán các lõi giấy nghiêng so le trên cánh cửa tủ tạo đường trượt dốc. Bé thả bóng bàn từ đỉnh xem bóng có lăn trúng đích vào rổ phía dưới không. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng bóng bàn hoặc quả cầu xốp to, không dùng bi ve quá nhỏ tránh nuốt."
+  },
+  {
+    "STT": 193,
+    "Tên trò chơi": "Sàn Nhà Là Dung Nham (The Floor is Lava) (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Đệm sofa, gối ôm, khăn tắm",
+    "Kỹ năng phát triển": "Vận động & Cân bằng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Tưởng tượng sàn nhà biến thành hồ dung nham nóng. Bé phải tìm cách di chuyển từ ghế này sang ghế kia bằng cách bước lên 'hòn đá gối'. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Đảm bảo khoảng cách giữa các gối vừa tầm chân bé, loại bỏ đồ sắc nhọn xung quanh."
+  },
+  {
+    "STT": 194,
+    "Tên trò chơi": "Thợ Rèn Chữ Bằng Đũa (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Đũa ăn cơm, que kem cũ",
+    "Kỹ năng phát triển": "Ngôn ngữ & Hình học",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé 10 đôi đũa. Thử thách bé tự xếp các chữ cái đơn giản (A, H, T, L) hoặc các hình học (tam giác, vuông, ngôi sao) trên mặt bàn. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đũa gỗ tròn nhẵn, không dằm xước."
+  },
+  {
+    "STT": 195,
+    "Tên trò chơi": "Tiệm Giặt Là Nhí (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Ban công / Góc phòng",
+    "Vật dụng chính (0đ)": "Kẹp quần áo gỗ/nhựa, dây dù, khăn tay",
+    "Kỹ năng phát triển": "Vận động tinh & Độc lập",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Căng 1 sợi dây dù ngang tầm ngực bé. Cho bé chậu khăn tay sạch và rổ kẹp áo. Bé dùng 2 ngón tay bóp kẹp phơi từng chiếc khăn lên dây. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Cố định dây chắc chắn ở độ cao an toàn, kẹp lò xo nhẹ lực."
+  },
+  {
+    "STT": 196,
+    "Tên trò chơi": "Bảo Tàng Bóng Tối (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng ngủ",
+    "Vật dụng chính (0đ)": "Đèn pin, thú bông, bìa cứng",
+    "Kỹ năng phát triển": "Quan sát & Tưởng tượng",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Kéo rèm tắt đèn phòng ngủ. Chiếu đèn pin qua các món đồ chơi để bóng đổ lên tường. Bé đóng vai hướng dẫn viên giải thích hình thù bóng trên tường. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng đèn pin LED ánh sáng dịu, không rọi thẳng đèn vào mắt."
+  },
+  {
+    "STT": 197,
+    "Tên trò chơi": "Nhà Khoa Học Thổi Bóng (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Bàn ăn",
+    "Vật dụng chính (0đ)": "Ống hút giấy, quả bóng bàn hoặc cục bông",
+    "Kỹ năng phát triển": "Kiểm soát hơi thở & Tập trung",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Dán 2 dải băng dính song song trên bàn làm đường đua. Bé ngậm ống hút thổi hơi đẩy cục bông gòn lăn dọc theo đường băng về đích mà không rớt bàn. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Hướng dẫn bé thổi ra chứ không hít vào ống hút."
+  },
+  {
+    "STT": 198,
+    "Tên trò chơi": "Săn Lùng Màu Cầu Vồng (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Khắp nhà",
+    "Vật dụng chính (0đ)": "Tờ giấy vẽ 6 ô màu, giỏ xách nhỏ",
+    "Kỹ năng phát triển": "Quan sát & Phân tích",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Vẽ 6 màu cầu vồng lên giấy. Bé cầm giỏ đi quanh nhà tìm đúng 6 món đồ vật có màu tương ứng đem về đặt đúng ô màu quy định. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Nhắc bé không với đồ trên cao, chỉ lấy đồ ở tầm tay an toàn."
+  },
+  {
+    "STT": 199,
+    "Tên trò chơi": "Tháp Nghiêng Pisa Bìa Carton (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Phòng khách",
+    "Vật dụng chính (0đ)": "Các hộp bánh, hộp trà rỗng",
+    "Kỹ năng phát triển": "Khéo léo & Cấu trúc",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Bé xếp chồng các vỏ hộp rỗng lên nhau sao cho tháp càng cao càng tốt mà không bị đổ vỡ. Đếm xem xếp được bao nhiêu tầng. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Dùng vỏ hộp giấy nhẹ để khi đổ không gây đau hay va đập."
+  },
+  {
+    "STT": 200,
+    "Tên trò chơi": "Họa Sĩ Nước Thần Kỳ (Phiên bản 10)",
+    "Độ tuổi": "4-5 tuổi",
+    "Vị trí / Không gian": "Sân gạch / Ban công",
+    "Vật dụng chính (0đ)": "Bát nước sạch, cọ vẽ/bọt biển",
+    "Kỹ năng phát triển": "Sáng tạo nghệ thuật",
+    "Cách chơi (Nhiệm vụ 3 bước)": "Cho bé cầm cọ nhúng nước sạch vẽ tranh tự do lên sàn gạch men hoặc tường sân xi măng. Bức tranh sẽ tự biến mất khi khô ráo như có phép thuật. Biến thể 10: Đổi chủ đề cốt truyện (phi hành gia ngoài vũ trụ, thám hiểm rừng sâu).",
+    "Rà soát An toàn (Safety Rule)": "An toàn: Lau khô nếu sàn nhà bên trong bị trơn, ưu tiên chơi ngoài ban công có lan can an toàn."
+  }
+]

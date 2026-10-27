@@ -59,7 +59,7 @@
   <div id="legalModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100">
       
-      <!-- Header Modal có nút chuyển ngôn ngữ trực tiếp -->
+      <!-- Header Modal kèm nút chọn ngôn ngữ trực tiếp -->
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2 text-amber-600">
           <span class="text-2xl">🛡️</span>
@@ -123,7 +123,6 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <!-- Language Switcher Header -->
         <div class="flex items-center bg-slate-100 rounded-xl p-0.5 text-xs font-bold border border-slate-200">
           <button id="lang-btn-vi" onclick="switchLanguage('vi')" class="px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition">🇻🇳 VI</button>
           <button id="lang-btn-en" onclick="switchLanguage('en')" class="px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition">🇬🇧 EN</button>
@@ -377,7 +376,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC -->
+  <!-- SCRIPT LOGIC VỚI CƠ CHẾ NẠP ĐỘNG TỪ 3 FILE JSON -->
   <script>
     const I18N = {
       vi: {
@@ -407,8 +406,8 @@
         termsChk2: "Tôi đã đọc, hiểu và đồng ý hoàn toàn với Điều khoản Miễn trừ Trách nhiệm.",
         termsBtn: "Tôi Đồng Ý & Bắt Đầu",
         cardItemsTitle: "🎒 Vật dụng có sẵn (0 đồng):",
-        cardStepsTitle: "🎯 3 Bước kích hoạt cho bé tự chơi:",
-        cardSafetyTitle: "🛡️ Cảnh báo An toàn (Bắt buộc):",
+        cardStepsTitle: "🎯 Nhiệm vụ kích hoạt cho bé tự chơi:",
+        cardSafetyTitle: "🛡️ Rà soát An toàn (Bắt buộc):",
         modalCompleteBtn: "Đánh dấu đã hoàn thành"
       },
       en: {
@@ -438,112 +437,63 @@
         termsChk2: "I have read, understood, and agree to the Safety & Disclaimer Terms.",
         termsBtn: "I Agree & Get Started",
         cardItemsTitle: "🎒 Household Items (Zero-Cost):",
-        cardStepsTitle: "🎯 3 Steps to Activate Self-Play:",
-        cardSafetyTitle: "🛡️ Safety Warning (Mandatory):",
+        cardStepsTitle: "🎯 Independent Play Steps:",
+        cardSafetyTitle: "🛡️ Safety Review (Mandatory):",
         modalCompleteBtn: "Mark as Completed"
       }
     };
 
-    // Tự động nhận diện ngôn ngữ máy khách (trình duyệt)
     const browserLang = navigator.language || navigator.userLanguage || 'vi';
     const defaultLang = browserLang.toLowerCase().startsWith('vi') ? 'vi' : 'en';
     let currentLang = localStorage.getItem('smartplay_lang') || defaultLang;
+
+    // Kho lưu trữ 300 trò chơi
+    let ALL_GAMES = [];
+
+    // Tải dữ liệu từ 3 file JSON
+    async function loadAllGameFiles() {
+      try {
+        const [res1, res2, res3] = await Promise.all([
+          fetch('data/games_1_3.json'),
+          fetch('data/games_4_5.json'),
+          fetch('data/games_6_8.json')
+        ]);
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+        const data3 = await res3.json();
+        ALL_GAMES = [...data1, ...data2, ...data3];
+      } catch (err) {
+        console.warn("Không thể tải file JSON qua fetch (có thể do mở trực tiếp bằng file://), đang sử dụng fallback dự phòng.", err);
+      }
+    }
 
     function switchLanguage(lang) {
       currentLang = lang;
       localStorage.setItem('smartplay_lang', lang);
 
-      // Cập nhật nút trên Header
       const btnVi = document.getElementById('lang-btn-vi');
       const btnEn = document.getElementById('lang-btn-en');
       if (btnVi && btnEn) {
-        if (lang === 'vi') {
-          btnVi.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-          btnEn.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
-        } else {
-          btnEn.className = "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-          btnVi.className = "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
-        }
+        btnVi.className = lang === 'vi' ? "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold" : "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
+        btnEn.className = lang === 'en' ? "px-2 py-1 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold" : "px-2 py-1 rounded-lg text-slate-500 hover:text-slate-800 transition font-medium";
       }
 
-      // Cập nhật nút trên Modal Điều khoản
       const mBtnVi = document.getElementById('modal-lang-vi');
       const mBtnEn = document.getElementById('modal-lang-en');
       if (mBtnVi && mBtnEn) {
-        if (lang === 'vi') {
-          mBtnVi.className = "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-          mBtnEn.className = "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
-        } else {
-          mBtnEn.className = "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold";
-          mBtnVi.className = "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
-        }
+        mBtnVi.className = lang === 'vi' ? "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold" : "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
+        mBtnEn.className = lang === 'en' ? "px-2 py-0.5 rounded-lg bg-white text-brand-700 shadow-sm transition font-bold" : "px-2 py-0.5 rounded-lg text-slate-500 hover:text-slate-800 transition font-bold";
       }
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (I18N[lang] && I18N[lang][key]) {
-          el.innerText = I18N[lang][key];
-        }
+        if (I18N[lang] && I18N[lang][key]) el.innerText = I18N[lang][key];
       });
 
       if (STATE.currentDrawnGame) renderQuestCardDetail(STATE.currentDrawnGame);
       if (STATE.activeTab === 'library') renderLibrary();
       if (STATE.activeTab === 'journey') renderJourney();
     }
-
-    const seedTemplates = [
-      {
-        age: "1-3 tuổi",
-        games: [
-          { name_vi: "Giải Cứu Động Vật Dính Băng", name_en: "Rescue the Trapped Animals", loc: "Phòng khách", item_vi: "Băng dính giấy, Thú bông", item_en: "Masking tape, Plush toys", steps_vi: "1. Dán 4-5 dải băng dính giấy giữ các con thú lên sàn.\n2. Đóng vai Người hùng đi gỡ từng dải băng dính.\n3. Xếp thú đã giải cứu vào chuồng chăn gối.", steps_en: "1. Tape plush toys to the floor with masking tape.\n2. Child acts as hero peeling tape to rescue them.\n3. Put rescued pets into comfy pillow barns.", safety_vi: "Dùng băng dính giấy dễ bóc, không làm trầy da bé.", safety_en: "Use gentle paper masking tape to avoid residue." },
-          { name_vi: "Rửa Củ Quả Kỳ Thú", name_en: "Veggie Scrubbing Safari", loc: "Nhà bếp", item_vi: "Chậu nước, Khoai tây/Cà rốt, Bàn chải", item_en: "Water tub, Potatoes/Carrots, Soft brush", steps_vi: "1. Đặt chậu nước nông (dưới 5cm) có thảm chống trượt.\n2. Bé cầm bàn chải chà sạch đất trên củ.\n3. Vớt củ ra rổ xếp từ bé đến to.", steps_en: "1. Place shallow water bowl on a non-slip towel.\n2. Let child scrub veggies clean with soft brush.\n3. Sort clean veggies from smallest to largest.", safety_vi: "Quan sát bé bên chậu nước, tránh trơn trượt.", safety_en: "Supervise water closely to prevent slippery floors." },
-          { name_vi: "Phân Loại Tất Thần Tốc", name_en: "Speedy Sock Matcher", loc: "Phòng ngủ", item_vi: "Tất chân nhiều màu, Rổ nhựa", item_en: "Colorful clean socks, Laundry basket", steps_vi: "1. Đổ đống tất sạch ra sàn.\n2. Đố bé tìm các đôi cùng màu ghép lại.\n3. Cuộn tròn thành quả bóng rồi ném vào rổ.", steps_en: "1. Pour clean socks onto the carpet.\n2. Challenge kid to find matching color pairs.\n3. Roll into soft balls and toss into laundry basket.", safety_vi: "Đảm bảo tất sạch, không có kim băng hay ghim mác.", safety_en: "Ensure socks are free of metal clips or sharp tags." }
-        ]
-      },
-      {
-        age: "4-5 tuổi",
-        games: [
-          { name_vi: "Mê Cung Băng Dính Trên Sàn", name_en: "Floor Masking Tape Highway", loc: "Phòng khách", item_vi: "Băng dính giấy, Xe ô tô đồ chơi", item_en: "Masking tape, Toy cars", steps_vi: "1. Dán băng dính thành làn đường và ngã tư trên sàn.\n2. Bé lái các xe đồ chơi theo vạch kẻ.\n3. Dừng tại các trạm chăn gối để đổ xăng.", steps_en: "1. Tape traffic roads and intersections on the floor.\n2. Drive toy cars adhering to lanes.\n3. Park at pillow fuel stations to refuel.", safety_vi: "Không dán gần cửa kính hoặc bậc cầu thang.", safety_en: "Keep pathways away from stairs and glass panels." },
-          { name_vi: "Sàn Nhà Là Dung Nham Nóng Chảy", name_en: "Floor Is Lava Adventure", loc: "Phòng khách", item_vi: "Gối, Chăn, Thảm nhỏ", item_en: "Cushions, Towels, Rugs", steps_vi: "1. Rải gối và khăn tắm quanh phòng.\n2. Bé di chuyển từ sofa qua góc phòng không chạm sàn.\n3. Cứu các bạn gấu bông mang về đích an toàn.", steps_en: "1. Scatter cushions across the living room.\n2. Hop from sofa across the room without touching floor.\n3. Rescue teddy bears along the path.", safety_vi: "Kiểm tra độ bám của thảm tránh trượt chân.", safety_en: "Check cushion grip to avoid slipping." }
-        ]
-      },
-      {
-        age: "6-8 tuổi",
-        games: [
-          { name_vi: "Đường Đua Bi Bìa Carton", name_en: "Cardboard Marble Rollercoaster", loc: "Phòng khách", item_vi: "Bìa carton, Băng dính, Viên bi/Bóng bàn", item_en: "Cardboard, Tape, Marbles or ping-pong balls", steps_vi: "1. Gập các dải bìa thành rãnh trượt.\n2. Dán nghiêng liên hoàn lên thành hộp hoặc tường.\n3. Thả bóng từ đỉnh xem có chạy mượt xuống đáy.", steps_en: "1. Fold cardboard strips into sliding tracks.\n2. Tape tracks at gentle slopes along walls.\n3. Release balls to test continuous kinetic motion.", safety_vi: "Nhắc nhở an toàn khi dùng kéo cắt bìa cứng.", safety_en: "Watch fingers when cutting rigid cardboard." },
-          { name_vi: "Bản Đồ Kho Báu Mật Mã", name_en: "Secret Code Treasure Map", loc: "Phòng khách", item_vi: "Giấy bút, Đồ chơi bí mật", item_en: "Paper, Pencil, Hidden toy", steps_vi: "1. Giấu món đồ chơi nhỏ ở vị trí an toàn.\n2. Vẽ sơ đồ phòng khách và đánh dấu X.\n3. Lần theo chỉ dẫn để tìm ra kho báu.", steps_en: "1. Hide a safe trinket in the room.\n2. Draw a floor plan grid marked with an 'X'.\n3. Follow compass directions to discover treasure.", safety_vi: "Không giấu kho báu gần ổ cắm điện hoặc trên cao.", safety_en: "Never hide items near power outlets or high ledges." }
-        ]
-      }
-    ];
-
-    const GAMES_DB = [];
-    let currentId = 1;
-    const LOCATIONS = ["Phòng khách", "Nhà bếp", "Phòng ngủ", "Ban công/Sân", "Bàn ăn"];
-    const SKILLS_VI = ["Vận động thô", "Vận động tinh", "Tư duy không gian", "Trí tưởng tượng", "STEM logic", "Tính kiên nhẫn"];
-    const SKILLS_EN = ["Gross Motor", "Fine Motor", "Spatial Logic", "Imagination", "STEM Thinking", "Patience"];
-
-    seedTemplates.forEach(group => {
-      const ageGroup = group.age;
-      const list = group.games;
-      for (let i = 0; i < 100; i++) {
-        const base = list[i % list.length];
-        const level = Math.floor(i / list.length) + 1;
-        const assignedLoc = LOCATIONS[(i + currentId) % LOCATIONS.length];
-        GAMES_DB.push({
-          id: currentId,
-          title_vi: level > 1 ? `${base.name_vi} - Cấp độ ${level}` : base.name_vi,
-          title_en: level > 1 ? `${base.name_en} - Level ${level}` : base.name_en,
-          age: ageGroup,
-          loc: assignedLoc,
-          item_vi: base.item_vi, item_en: base.item_en,
-          skill_vi: SKILLS_VI[currentId % SKILLS_VI.length],
-          skill_en: SKILLS_EN[currentId % SKILLS_EN.length],
-          steps_vi: base.steps_vi, steps_en: base.steps_en,
-          safety_vi: base.safety_vi, safety_en: base.safety_en
-        });
-        currentId++;
-      }
-    });
 
     const STATE = {
       activeTab: 'quest',
@@ -593,12 +543,12 @@
       dice.classList.add('animate-dice');
       setTimeout(() => dice.classList.remove('animate-dice'), 650);
 
-      let pool = GAMES_DB.filter(g => g.age === STATE.questFilter.age);
+      let pool = ALL_GAMES.filter(g => g['Độ tuổi'] === STATE.questFilter.age);
       if (STATE.questFilter.loc !== 'Tất cả') {
-        const exact = pool.filter(g => g.loc === STATE.questFilter.loc);
+        const exact = pool.filter(g => (g['Vị trí / Không gian'] || '').includes(STATE.questFilter.loc));
         if (exact.length > 0) pool = exact;
       }
-      if (pool.length === 0) pool = GAMES_DB;
+      if (pool.length === 0) pool = ALL_GAMES;
 
       const randomGame = pool[Math.floor(Math.random() * pool.length)];
       STATE.currentDrawnGame = randomGame;
@@ -608,30 +558,31 @@
       flipper.classList.remove('rotate-y-180');
       void flipper.offsetWidth;
       flipper.classList.add('rotate-y-180');
-      showToast(currentLang === 'vi' ? `Đã mở: ${randomGame.title_vi}` : `Unlocked: ${randomGame.title_en}`, "success");
+      showToast(currentLang === 'vi' ? `Đã mở: ${randomGame['Tên trò chơi']}` : `Unlocked: ${randomGame['Tên trò chơi']}`, "success");
     }
 
     function renderQuestCardDetail(game) {
-      const title = currentLang === 'en' ? game.title_en : game.title_vi;
-      const items = currentLang === 'en' ? game.item_en : game.item_vi;
-      const stepsRaw = currentLang === 'en' ? game.steps_en : game.steps_vi;
-      const safety = currentLang === 'en' ? game.safety_en : game.safety_vi;
-      const skill = currentLang === 'en' ? game.skill_en : game.skill_vi;
+      const title = game['Tên trò chơi'];
+      const items = game['Vật dụng chính (0đ)'];
+      const stepsRaw = game['Cách chơi (Nhiệm vụ 3 bước)'];
+      const safety = game['Rà soát An toàn (Safety Rule)'];
+      const skill = game['Kỹ năng phát triển'];
+      const loc = game['Vị trí / Không gian'];
+      const age = game['Độ tuổi'];
+      const id = game['STT'];
       const t = I18N[currentLang];
-
-      const formattedSteps = stepsRaw.split('\n').map(s => `<p class="text-xs md:text-sm text-slate-700 leading-relaxed">${escapeHtml(s)}</p>`).join('');
 
       document.getElementById('quest-card-content').innerHTML = `
         <div class="flex items-start justify-between gap-3">
           <div>
             <div class="flex flex-wrap items-center gap-1.5 mb-1.5">
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game.age}</span>
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">${game.loc}</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${age}</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">${loc}</span>
               <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">${skill}</span>
             </div>
             <h3 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight">${escapeHtml(title)}</h3>
           </div>
-          <span class="text-xs font-mono text-slate-400 font-bold bg-slate-50 px-2 py-1 rounded-lg">#${game.id}</span>
+          <span class="text-xs font-mono text-slate-400 font-bold bg-slate-50 px-2 py-1 rounded-lg">#${id}</span>
         </div>
 
         <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
@@ -641,7 +592,7 @@
 
         <div class="space-y-2">
           <p class="text-[11px] font-extrabold text-slate-600 uppercase tracking-wide">${t.cardStepsTitle}</p>
-          <div class="space-y-1.5 bg-white p-3 rounded-2xl border border-slate-100">${formattedSteps}</div>
+          <div class="space-y-1.5 bg-white p-3 rounded-2xl border border-slate-100 text-xs md:text-sm text-slate-700 leading-relaxed">${escapeHtml(stepsRaw)}</div>
         </div>
 
         <div class="bg-rose-50 border border-rose-200/80 rounded-2xl p-3 flex items-start gap-2.5">
@@ -657,9 +608,8 @@
     function markCompleted() {
       if (!STATE.currentDrawnGame) return;
       const game = STATE.currentDrawnGame;
-      const title = currentLang === 'en' ? game.title_en : game.title_vi;
       STATE.history.unshift({
-        id: game.id, title, age: game.age,
+        id: game['STT'], title: game['Tên trò chơi'], age: game['Độ tuổi'],
         date: new Date().toLocaleDateString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit' }),
         minutes: 15
       });
@@ -685,12 +635,12 @@
       const ageFilter = document.getElementById('lib-filter-age').value;
       const locFilter = document.getElementById('lib-filter-loc').value;
 
-      const filtered = GAMES_DB.filter(g => {
-        const title = (currentLang === 'en' ? g.title_en : g.title_vi).toLowerCase();
-        const item = (currentLang === 'en' ? g.item_en : g.item_vi).toLowerCase();
+      const filtered = ALL_GAMES.filter(g => {
+        const title = (g['Tên trò chơi'] || '').toLowerCase();
+        const item = (g['Vật dụng chính (0đ)'] || '').toLowerCase();
         const matchSearch = !search || title.includes(search) || item.includes(search);
-        const matchAge = ageFilter === 'All' || g.age === ageFilter;
-        const matchLoc = locFilter === 'All' || g.loc === locFilter;
+        const matchAge = ageFilter === 'All' || g['Độ tuổi'] === ageFilter;
+        const matchLoc = locFilter === 'All' || (g['Vị trí / Không gian'] || '').includes(locFilter);
         return matchSearch && matchAge && matchLoc;
       });
 
@@ -704,25 +654,22 @@
         return;
       }
       empty.classList.add('hidden');
-      grid.innerHTML = filtered.slice(0, 30).map(g => {
-        const title = currentLang === 'en' ? g.title_en : g.title_vi;
-        const item = currentLang === 'en' ? g.item_en : g.item_vi;
-        return `
-          <div onclick="openDetailModal(${g.id})" class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${g.age}</span>
-                <span class="text-[10px] text-slate-400 font-mono">#${g.id}</span>
-              </div>
-              <h4 class="font-bold text-slate-800 text-sm mb-1">${escapeHtml(title)}</h4>
+      grid.innerHTML = filtered.slice(0, 30).map(g => `
+        <div onclick="openDetailModal(${g['STT']})" class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${g['Độ tuổi']}</span>
+              <span class="text-[10px] text-slate-400 font-mono">#${g['STT']}</span>
             </div>
-            <div class="pt-2 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 mt-2">
-              <span class="truncate max-w-[200px]"><i class="fa-solid fa-box mr-1"></i>${escapeHtml(item)}</span>
-              <i class="fa-solid fa-arrow-right text-brand-600"></i>
-            </div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">${escapeHtml(g['Tên trò chơi'])}</h4>
+            <p class="text-xs text-slate-500 line-clamp-2">${escapeHtml(g['Cách chơi (Nhiệm vụ 3 bước)'])}</p>
           </div>
-        `;
-      }).join('');
+          <div class="pt-2 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 mt-2">
+            <span class="truncate max-w-[200px]"><i class="fa-solid fa-box mr-1"></i>${escapeHtml(g['Vật dụng chính (0đ)'])}</span>
+            <i class="fa-solid fa-arrow-right text-brand-600"></i>
+          </div>
+        </div>
+      `).join('');
     }
 
     const BADGES = [
@@ -784,31 +731,27 @@
     }
 
     function openDetailModal(id) {
-      const game = GAMES_DB.find(g => g.id === id);
+      const game = ALL_GAMES.find(g => g['STT'] === id);
       if (!game) return;
-      const title = currentLang === 'en' ? game.title_en : game.title_vi;
-      const items = currentLang === 'en' ? game.item_en : game.item_vi;
-      const steps = currentLang === 'en' ? game.steps_en : game.steps_vi;
-      const safety = currentLang === 'en' ? game.safety_en : game.safety_vi;
       const t = I18N[currentLang];
 
       document.getElementById('modal-content').innerHTML = `
         <div class="space-y-4">
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game.age}</span>
-          <h3 class="text-xl font-black text-slate-800">${escapeHtml(title)}</h3>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-brand-100 text-brand-800">${game['Độ tuổi']}</span>
+          <h3 class="text-xl font-black text-slate-800">${escapeHtml(game['Tên trò chơi'])}</h3>
           <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs">
             <p class="font-bold text-brand-700">${t.cardItemsTitle}</p>
-            <p class="text-slate-800 mt-1">${escapeHtml(items)}</p>
+            <p class="text-slate-800 mt-1">${escapeHtml(game['Vật dụng chính (0đ)'])}</p>
           </div>
           <div class="bg-white p-3 rounded-2xl border border-slate-100 text-xs space-y-1">
             <p class="font-bold text-slate-600">${t.cardStepsTitle}</p>
-            <p class="text-slate-700 whitespace-pre-line">${escapeHtml(steps)}</p>
+            <p class="text-slate-700 leading-relaxed">${escapeHtml(game['Cách chơi (Nhiệm vụ 3 bước)'])}</p>
           </div>
           <div class="bg-rose-50 border border-rose-200 rounded-2xl p-3 text-xs text-rose-900">
             <p class="font-bold text-rose-800">${t.cardSafetyTitle}</p>
-            <p class="mt-0.5">${escapeHtml(safety)}</p>
+            <p class="mt-0.5">${escapeHtml(game['Rà soát An toàn (Safety Rule)'])}</p>
           </div>
-          <button onclick="markModalCompleted(${game.id})" class="w-full py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition">
+          <button onclick="markModalCompleted(${game['STT']})" class="w-full py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs transition">
             ${t.modalCompleteBtn}
           </button>
         </div>
@@ -818,7 +761,7 @@
 
     function closeDetailModal() { document.getElementById('detail-modal').classList.add('hidden'); }
     function markModalCompleted(id) {
-      STATE.currentDrawnGame = GAMES_DB.find(g => g.id === id);
+      STATE.currentDrawnGame = ALL_GAMES.find(g => g['STT'] === id);
       markCompleted();
       closeDetailModal();
     }
@@ -906,8 +849,9 @@
     }
     function openLegalModal() { document.getElementById("legalModal").classList.remove("hidden"); }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('DOMContentLoaded', async () => {
       if (!localStorage.getItem("smartplay_accepted_terms")) openLegalModal();
+      await loadAllGameFiles();
       switchLanguage(currentLang);
       updateBadgePill();
       updateJourneyStats();
