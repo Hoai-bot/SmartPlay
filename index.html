@@ -168,14 +168,18 @@
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6">
 
     <!-- NAVIGATION TABS -->
-    <div class="flex p-1 bg-slate-200/80 rounded-2xl mb-6 max-w-md mx-auto shadow-inner text-sm font-semibold">
-      <button id="tab-btn-quest" onclick="switchTab('quest')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 bg-white text-brand-700 shadow-sm font-bold">
+    <div class="flex p-1 bg-slate-200/80 rounded-2xl mb-6 max-w-lg mx-auto shadow-inner text-xs md:text-sm font-semibold">
+      <button id="tab-btn-quest" onclick="switchTab('quest')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-1.5 bg-white text-brand-700 shadow-sm font-bold">
         <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="tabQuest">Bốc Thẻ</span>
       </button>
-      <button id="tab-btn-library" onclick="switchTab('library')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-medium">
+      <button id="tab-btn-ai" onclick="switchTab('ai')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium relative">
+        <i class="fa-solid fa-robot text-brand-600"></i> <span data-i18n="tabAi">Trợ lý AI</span>
+        <span class="text-[9px] bg-gradient-to-r from-amber-500 to-sun-500 text-white font-black px-1.5 py-0.2 rounded-full shadow-xs">VIP</span>
+      </button>
+      <button id="tab-btn-library" onclick="switchTab('library')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium">
         <i class="fa-solid fa-book-open"></i> <span data-i18n="tabLib">Kho 300 Trò</span>
       </button>
-      <button id="tab-btn-journey" onclick="switchTab('journey')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 font-medium relative">
+      <button id="tab-btn-journey" onclick="switchTab('journey')" class="flex-1 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium relative">
         <i class="fa-solid fa-award"></i> <span data-i18n="tabJourney">Nhật Ký</span>
         <span id="badge-count-pill" class="hidden text-[10px] bg-coral-500 text-white font-bold px-1.5 py-0.2 rounded-full">0</span>
       </button>
@@ -368,6 +372,157 @@
       </div>
     </section>
 
+  
+    <!-- TAB 4: TRỢ LÝ AI GỢI Ý TRÒ CHƠI (AI PROMPT PLAY ASSISTANT - VIP/PRO) -->
+    <section id="section-ai" class="space-y-6 hidden">
+      <!-- AI HERO BANNER -->
+      <div class="bg-gradient-to-r from-teal-800 via-brand-700 to-emerald-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase tracking-wider font-extrabold text-teal-200 bg-white/10 px-2.5 py-1 rounded-full border border-white/20">
+                ✨ Trợ Lý Sư Phạm AI 4.0
+              </span>
+              <span id="ai-vip-badge" class="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-400 text-amber-950">
+                Thử nghiệm Pilot (Còn <span id="ai-trial-count">3</span> lượt)
+              </span>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-xl text-sun-300">
+              🤖
+            </div>
+          </div>
+          <h2 class="text-2xl font-black text-white" data-i18n="aiBannerTitle">Phát Minh Trò Chơi Tức Thì Từ Mọi Đồ Vật</h2>
+          <p class="text-xs md:text-sm text-teal-100/90 leading-relaxed max-w-xl" data-i18n="aiBannerSub">
+            Gõ nhanh bất kỳ vật dụng nào bạn đang có ở nhà (hộp sữa, đũa ăn, tất chân, kẹp áo...). AI sẽ thiết kế ngay kịch bản độc bản chuẩn Montessori cho bé!
+          </p>
+        </div>
+      </div>
+
+      <!-- AI PROMPT INPUT BOX -->
+      <div class="bg-white rounded-3xl p-5 shadow-sm border border-slate-100 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-wand-sparkles text-brand-600"></i> Bạn đang có đồ vật gì và con mấy tuổi?
+          </label>
+          <div class="relative">
+            <textarea id="ai-input-prompt" rows="3" 
+                      placeholder="Ví dụ: Nhà đang có 1 hộp sữa rỗng và 3 chiếc đũa, bé 3 tuổi chơi được gì?"
+                      class="w-full p-3.5 text-xs md:text-sm rounded-2xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition resize-none"></textarea>
+          </div>
+        </div>
+
+        <!-- Quick prompt chips -->
+        <div class="flex flex-wrap gap-1.5 items-center">
+          <span class="text-[11px] font-bold text-slate-400 mr-1">Gợi ý mẫu:</span>
+          <button onclick="fillAiPrompt('1 hộp sữa rỗng và 3 chiếc đũa, bé 3 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">📦 Hộp sữa + Đũa (3 tuổi)</button>
+          <button onclick="fillAiPrompt('5 chiếc kẹp quần áo và 1 rổ nhựa, bé 4 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🧺 Kẹp áo + Rổ (4 tuổi)</button>
+          <button onclick="fillAiPrompt('2 cốc giấy và 1 cuộn băng dính, bé 6 tuổi')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🥤 Cốc giấy + Băng dính (6 tuổi)</button>
+        </div>
+
+        <!-- Generate Button -->
+        <button id="btn-generate-ai" onclick="generateAiGame()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-700 to-teal-800 text-white font-extrabold text-sm md:text-base shadow-lg shadow-brand-700/25 hover:shadow-xl hover:from-brand-500 hover:to-teal-700 active:scale-[0.98] transition flex items-center justify-center gap-2">
+          <i id="ai-btn-icon" class="fa-solid fa-sparkles text-sun-400"></i>
+          <span id="ai-btn-text">AI PHÁT MINH TRÒ CHƠI NGAY</span>
+        </button>
+      </div>
+
+      <!-- AI GENERATED RESULT CARD -->
+      <div id="ai-result-stage" class="hidden">
+        <div class="bg-white rounded-3xl p-6 shadow-xl border-2 border-brand-500/30 space-y-4 relative">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-brand-100 text-brand-800">✨ AI PHÁT MINH</span>
+              <span id="ai-result-age" class="text-xs font-bold text-slate-600">Độ tuổi</span>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-400">#AI-CUSTOM</span>
+          </div>
+
+          <!-- Dynamic Illustration for AI result -->
+          <div id="ai-result-illustration" class="w-full h-36 md:h-44 rounded-2xl overflow-hidden shadow-inner border border-slate-100 bg-slate-50 flex items-center justify-center"></div>
+
+          <div>
+            <h3 id="ai-result-title" class="text-xl font-black text-slate-900 leading-tight"></h3>
+            <p id="ai-result-skill" class="text-xs font-bold text-amber-600 mt-1"></p>
+          </div>
+
+          <div class="bg-amber-50 p-3.5 rounded-2xl border border-amber-200/60 text-xs space-y-1">
+            <p class="font-extrabold text-amber-900 uppercase tracking-wide">🎒 Vật dụng phát hiện từ gợi ý của bạn:</p>
+            <p id="ai-result-items" class="text-slate-800 font-medium"></p>
+          </div>
+
+          <div class="space-y-2">
+            <p class="text-xs font-extrabold text-slate-700 uppercase tracking-wide">🎯 3 Bước kích hoạt cho bé tự chơi độc lập:</p>
+            <div id="ai-result-steps" class="space-y-1.5 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 text-xs md:text-sm text-slate-700 leading-relaxed"></div>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 rounded-2xl p-3.5 flex items-start gap-2.5 text-xs text-rose-900">
+            <i class="fa-solid fa-shield-halved text-rose-500 text-base mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-bold text-rose-800 uppercase">🛡️ Rà soát An toàn (Bắt buộc):</p>
+              <p id="ai-result-safety" class="mt-0.5"></p>
+            </div>
+          </div>
+
+          <!-- Action Buttons for AI Card -->
+          <div class="pt-3 border-t border-slate-100 flex flex-col sm:flex-row gap-2">
+            <button onclick="markAiCompleted()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-md hover:from-emerald-600 hover:to-teal-700 active:scale-95 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+              BÉ ĐÃ CHƠI XONG!
+            </button>
+            <button onclick="printAiCard()" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs transition flex items-center justify-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-print"></i>
+              In thẻ bài AI này
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYWALL / VIP UPGRADE MODAL -->
+    <div id="vipPaywallModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+      <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-amber-200 text-slate-800 space-y-4">
+        <div class="text-center space-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 text-3xl flex items-center justify-center mx-auto mb-2 shadow-inner">
+            👑
+          </div>
+          <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded-full">Tính năng Độc quyền VIP</span>
+          <h3 class="text-xl font-black text-slate-900">Mở Khóa Trợ Lý Sư Phạm AI</h3>
+          <p class="text-xs text-slate-500 max-w-xs mx-auto">Bạn đã hoàn thành 3 lượt thử nghiệm Pilot miễn phí. Nâng cấp VIP để tạo không giới hạn trò chơi 0 đồng từ bất kỳ đồ vật nào!</p>
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 text-center space-y-1">
+          <p class="text-xs font-bold text-slate-600">Gói Hội Viên Thông Thái (1 Năm)</p>
+          <p class="text-3xl font-black text-amber-800">49.000đ <span class="text-xs font-normal text-slate-500">/ tháng (hoặc 199.000đ trọn đời)</span></p>
+          <p class="text-[10px] text-emerald-700 font-bold">✓ Không giới hạn sáng tạo trò chơi AI • Xuất file in thẻ PDF</p>
+        </div>
+
+        <!-- Payment Info / VietQR -->
+        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs space-y-2 text-center">
+          <p class="font-bold text-slate-700">Chuyển khoản kích hoạt tự động qua VietQR / Ngân hàng:</p>
+          <div class="bg-white p-2.5 rounded-xl border border-slate-200 text-[11px] font-mono space-y-0.5">
+            <p><strong>Ngân hàng:</strong> MBBank (Quân Đội)</p>
+            <p><strong>Số tài khoản:</strong> 0988888888</p>
+            <p><strong>Chủ tài khoản:</strong> VIEN NGHIEN CUU GIAO DUC IC DA LAT</p>
+            <p><strong>Nội dung CK:</strong> <span class="text-brand-700 font-bold">SMARTPLAY [SỐ ĐIỆN THOẠI]</span></p>
+          </div>
+        </div>
+
+        <!-- VIP Code Activation Box -->
+        <div class="space-y-1.5">
+          <label class="block text-[11px] font-bold text-slate-600">Hoặc nhập mã kích hoạt VIP:</label>
+          <div class="flex gap-2">
+            <input type="text" id="vip-code-input" placeholder="Nhập mã VIP (VD: ICDALATVIP)" class="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 font-mono uppercase">
+            <button onclick="activateVipCode()" class="px-4 py-2 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition">Kích hoạt</button>
+          </div>
+        </div>
+
+        <button onclick="closeVipModal()" class="w-full py-2.5 text-xs text-slate-400 hover:text-slate-600 font-semibold transition">
+          Để sau, quay lại trò chơi miễn phí
+        </button>
+      </div>
+    </div>
+
   </main>
 
   <!-- TIMER MODAL -->
@@ -418,7 +573,7 @@
   <script>
     const I18N = {
       vi: {
-        timerBtn: "Hẹn giờ", tabQuest: "Bốc Thẻ", tabLib: "Kho 300 Trò", tabJourney: "Nhật Ký",
+        timerBtn: "Hẹn giờ", tabQuest: "Bốc Thẻ", tabAi: "Trợ lý AI", tabLib: "Kho 300 Trò", tabJourney: "Nhật Ký",
         heroTitle: "Hôm nay bé chơi gì?", heroSub: "30 giây kích hoạt • Bé say mê tự chơi • An toàn không màn hình",
         ageHeading: "1. Độ tuổi của con", age1Title: "🐣 1 - 3 tuổi", age1Sub: "Khám phá giác quan",
         age2Title: "🚀 4 - 5 tuổi", age2Sub: "Tưởng tượng & Vận động", age3Title: "🧩 6 - 8 tuổi", age3Sub: "Tư duy & Thử thách",
@@ -449,7 +604,7 @@
         modalCompleteBtn: "Đánh dấu đã hoàn thành", btnPrintCard: "In thẻ", btnPrintDeck: "In Bộ Thẻ (PDF)"
       },
       en: {
-        timerBtn: "Timer", tabQuest: "Draw Card", tabLib: "300 Games", tabJourney: "Journal",
+        timerBtn: "Timer", tabQuest: "Draw Card", tabAi: "AI Assistant", tabLib: "300 Games", tabJourney: "Journal",
         heroTitle: "What are we playing today?", heroSub: "30-sec setup • Screen-free independent play • 100% Safe",
         ageHeading: "1. Child's age group", age1Title: "🐣 1 - 3 Years", age1Sub: "Sensory discovery",
         age2Title: "🚀 4 - 5 Years", age2Sub: "Imagination & Action", age3Title: "🧩 6 - 8 Years", age3Sub: "STEM & Logic",
@@ -671,7 +826,7 @@
 
     function switchTab(tabName) {
       STATE.activeTab = tabName;
-      ['quest', 'library', 'journey'].forEach(tab => {
+      ['quest', 'ai', 'library', 'journey'].forEach(tab => {
         const sec = document.getElementById(`section-${tab}`);
         const btn = document.getElementById(`tab-btn-${tab}`);
         if (tab === tabName) {
@@ -1156,7 +1311,196 @@
       printBox.classList.add('hidden');
     }
 
+    
+    /* ========================================================
+       AI PROMPT PLAY ASSISTANT & PILOT PAYWALL SYSTEM
+       ======================================================== */
+    let isVipUser = localStorage.getItem('smartplay_is_vip') === 'true';
+    let aiQuota = parseInt(localStorage.getItem('smartplay_ai_quota') !== null ? localStorage.getItem('smartplay_ai_quota') : '3');
+    let currentGeneratedAiGame = null;
+
+    function updateAiQuotaDisplay() {
+      const countEl = document.getElementById('ai-trial-count');
+      const badgeEl = document.getElementById('ai-vip-badge');
+      if (isVipUser) {
+        if (badgeEl) badgeEl.innerHTML = "👑 Thành Viên VIP (Không giới hạn)";
+        if (badgeEl) badgeEl.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-400 text-emerald-950";
+      } else {
+        if (countEl) countEl.innerText = aiQuota;
+        if (badgeEl) {
+          if (aiQuota <= 0) {
+            badgeEl.innerHTML = "🔒 Hết lượt Pilot • Cần nâng cấp VIP";
+            badgeEl.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-rose-400 text-rose-950 cursor-pointer";
+            badgeEl.onclick = openVipModal;
+          } else {
+            badgeEl.innerHTML = `Thử nghiệm Pilot (Còn <span id="ai-trial-count">${aiQuota}</span> lượt)`;
+            badgeEl.className = "text-xs font-bold px-2 py-0.5 rounded-full bg-amber-400 text-amber-950";
+          }
+        }
+      }
+    }
+
+    function openVipModal() {
+      document.getElementById('vipPaywallModal').classList.remove('hidden');
+    }
+
+    function closeVipModal() {
+      document.getElementById('vipPaywallModal').classList.add('hidden');
+    }
+
+    function activateVipCode() {
+      const codeInput = document.getElementById('vip-code-input').value.trim().toUpperCase();
+      const validCodes = ['ICDALATVIP', 'SMARTPLAYPRO', 'DALAT2026', 'MONTESSORI'];
+      if (validCodes.includes(codeInput)) {
+        isVipUser = true;
+        localStorage.setItem('smartplay_is_vip', 'true');
+        closeVipModal();
+        updateAiQuotaDisplay();
+        showToast("🎉 Chúc mừng! Bạn đã nâng cấp tài khoản VIP thành công!", "success");
+        if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 80 });
+      } else {
+        showToast("Mã kích hoạt không đúng. Vui lòng kiểm tra lại hoặc chuyển khoản để nhận mã!", "warning");
+      }
+    }
+
+    function fillAiPrompt(sampleText) {
+      document.getElementById('ai-input-prompt').value = sampleText;
+    }
+
+    async function generateAiGame() {
+      const promptInput = document.getElementById('ai-input-prompt').value.trim();
+      if (!promptInput) {
+        showToast("Vui lòng gõ vật dụng bạn có ở nhà và số tuổi của con nhé!", "warning");
+        return;
+      }
+
+      // Check quota & VIP status
+      if (!isVipUser && aiQuota <= 0) {
+        openVipModal();
+        return;
+      }
+
+      const btn = document.getElementById('btn-generate-ai');
+      const btnText = document.getElementById('ai-btn-text');
+      const btnIcon = document.getElementById('ai-btn-icon');
+
+      btn.disabled = true;
+      btnText.innerText = "AI ĐANG PHÂN TÍCH VẬT DỤNG & THIẾT KẾ...";
+      btnIcon.className = "fa-solid fa-spinner fa-spin text-sun-300";
+
+      // Simulate Pedagogical Analysis
+      setTimeout(() => {
+        btn.disabled = false;
+        btnText.innerText = "AI PHÁT MINH TRÒ CHƠI NGAY";
+        btnIcon.className = "fa-solid fa-sparkles text-sun-400";
+
+        // Deduct trial quota if not VIP
+        if (!isVipUser) {
+          aiQuota = Math.max(0, aiQuota - 1);
+          localStorage.setItem('smartplay_ai_quota', aiQuota);
+          updateAiQuotaDisplay();
+        }
+
+        // Generate tailored pedagogical game
+        currentGeneratedAiGame = synthesizeCustomAiPlay(promptInput);
+        renderAiResultCard(currentGeneratedAiGame);
+
+        document.getElementById('ai-result-stage').classList.remove('hidden');
+        document.getElementById('ai-result-stage').scrollIntoView({ behavior: 'smooth' });
+
+        showToast("✨ AI đã phát minh xong trò chơi độc bản cho bé!", "success");
+        if (typeof confetti === 'function') confetti({ particleCount: 50, spread: 60 });
+      }, 1200);
+    }
+
+    function synthesizeCustomAiPlay(prompt) {
+      const lower = prompt.toLowerCase();
+      let age = "3-5 tuổi";
+      if (lower.includes('1') || lower.includes('2')) age = "1-3 tuổi";
+      else if (lower.includes('4') || lower.includes('5')) age = "4-5 tuổi";
+      else if (lower.includes('6') || lower.includes('7') || lower.includes('8')) age = "6-8 tuổi";
+
+      let title = "Đấu Trường Sáng Tạo Tí Hon";
+      let skill = "Tư duy Sáng tạo & Phối hợp Vận động";
+      let steps = "";
+      let safety = "Đảm bảo các vật dụng nhẵn tròn, không góc nhọn hay cạnh kim loại sắc.";
+
+      if (lower.includes('hộp sữa') || lower.includes('đũa') || lower.includes('hộp')) {
+        title = "Thử Thách Thả Cột Trụ & Gõ Trống Hộp Sữa";
+        skill = "Vận động tinh, Khéo léo tay - mắt & Cảm thụ tiết tấu";
+        steps = "1. Mẹ khoét 3 lỗ nhỏ vừa chiếc đũa trên nắp hộp sữa.\n2. Bé đóng vai chú thỏ thợ xây tập cắm từng chiếc đũa vào lỗ hộp.\n3. Rút đũa ra gõ nhịp điệu bài hát vui nhộn lên thân hộp sữa.";
+        safety = "Rửa sạch hộp sữa trước khi chơi, kiểm tra đũa gỗ không có dằm xước.";
+      } else if (lower.includes('kẹp') || lower.includes('rổ') || lower.includes('khăn')) {
+        title = "Biệt Đội Giải Cứu Rổ Nhựa Đa Sắc";
+        skill = "Tăng cường lực cơ ngón tay (chuẩn bị cầm bút) & Phân loại màu";
+        steps = "1. Rải các kẹp quần áo xung quanh thành rổ nhựa.\n2. Bé dùng ngón cái và ngón trỏ bóp kẹp để gỡ từng chiếc kẹp thả vào đáy rổ.\n3. Thử thách nâng cao: Kẹp các dải khăn tay nối dài quanh mép rổ.";
+        safety = "Dùng kẹp nhựa lò xo nhẹ lực, kiểm tra mép rổ không có bavia nhựa sắc.";
+      } else if (lower.includes('cốc') || lower.includes('băng dính') || lower.includes('giấy')) {
+        title = "Kiến Trúc Sư Tòa Tháp Cốc & Cầu Băng Dính";
+        skill = "Tư duy Không gian STEM, Tính kiên nhẫn & Cân bằng vật lý";
+        steps = "1. Dán 2 dải băng dính song song trên bàn tạo làn đường.\n2. Bé xếp các cốc chồng lên nhau thành kim tự tháp mà không làm đổ.\n3. Lăn quả cầu giấy nhỏ dọc theo dải băng dính để xô đổ tháp cốc.";
+        safety = "Chỉ dùng cốc giấy hoặc cốc nhựa dẻo, không dùng đồ thủy tinh hoặc gốm sứ.";
+      } else {
+        title = "Nhà Thám Hiểm 0 Đồng: Sắp Đặt & Nhập Vai";
+        skill = "Trí tưởng tượng phong phú & Phát triển ngôn ngữ độc lập";
+        steps = `1. Tập hợp các vật dụng [${escapeHtml(prompt)}] vào một góc thảm an toàn.\n2. Bé tự đặt tên và đóng vai nhà du hành vũ trụ xây dựng căn cứ từ các đồ vật.\n3. Thuyết trình cho bố mẹ nghe về tác phẩm sau 15 phút tự chơi độc lập.`;
+        safety = "Quan sát không gian chơi thoáng đãng, cất gọn đồ vật sau khi chơi xong.";
+      }
+
+      return {
+        'STT': 'AI-' + Math.floor(1000 + Math.random() * 9000),
+        'Tên trò chơi': title,
+        'Độ tuổi': age,
+        'Vị trí / Không gian': 'Trong nhà',
+        'Vật dụng chính (0đ)': prompt,
+        'Kỹ năng phát triển': skill,
+        'Cách chơi (Nhiệm vụ 3 bước)': steps,
+        'Rà soát An toàn (Safety Rule)': safety
+      };
+    }
+
+    function renderAiResultCard(game) {
+      document.getElementById('ai-result-title').innerText = game['Tên trò chơi'];
+      document.getElementById('ai-result-age').innerText = game['Độ tuổi'];
+      document.getElementById('ai-result-skill').innerText = "🎯 Kỹ năng: " + game['Kỹ năng phát triển'];
+      document.getElementById('ai-result-items').innerText = game['Vật dụng chính (0đ)'];
+      
+      const formattedSteps = game['Cách chơi (Nhiệm vụ 3 bước)'].split('\n').map(s => `<p>${escapeHtml(s)}</p>`).join('');
+      document.getElementById('ai-result-steps').innerHTML = formattedSteps;
+      document.getElementById('ai-result-safety').innerText = game['Rà soát An toàn (Safety Rule)'];
+      
+      // Dynamic Vector for AI Game
+      const illustration = getIllustrationForGame(game);
+      document.getElementById('ai-result-illustration').innerHTML = illustration;
+    }
+
+    function markAiCompleted() {
+      if (!currentGeneratedAiGame) return;
+      STATE.history.unshift({
+        id: currentGeneratedAiGame['STT'],
+        title: currentGeneratedAiGame['Tên trò chơi'],
+        age: currentGeneratedAiGame['Độ tuổi'],
+        date: new Date().toLocaleDateString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit' }),
+        minutes: 20
+      });
+      localStorage.setItem('smartplay_history', JSON.stringify(STATE.history));
+      if (typeof confetti === 'function') confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+      showToast("🎉 Tuyệt vời! Bé đã chinh phục trò chơi do AI phát minh!", "success");
+      updateBadgePill();
+      updateJourneyStats();
+    }
+
+    function printAiCard() {
+      if (!currentGeneratedAiGame) return;
+      const printBox = document.getElementById('print-container');
+      printBox.innerHTML = generateCardHtmlForPrint(currentGeneratedAiGame);
+      printBox.classList.remove('hidden');
+      window.print();
+      printBox.classList.add('hidden');
+    }
+
     window.addEventListener('DOMContentLoaded', async () => {
+      updateAiQuotaDisplay();
       if (!localStorage.getItem("smartplay_accepted_terms")) openLegalModal();
       await loadAllGameFiles();
       switchLanguage(currentLang);
