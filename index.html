@@ -1652,11 +1652,11 @@
     function synthesizeDynamicPedagogicalPlay(prompt) {
       const lower = prompt.toLowerCase();
       
-      // 1. Phân tích độ tuổi CHÍNH XÁC bằng biểu thức chính quy (Tránh nhầm số lượng đồ vật như '2 cái mền' thành 2 tuổi)
+      // 1. Phân tích độ tuổi CHÍNH XÁC bằng regex
       let ageGroup = "4-5 tuổi";
       let ageNum = 4;
       
-      const ageMatch = lower.match(/(?:bé|trẻ|con|cho)?\s*(\d+)\s*(?:tuổi|t)/);
+      const ageMatch = lower.match(/(?:bé|trẻ|con|cho)?\s*(\d+)\s*(?:tuổi|t)/);
       if (ageMatch) {
         const num = parseInt(ageMatch[1]);
         if (num <= 3) { ageGroup = "1-3 tuổi"; ageNum = num; }
@@ -1668,125 +1668,150 @@
         ageGroup = "1-3 tuổi"; ageNum = 2;
       }
 
-      // 2. Nhận diện các nhóm vật thể thực tế
-      const hasFort = lower.includes('mền') || lower.includes('chăn') || lower.includes('mùng') || lower.includes('màn') || lower.includes('gối');
-      const hasBall = lower.includes('bóng') || lower.includes('pickleball') || lower.includes('tennis') || lower.includes('cầu');
-      const hasBasket = lower.includes('rổ') || lower.includes('chậu') || lower.includes('thau') || lower.includes('giỏ');
-      const hasShoes = lower.includes('dép') || lower.includes('giép') || lower.includes('giày') || lower.includes('hài');
-      const hasMilk = lower.includes('hộp sữa') || lower.includes('vỏ sữa');
-      const hasBox = lower.includes('thùng') || lower.includes('hộp carton') || lower.includes('hộp bánh');
-      const hasChopsticks = lower.includes('đũa') || lower.includes('que');
-      const hasBottle = lower.includes('chai') || lower.includes('lọ');
-      const hasButtons = lower.includes('cúc') || lower.includes('nút áo');
-      const hasTape = lower.includes('băng dính') || lower.includes('băng keo');
-      const hasCups = lower.includes('cốc') || lower.includes('ly');
-      const hasClips = lower.includes('kẹp') || lower.includes('kẹp áo');
-      const hasSocks = lower.includes('tất') || lower.includes('vớ');
-      const hasPaper = lower.includes('giấy') || lower.includes('báo');
+      // 2. Nhận diện mục tiêu tiếng Anh / Ngoại ngữ
+      const isEnglish = lower.includes('tiếng anh') || lower.includes('english') || lower.includes('từ vựng') || lower.includes('flashcard') || lower.includes('học từ') || lower.includes('esl');
+
+      // 3. Phân tích nhóm đồ vật thực tế
+      const hasBall = lower.includes('bóng') || lower.includes('pickleball') || lower.includes('tennis') || lower.includes('cầu') || lower.includes('tất cuộn');
+      const hasContainer = lower.includes('cốc') || lower.includes('ly') || lower.includes('rổ') || lower.includes('chậu') || lower.includes('thau') || lower.includes('hộp') || lower.includes('thùng') || lower.includes('bát');
+      const hasObstacle = lower.includes('dép') || lower.includes('giày') || lower.includes('gối') || lower.includes('ghế') || lower.includes('băng dính') || lower.includes('dây');
+      const hasCardsOrPaper = lower.includes('flashcard') || lower.includes('thẻ') || lower.includes('giấy') || lower.includes('tranh') || lower.includes('bìa');
+      const hasPincer = lower.includes('kẹp') || lower.includes('đũa') || lower.includes('thìa') || lower.includes('muỗng');
+      const hasSmallItems = lower.includes('cúc') || lower.includes('nắp chai') || lower.includes('viên') || lower.includes('hạt');
+      const hasFort = lower.includes('mền') || lower.includes('chăn') || lower.includes('mùng') || lower.includes('màn');
+
+      // Làm sạch tên đồ vật để hiển thị
+      let cleanPrompt = prompt
+        .replace(/^(nhà đang có|nhà có|hiện có|lớp có|có|đang có)\s+/i, '')
+        .replace(/(cho\s+)?(bé|trẻ|con|học sinh)\s*\d*\s*tuổi.*/i, '')
+        .replace(/(chơi\s+được\s+gì|chơi\s+gì|làm\s+gì|học\s+tiếng\s+anh).*/i, '')
+        .trim();
+      if (!cleanPrompt) cleanPrompt = prompt.trim();
+      const displayItem = cleanPrompt.charAt(0).toUpperCase() + cleanPrompt.slice(1);
 
       let title = "";
       let skill = "";
       let steps = "";
       let safety = "";
 
-      // 3. Phối hợp sư phạm chuẩn Montessori / Reggio Emilia
-      if (hasFort && (lower.includes('mền') || lower.includes('gối') || lower.includes('mùng'))) {
-        if (ageNum <= 3) {
-          title = "Ốc Đảo Gối Êm & Đường Hầm Mền Cổ Tích";
-          skill = "Phát triển giác quan, Vận động thô & Nhận thức không gian";
-          steps = "1. Trải 2 cái mền xuống sàn tạo thành thảm cỏ êm ái, xếp các gối xung quanh làm bờ rào vững chãi.\n2. Mẹ căng nhẹ mùng phủ qua tựa ghế tạo mái vòm che bóng râm huyền bí.\n3. Bé bò qua hàng gối chui vào trong lều, mang theo 1 món đồ chơi yêu thích ngồi chơi trốn tìm 15 phút.";
-          safety = "Kiểm tra ghế hoặc giá đỡ mùng phải chắc chắn, không dùng vật nặng đè lên mép mùng.";
-        } else if (ageNum <= 5) {
-          title = "Kiến Trúc Sư Nhí: Pháo Đài Mền Gối & Lều Cắm Trại Mùng";
-          skill = "Tư duy Cấu trúc Không gian, Trí tưởng tượng phong phú & Tự lập độc lập";
-          steps = "1. Bé dùng 2 gối dài làm cột trụ cổng thành, 4 gối ngắn xếp thành tường bao quanh pháo đài.\n2. Phủ mùng và 2 cái mền lên thành lũy gối để tạo một căn lều bí mật ấm cúng có cửa sổ mở.\n3. Bé mang đèn pin nhỏ hoặc sách tranh vào lều, tự đóng vai nhà thám hiểm ngủ lều trong rừng rậm 20 phút.";
-          safety = "Không phủ kín hoàn toàn mùng mền để đảm bảo không khí luôn thông thoáng, thoáng mát bên trong.";
+      // ==========================================
+      // NHÁNH A: CÓ YẾU TỐ HỌC TIẾNG ANH / FLASHCARD (CHUẨN TPR PHẢN XẠ)
+      // ==========================================
+      if (isEnglish) {
+        if (hasBall && hasContainer) {
+          title = "Color Basket Ball: Đấu Trường Ném Bóng Phản Xạ";
+          skill = "Phản xạ Tiếng Anh (TPR), Phối hợp tay mắt & Vận động thô";
+          steps = `1. Chuẩn bị (30s): Đặt các cốc/rổ thành hàng cách bé 1.5m, dán thẻ màu/từ vựng lên mỗi cốc. Đưa quả bóng cho bé cầm sẵn.
+` +
+                  `2. Kích hoạt nhiệm vụ: Cô giáo/Ba mẹ hô to khẩu lệnh ngắn: "Touch the Blue cup!" hoặc "Toss into Red!". Bé bật nhảy 2 bước rồi ném bóng vào đúng cốc được gọi tên.
+` +
+                  `3. Phát âm & Ăn mừng: Khi bóng lọt vào cốc, bé giơ hai tay hô vang từ vựng thật to (ví dụ: "BLUE! YES!") để ghi 1 điểm chiến thắng.`;
+          safety = "Đặt cốc sát chân tường hoặc trên sàn bằng phẳng để cốc không bị trượt đổ.";
+        } else if (hasObstacle || hasCardsOrPaper) {
+          title = "Safari Jump: Đường Đua Nhảy Cóc Bắt Từ Vựng";
+          skill = "Vận động toàn thân TPR, Ghi nhớ từ vựng qua chuyển động";
+          steps = `1. Chuẩn bị (30s): Xếp các vật dụng (dép/gối) trên sàn tạo đường chướng ngại vật zíc-zắc. Đặt flashcard từ vựng ở vạch đích.
+` +
+                  `2. Kích hoạt nhiệm vụ: Người lớn hô khẩu lệnh: "Run to the Lion!" hoặc "Jump over and touch Yellow!". Bé nhảy vượt qua hàng chướng ngại vật lao nhanh về đích.
+` +
+                  `3. Phát âm & Ăn mừng: Chạm tay vào thẻ từ, làm động tác bắt chước và đọc vang từ vựng 3 lần để hoàn thành vòng chạy.`;
+          safety = "Khoảng cách giữa các vật vừa tầm bước chân trẻ, dọn sạch đồ vật trơn trượt xung quanh.";
         } else {
-          title = "Căn Cứ Quân Sự Mật & Mê Cung Phòng Thủ Mền Gối";
-          skill = "Tư duy Chiến thuật, Giải quyết vấn đề & Kỹ năng xây dựng cấu trúc";
-          steps = "1. Bé thiết kế bản vẽ sơ đồ căn cứ: Phân chia khu vực kho quân lương, trạm gác và phòng ngủ từ gối dài và gối ngắn.\n2. Dùng mùng giăng dây tạo nóc lều treo, phủ mền cách nhiệt tạo không gian chỉ huy tác chiến.\n3. Tự đặt ra mật mã vào cửa căn cứ và thuyết minh cho bố mẹ nghe về kết cấu phòng thủ của công trình.";
-          safety = "Dây giăng mùng ở tầm an toàn, không buộc dây siết chặt quanh cơ thể bé.";
+          title = `Flash-Action: Thử Thách Phản Xạ Nhanh Cùng [${displayItem.slice(0, 25)}]`;
+          skill = "Phản xạ ngôn ngữ tức thì, Tập trung cao độ & Vận động nhanh nhẹn";
+          steps = `1. Chuẩn bị (30s): Bày đồ vật ra bàn hoặc giữa thảm chơi, quy ước mỗi món đồ đại diện cho 1 từ/hành động tiếng Anh.
+` +
+                  `2. Kích hoạt nhiệm vụ: Người hướng dẫn hô nhanh: "1 - 2 - 3, Pick the [Item]!" hoặc "Tap the [Item]!". Bé phải dùng tay chạm hoặc nhặt đúng đồ vật trong vòng 3 giây.
+` +
+                  `3. Phát âm & Ăn mừng: Giơ đồ vật lên cao, đọc to tên đồ vật bằng tiếng Anh kèm tiếng vỗ tay ăn mừng cùng cả nhà.`;
+          safety = "Đảm bảo đồ vật sạch sẽ, nhẵn cạnh an toàn cho bé cầm nắm nhanh.";
         }
-      } else if (hasBall && (hasBasket || hasShoes)) {
+      } 
+      // ==========================================
+      // NHÁNH B: BÓNG + RỔ/HỘP (TRÒ CHƠI BẮN PHÁ / NÉM ĐÍCH)
+      // ==========================================
+      else if (hasBall && hasContainer) {
+        title = "Pháo Thủ Siêu Đẳng: Thử Thách Ném Trúng Đích 3 Cấp Độ";
+        skill = "Ước lượng khoảng cách, Kiểm soát lực tay & Kiên trì";
+        steps = `1. Chuẩn bị (30s): Đặt rổ/hộp ở góc phòng. Dán 3 vạch băng dính trên sàn tượng trưng cho 3 cự ly: 1 điểm (gần), 2 điểm (vừa), 3 điểm (xa).
+` +
+                `2. Kích hoạt nhiệm vụ: Bé đứng tại vạch 1 điểm, ném bóng vào rổ. Khi ném trúng, bé lùi lại vạch 2 điểm và vạch 3 điểm để thử thách tay nghề pháo thủ.
+` +
+                `3. Ăn mừng: Đếm to số điểm đạt được sau 5 lượt ném: "1, 2, 3 điểm! Xuất sắc!" và ăn mừng chiến thắng.`;
+        safety = "Chơi ở khu vực thoáng đãng, tránh xa cửa kính và bóng đèn thấp.";
+      }
+      // ==========================================
+      // NHÁNH C: PHÁO ĐÀI MỀN GỐI / LỀU TRẠI
+      // ==========================================
+      else if (hasFort) {
+        title = "Kiến Trúc Sư Tí Hon: Pháo Đài Bí Mật 3 Lối Vào";
+        skill = "Tư duy cấu trúc không gian, Trí tưởng tượng & Tự lập độc lập";
+        steps = `1. Chuẩn bị (30s): Dùng ghế tựa làm trụ đứng, trải chăn/mền phủ qua ghế tạo mái vòm pháo đài. Xếp gối quanh chân ghế làm tường lũy.
+` +
+                `2. Kích hoạt nhiệm vụ: Bé bò luồn qua 'cửa bí mật' chui vào bên trong pháo đài, đem theo 1 món đồ chơi yêu thích và đèn pin nhỏ.
+` +
+                `3. Phát triển độc lập: Bé tự bày biện phòng đọc sách mini trong lều và tự chơi độc lập không màn hình trong 20 phút.`;
+        safety = "Đảm bảo ghế tựa chắc chắn không bị lật, chăn mền thoáng khí không trùm quá kín.";
+      }
+      // ==========================================
+      // NHÁNH D: DỤNG CỤ GẮP/KẸP + ĐỒ NHỎ (VẬN ĐỘNG TINH MONTESSORI)
+      // ==========================================
+      else if ((hasPincer || hasSmallItems) && (hasContainer || hasObstacle || hasPincer)) {
+        title = "Cần Cẩu Gắp Báu Vật: Đại Chiến Giải Cứu 0 Đồng";
+        skill = "Vận động tinh cơ ngón tay (tiền đề cầm bút), Khéo léo & Tập trung";
+        steps = `1. Chuẩn bị (30s): Rải các đồ vật nhỏ (nắp chai, cúc áo, giấy vo viên) ra khay. Đặt 1 chiếc bát rỗng ở cự ly 1 sải tay.
+` +
+                `2. Kích hoạt nhiệm vụ: Bé dùng kẹp quần áo hoặc đũa kẹp từng món đồ di chuyển sang bát rỗng mà không làm rơi giữa đường.
+` +
+                `3. Về đích: Đếm số lượng báu vật giải cứu thành công trong 60 giây và vỗ tay tự hào khen ngợi sự kiên nhẫn của bé.`;
+        safety = "Chỉ dùng đồ vật có kích thước an toàn (>3.5cm) cho bé dưới 3 tuổi để phòng ngừa ngậm nuốt.";
+      }
+      // ==========================================
+      // NHÁNH E: BĂNG DÍNH / DÉP / SÁCH (ĐƯỜNG ĐUA & VẬN ĐỘNG THÔ)
+      // ==========================================
+      else if (hasObstacle) {
+        title = "Đặc Nhiệm Nhí: Vượt Mê Cung Laser & Cầu Khỉ";
+        skill = "Vận động thô, Giữ thăng bằng & Giải quyết vấn đề";
+        steps = `1. Chuẩn bị (30s): Dán băng dính làm các đường kẻ thẳng/zíc-zắc trên sàn hoặc xếp hàng dép thành cầu khỉ qua suối.
+` +
+                `2. Kích hoạt nhiệm vụ: Bé đi thăng bằng trên từng bước cầu, hai tay dang ngang như máy bay, chân không được chạm ra ngoài sàn nhà.
+` +
+                `3. Về đích: Khi chạm vạch đích cuối cùng, bé giậm chân 3 nhịp và hô to "VỀ ĐÍCH THÀNH CÔNG!" để hoàn tất thử thách.`;
+        safety = "Sàn nhà khô ráo, không trơn trượt; loại bỏ các vật nhọn xung quanh đường chạy.";
+      }
+      // ==========================================
+      // NHÁNH F: ĐỒ VẬT TỰ DO BẤT KỲ (DYNAMIC HEURISTIC ENGINE ĐỘC BẢN)
+      // ==========================================
+      else {
+        // Tự động phân loại 3 phong cách chơi hấp dẫn theo tuổi
         if (ageNum <= 3) {
-          title = "Ném Bóng Lọt Rổ & Cây Cầu Băng Qua Đôi Dép";
-          skill = "Vận động thô, Định hướng không gian & Phối hợp tay - mắt";
-          steps = "1. Đặt rổ nhựa dựa vào góc tường, xếp 2 đôi dép cách rổ 1 mét làm vạch xuất phát.\n2. Bé đứng sau hàng dép, dùng 2 tay ôm bóng tập ném hoặc lăn lọt vào lòng rổ.\n3. Khi bóng vào rổ, bé nhảy lò cò vượt qua đôi dép chạy đến nhặt bóng ăn mừng.";
-          safety = "Dép đặt phẳng trên sàn không trơn trượt, khu vực chơi thông thoáng không có bàn kính.";
+          title = `Trạm Phù Thủy Khám Phá: Vũ Điệu [${displayItem.slice(0, 22)}]`;
+          skill = "Kích hoạt đa giác quan (Thị giác, Xúc giác) & Phối hợp vận động";
+          steps = `1. Chuẩn bị (30s): Đặt các đồ vật [${displayItem}] vào giữa tấm thảm chơi sạch sẽ.
+` +
+                  `2. Nhiệm vụ hành động: Hướng dẫn bé chạm tay cảm nhận đồ cứng/mềm, gõ nhẹ 2 món vào nhau tạo tiếng lách cách vui tai theo nhịp vỗ tay của mẹ.
+` +
+                  `3. Hoàn thành: Bé tự nhặt từng món đồ cất vào rổ và cùng mẹ reo vang "HOAN HÔ BÉ TỰ LẬP!"`;
+          safety = "Kiểm tra kỹ các góc cạnh nhẵn nhụi, không bụi bẩn và không có chi tiết sắc nhọn.";
         } else if (ageNum <= 5) {
-          title = "Đấu Trường Golf Tại Gia: Vượt Cầu Khỉ Đôi Dép Vào Rổ";
-          skill = "Khéo léo, Ước lượng cự ly, Kiểm soát lực & Tư duy luật chơi";
-          steps = "1. Đặt rổ nằm nghiêng làm 'khung thành gôn', dựng 2 đôi dép đứng hai bên làm chướng ngại vật 'cổng hẹp'.\n2. Bé dùng tay lăn hoặc lấy 1 chiếc dép làm gậy đẩy quả bóng luồn qua khe giữa 2 đôi dép vào rổ.\n3. Đếm xem trong 5 lượt lăn bé đưa được bóng vào rổ bao nhiêu lần để ghi điểm siêu sao.";
-          safety = "Khu vực lăn bóng bằng phẳng, không cho bé chạy đuổi bóng gần bậc thềm hay góc nhọn.";
+          title = `Đấu Trường Tiếp Sức Tốc Độ Cùng [${displayItem.slice(0, 20)}]`;
+          skill = "Vận động nhanh nhẹn, Tuân thủ luật chơi & Tự tin biểu đạt";
+          steps = `1. Chuẩn bị (30s): Đặt [${displayItem}] ở một đầu phòng làm 'trạm tiếp tế'. Đặt 1 chiếc rổ/ghế ở đầu phòng kia làm 'kho bí mật'.
+` +
+                  `2. Nhiệm vụ hành động: Bé xuất phát, chạy nhanh đến trạm lấy 1 món đồ, giơ cao qua đầu và chạy tiếp sức mang về kho mà không đánh rơi.
+` +
+                  `3. Hoàn thành: Sau khi chuyển hết đồ vật, bé tự đếm to số lượng và thuyết minh ngắn 1 câu cho ba mẹ nghe về công dụng món đồ bé thích nhất.`;
+          safety = "Dọn sạch đường chạy giữa hai trạm, không để trẻ chạy gần bậc tam cấp.";
         } else {
-          title = "Giải Đấu Bóng Pickleball Chướng Ngại Vật 3 Cấp Độ";
-          skill = "Tư duy Chiến thuật, Vận động linh hoạt & Tự tính điểm";
-          steps = "1. Thiết kế đường đua zíc-zắc: Xếp 2 đôi dép so le cách nhau 1 bước chân, rổ giặt đồ đặt ở cuối vạch đích.\n2. Bé tâng bóng nhẹ hoặc dẫn bóng bằng bàn chân luồn qua các đôi dép rồi đá/ném bóng vào rổ.\n3. Tự bấm giờ 10 phút trên đồng hồ SmartPlay để phá kỷ lục thời gian đưa bóng vào rổ.";
-          safety = "Sàn nhà khô ráo, dép sạch sẽ tránh làm trơn trượt khi di chuyển nhanh.";
+          title = `Kỹ Sư Trọng Lực & Thử Thách Cân Bằng [${displayItem.slice(0, 20)}]`;
+          skill = "Tư duy Logic STEM, Thăng bằng vật lý & Giải quyết thử thách";
+          steps = `1. Chuẩn bị (30s): Đặt toàn bộ [${displayItem}] lên mặt bàn phẳng.
+` +
+                  `2. Nhiệm vụ hành động: Bé tự sáng tạo cách xếp chồng các món đồ lên nhau thành một ngọn tháp cao nhất có thể mà không bị ngã đổ trong 10 giây.
+` +
+                  `3. Hoàn thành: Đo xem ngọn tháp cao được bao nhiêu gang tay của bé, tự vẽ lại kết cấu chiến thắng ra giấy để ghi danh kỷ lục gia đình.`;
+          safety = "Dùng đồ vật nhẹ, tránh đồ sứ hoặc thủy tinh dễ nứt vỡ khi đổ tháp.";
         }
-      } else if (hasMilk && hasChopsticks) {
-        if (ageNum <= 3) {
-          title = "Đại Tiệc Cắm Đũa Ốc Sên Hộp Sữa";
-          skill = "Vận động tinh đầu ngón tay & Phối hợp tay mắt cơ bản";
-          steps = "1. Mẹ dùng mũi kéo đục sẵn 4-5 lỗ nhỏ trên mặt hộp sữa.\n2. Bé cầm từng chiếc đũa khéo léo nhắm đúng lỗ cắm vào trong hộp.\n3. Nhấc hộp sữa lên lắc xem tạo thành âm thanh lục cục vui tai ra sao.";
-          safety = "Rửa sạch và phơi khô hộp sữa, chọn đũa tre tròn không dằm gai.";
-        } else if (ageNum <= 5) {
-          title = "Trạm Đánh Trống Tiết Tấu & Cột Cờ Hộp Sữa";
-          skill = "Cảm thụ nhịp điệu âm nhạc, Khéo léo & Đếm số lượng";
-          steps = "1. Cắm 3 chiếc đũa dựng đứng trên hộp sữa làm 3 cột mốc cờ hiệu.\n2. Bé dùng đũa gõ vào các mặt hộp sữa theo nhịp: '1-2 gõ nhẹ, 3 gõ vang'.\n3. Thử thách: Gấp giấy nhỏ gắn lên đầu đũa làm lá cờ trang trí.";
-          safety = "Kiểm tra đầu đũa nhẵn nhụi, không hướng đũa vào mặt người khác.";
-        } else {
-          title = "Cần Cẩu Đòn Bẩy STEM Hộp Sữa & Đũa";
-          skill = "Nguyên lý Cơ học đòn bẩy STEM & Khả năng giải quyết vấn đề";
-          steps = "1. Dùng 2 chiếc đũa làm trục đỡ chữ X, 1 chiếc đũa làm thanh bập bênh đặt trên hộp sữa.\n2. Bé đặt các vật nhỏ ở một đầu đũa rồi nhấn đầu kia để phóng vật nhỏ vào rổ.\n3. Thử nghiệm dịch chuyển điểm tựa hộp sữa để xem khoảng cách bắn xa nhất.";
-          safety = "Bắn thử bằng đồ vật mềm (cục bông, giấy vo viên), không bắn đồ cứng nhọn.";
-        }
-      } else if (hasBottle && hasButtons) {
-        if (ageNum <= 3) {
-          title = "Nuôi Chú Cá Chai Nhựa Bằng Cúc Áo Khổng Lồ";
-          skill = "Kỹ năng cầm nắm ba ngón (Pincer Grasp) & Tập trung chú ý";
-          steps = "1. Mở nắp chai nhựa trong suốt đặt trước mặt bé.\n2. Bé nhặt từng chiếc cúc áo to thả lọt qua miệng chai, nghe tiếng rơi 'lách cách'.\n3. Vặn nắp chai lại và biến thành chiếc bình lắc âm nhạc diệu kỳ.";
-          safety = "Chỉ dùng cúc áo đường kính >3.5cm để chống nguy cơ hóc cho bé dưới 3 tuổi.";
-        } else if (ageNum <= 5) {
-          title = "Nhà Phân Loại Học: Cúc Áo Cầu Vồng Trong Chai";
-          skill = "Tư duy phân loại màu sắc, Đếm số lượng & Kiên nhẫn";
-          steps = "1. Rải cúc áo ra bàn, mẹ đưa ra thử thách: 'Chỉ nhặt cúc màu đỏ bỏ vào chai'.\n2. Bé đếm to từng chiếc cúc khi thả vào miệng chai: 1, 2, 3... đến 10.\n3. Thử thách lắc chai điều khiển sao cho các cúc xếp chồng lên nhau.";
-          safety = "Nhắc bé không đưa cúc áo vào miệng, cất gọn cúc thừa sau khi chơi.";
-        } else {
-          title = "Đồng Hồ Cát Trọng Lực & Thử Thách Mật Mã Cúc Áo";
-          skill = "Khái niệm Thời gian, Xác suất thống kê & Mật mã logic";
-          steps = "1. Quy ước: Cúc đỏ = 1 điểm, cúc xanh = 2 điểm, cúc trắng = 5 điểm.\n2. Bé nhắm mắt rút ngẫu nhiên 5 chiếc cúc từ chai nhựa và tự tính tổng điểm.\n3. Tự viết bảng điểm thi đấu với bố mẹ xem ai đạt 20 điểm trước.";
-          safety = "Dùng chai nhựa sạch, không có cạnh nhựa sắc cắt tay.";
-        }
-      } else if (hasClips && (hasBasket || hasBox)) {
-        title = "Biệt Đội Kẹp Áo Vệ Binh Ranh Giới";
-        skill = "Luyện lực cơ ngón tay (tiền đề viết chữ) & Định hướng không gian";
-        steps = "1. Đặt rổ hoặc hộp carton ở giữa thảm chơi.\n2. Bé dùng ngón trỏ và ngón cái bóp kẹp áo gắn đều quanh miệng viền rổ thành hàng rào.\n3. Đếm xem có bao nhiêu 'chú lính kẹp' đang canh gác thành trì.";
-        safety = "Dùng kẹp nhựa lực bóp nhẹ, kiểm tra mép rổ nhẵn không trầy da.";
-      } else if (hasCups && hasTape) {
-        title = "Đấu Trường Tháp Cốc & Cung Đường Cao Tốc";
-        skill = "Tư duy Cấu trúc không gian, Cân bằng tĩnh & Vận động khéo léo";
-        steps = "1. Dán 2 dải băng dính song song trên sàn làm đường cao tốc dẫn vào chân tháp.\n2. Bé xếp các cốc chồng lên nhau theo kết cấu tam giác: đáy 3 cốc, tầng hai 2 cốc, đỉnh 1 cốc.\n3. Lăn quả bóng tất hoặc cuộn giấy dọc theo đường băng để công phá tháp.";
-        safety = "Chỉ dùng cốc giấy hoặc cốc nhựa dẻo, tuyệt đối không dùng đồ thủy tinh.";
-      } else {
-        let cleanPrompt = prompt
-          .replace(/^(nhà đang có|nhà có|hiện có|có)\s+/i, '')
-          .replace(/(cho\s+)?(bé|trẻ|con)\s*\d*\s*tuổi.*/i, '')
-          .replace(/(chơi\s+được\s+gì|chơi\s+gì|làm\s+gì).*/i, '')
-          .trim();
-        if (!cleanPrompt) cleanPrompt = prompt.trim();
-        const displayItems = cleanPrompt.charAt(0).toUpperCase() + cleanPrompt.slice(1);
-        title = `Thử Thách Khám Phá: ${displayItems.length > 35 ? displayItems.slice(0, 35) + '...' : displayItems}`;
-        skill = ageNum <= 3 ? "Phát triển xúc giác & Vận động tự lập" : (ageNum <= 5 ? "Tư duy sáng tạo, Khéo léo & Đóng vai" : "Tư duy giải quyết vấn đề & STEM logic");
-        
-        if (ageNum <= 3) {
-          steps = `1. Bố mẹ chuẩn bị góc thảm sạch và đặt các đồ vật [${displayItems}] trước mặt bé.\n2. Hướng dẫn bé dùng bàn tay chạm, cầm nắm, gõ nhẹ để cảm nhận hình dạng và chất liệu.\n3. Cùng bé thu dọn đồ vật vào rổ theo giai điệu bài hát vui nhộn.`;
-        } else if (ageNum <= 5) {
-          steps = `1. Bố mẹ cùng bé đặt tên một hành trình thám hiểm sử dụng các đồ vật [${displayItems}].\n2. Bé đóng vai một nhà thám hiểm tí hon, tự sắp đặt các đồ vật thành công trình hoặc đường đua.\n3. Sau 15 phút tự chơi độc lập, bé tự tin thuyết trình về tác phẩm của mình cho bố mẹ nghe.`;
-        } else {
-          steps = `1. Bé quan sát và phân tích đặc điểm các món đồ [${displayItems}] (hình dáng, chất liệu, tính năng).\n2. Tự sáng tạo một trò chơi có luật chơi, mốc tính điểm và điều kiện chiến thắng cụ thể.\n3. Ghi chép luật chơi ra một mẩu giấy nhỏ và mời bố mẹ cùng tham gia thi đấu.`;
-        }
-        safety = "Kiểm tra kỹ các vật dụng: đảm bảo nhẵn nhụi, không góc sắc nhọn, không có chi tiết dễ nuốt.";
       }
 
       return {
