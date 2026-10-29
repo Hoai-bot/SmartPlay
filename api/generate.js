@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
   // Lấy API key Groq từ biến môi trường Vercel hoặc client
   let apiKey = process.env.GROQ_API_KEY || clientKey || '';
-  apiKey = apiKey.trim().replace(/^[\"\']|[\"\']$/g, '');
+  apiKey = apiKey.trim().replace(/^["']|["']$/g, '');
 
   if (!apiKey) {
     return res.status(500).json({ 
@@ -34,24 +34,32 @@ export default async function handler(req, res) {
     });
   }
 
-  // Kiểm tra nếu người dùng vô tình dán nhầm key Google (AIzaSy...)
   if (apiKey.startsWith('AIzaSy')) {
     return res.status(400).json({
       error: 'Bạn đang dùng API Key của Google (AIzaSy...). Vui lòng tạo key từ Groq tại https://console.groq.com/keys (bắt đầu bằng gsk_...).'
     });
   }
 
-  const systemInstruction = `Bạn là chuyên gia giáo dục mầm non quốc tế hàng đầu (Montessori, Reggio Emilia, STEM) của Viện Nghiên Cứu Giáo Dục IC Da Lat.
-Nhiệm vụ: Dựa vào đồ vật gia đình 0 đồng và độ tuổi người dùng nhập, hãy sáng tạo ra một trò chơi độc bản giúp trẻ tự chơi độc lập 15-30 phút không dùng màn hình điện thoại.
+  // SYSTEM INSTRUCTION NÂNG CẤP: DỄ HIỂU, THỰC CHIẾN, CHUẨN PHƯƠNG PHÁP PHẢN XẠ TPR
+  const systemInstruction = `Bạn là chuyên gia giáo dục mầm non và tiếng Anh trẻ em (ESL/Montessori/TPR) hàng đầu của Viện Nghiên Cứu Giáo Dục IC Da Lat.
+Nhiệm vụ: Dựa vào đồ vật gia đình hoặc học cụ lớp học (0 đồng) và độ tuổi người dùng nhập, hãy sáng tạo ra một trò chơi độc bản giúp trẻ vận động tự chơi độc lập hoặc tương tác lớp học 15-30 phút không dùng màn hình.
+
+NGUYÊN TẮC SOẠN KỊCH BẢN BẮT BUỘC:
+1. SÚC TÍCH & DỄ HIỂU: Tránh diễn giải lý thuyết dài dòng. Hướng dẫn trực diện vào hành động.
+2. KHẨU LỆNH PHẢN XẠ (TPR): Nếu có yếu tố tiếng Anh/ngôn ngữ, câu lệnh dành cho người lớn/cô giáo phải CỰC KỲ NGẮN (dưới 5 từ), ví dụ: "Touch the Blue cup!", "Jump to Red!", "Put in Yellow!".
+3. 3 BƯỚC HÀNH ĐỘNG DỨT KHOÁT:
+   - Bước 1 (Chuẩn bị 30s): Xếp đặt vị trí đồ vật nhanh gọn.
+   - Bước 2 (Kích hoạt nhiệm vụ): Dùng động từ mạnh (Chạy, Bò, Bật nhảy, Ném, Chạm, Kẹp) kích hoạt trẻ vận động.
+   - Bước 3 (Phát âm & Hoàn thành): Trẻ đưa đồ vật về đích và hô vang từ vựng/kết quả thật to để ăn mừng.
 
 Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗi JSON hợp lệ (không kèm markdown \`\`\`json) với cấu trúc sau:
 {
-  "title": "Tên trò chơi sáng tạo, hấp dẫn trẻ em",
+  "title": "Tên trò chơi sáng tạo, ngắn gọn, hấp dẫn trẻ em",
   "age": "Độ tuổi phù hợp (ví dụ: 1-3 tuổi, 4-5 tuổi, hoặc 6-8 tuổi)",
-  "skill": "Kỹ năng trọng tâm (ví dụ: Vận động tinh, Tư duy STEM, Phối hợp tay mắt...)",
+  "skill": "Kỹ năng trọng tâm (ví dụ: Phản xạ Tiếng Anh & Vận động thô, Phối hợp tay mắt...)",
   "items": "Vật dụng cần thiết được tinh chỉnh từ yêu cầu người dùng",
-  "steps": "1. [Bước chuẩn bị]\n2. [Bước kích hoạt nhiệm vụ]\n3. [Bước phát triển/hoàn thành]",
-  "safety": "Cảnh báo an toàn bắt buộc cho phụ huynh rà soát"
+  "steps": "1. [Chuẩn bị nhanh]\n2. [Nhiệm vụ hành động / Khẩu lệnh ngắn]\n3. [Hoàn thành & Hô to từ vựng ăn mừng]",
+  "safety": "Cảnh báo an toàn ngắn gọn cho phụ huynh/giáo viên rà soát"
 }`;
 
   // 1. Tự động truy vấn danh sách model đang hoạt động thực tế trên tài khoản Groq của bạn
@@ -79,7 +87,6 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
     'gemma2-9b-it'
   ];
 
-  // Lọc lấy các model có sẵn trong tài khoản, nếu không lấy được list thì thử danh sách mặc định
   let modelsToTry = preferredModels.filter(m => availableModels.includes(m));
   if (modelsToTry.length === 0) {
     modelsToTry = availableModels.length > 0 ? availableModels.slice(0, 4) : preferredModels;
@@ -100,7 +107,7 @@ Yêu cầu định dạng: BẮT BUỘC chỉ trả về duy nhất một chuỗ
           model: model,
           messages: [
             { role: 'system', content: systemInstruction },
-            { role: 'user', content: `Yêu cầu từ phụ huynh: "${prompt}"` }
+            { role: 'user', content: `Yêu cầu từ phụ huynh/giáo viên: "${prompt}"` }
           ],
           temperature: 0.6,
           response_format: { type: 'json_object' }
